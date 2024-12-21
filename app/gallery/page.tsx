@@ -4,6 +4,7 @@ import { Camera, Calendar, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Image from 'next/image';  // Import Image from next/image
 
 const galleryItems = [
   {
@@ -101,10 +102,12 @@ export default function Gallery() {
               className="group bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl overflow-hidden backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10"
             >
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={item.imageUrl}
                   alt={item.title}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  layout="fill"
+                  objectFit="cover"
+                  className="transform transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Camera className="w-10 h-10 text-purple-400 opacity-75" />
@@ -133,7 +136,7 @@ export default function Gallery() {
           ))}
         </motion.div>
       </div>
-      <Footer/>
+      <Footer />
     </main>
   );
 }
