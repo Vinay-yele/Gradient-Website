@@ -1,11 +1,14 @@
+'use client'
 import React from 'react';
 import { Camera, Calendar, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const galleryItems = [
   {
     id: 1,
-    imageUrl: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=800',
+    imageUrl: '/api/placeholder/800/600',
     title: 'Tech Conference 2024',
     description: 'Annual developer conference featuring the latest in web technologies',
     date: 'March 15, 2024',
@@ -13,7 +16,7 @@ const galleryItems = [
   },
   {
     id: 2,
-    imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
+    imageUrl: '/api/placeholder/800/600',
     title: 'Startup Pitch Night',
     description: 'Emerging entrepreneurs showcase their innovative solutions',
     date: 'April 2, 2024',
@@ -21,7 +24,7 @@ const galleryItems = [
   },
   {
     id: 3,
-    imageUrl: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800',
+    imageUrl: '/api/placeholder/800/600',
     title: 'Design Workshop',
     description: 'Interactive session on modern UI/UX principles',
     date: 'March 20, 2024',
@@ -29,7 +32,7 @@ const galleryItems = [
   },
   {
     id: 4,
-    imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
+    imageUrl: '/api/placeholder/800/600',
     title: 'Team Building Day',
     description: 'Collaborative activities to strengthen team bonds',
     date: 'April 5, 2024',
@@ -37,7 +40,7 @@ const galleryItems = [
   },
   {
     id: 5,
-    imageUrl: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800',
+    imageUrl: '/api/placeholder/800/600',
     title: 'Innovation Summit',
     description: 'Exploring breakthrough technologies and future trends',
     date: 'March 25, 2024',
@@ -45,7 +48,7 @@ const galleryItems = [
   },
   {
     id: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
+    imageUrl: '/api/placeholder/800/600',
     title: 'Code for Good',
     description: 'Hackathon focused on social impact projects',
     date: 'April 10, 2024',
@@ -53,22 +56,49 @@ const galleryItems = [
   }
 ];
 
-// Add more items following the same pattern up to 40-50 items...
-
-function App() {
+export default function Gallery() {
   return (
-    <div className="my-8 min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
-      <Navbar></Navbar>
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r  from-purple-400 to-purple-600s text-transparent bg-clip-text">
-          Event Gallery
-        </h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryItems.map((item) => (
-            <div 
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
+      
+      <Navbar />
+      
+      <div className="container mx-auto px-4 py-20">
+        {/* Header Section */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-6"
+          >
+            <span className="text-purple-400">Explore Our Events</span>
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
+            Event Gallery
+          </h1>
+        </motion.div>
+
+        {/* Gallery Grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {galleryItems.map((item, index) => (
+            <motion.div
               key={item.id}
-              className="group bg-gray-800 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl overflow-hidden backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -77,34 +107,33 @@ function App() {
                   className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Camera className="w-10 h-10 text-white opacity-75" />
+                  <Camera className="w-10 h-10 text-purple-400 opacity-75" />
                 </div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-purple-300">
+                <h3 className="text-xl font-semibold mb-2 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p className="text-gray-300 mb-4">
                   {item.description}
                 </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm text-gray-400">
                   <div className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-2" />
+                    <Calendar className="w-4 h-4 mr-2 text-purple-400" />
                     <span>{item.date}</span>
                   </div>
                   <div className="flex items-center">
-                    <MapPin className="w-4 h-4 mr-2" />
+                    <MapPin className="w-4 h-4 mr-2 text-purple-400" />
                     <span>{item.location}</span>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+      <Footer/>
+    </main>
   );
 }
-
-export default App;
