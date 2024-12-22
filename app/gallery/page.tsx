@@ -9,7 +9,7 @@ import Image from 'next/image';  // Import Image from next/image
 const galleryItems = [
   {
     id: 1,
-    imageUrl: '/api/placeholder/800/600',
+    imageUrl: '/T.png',
     title: 'Tech Conference 2024',
     description: 'Annual developer conference featuring the latest in web technologies',
     date: 'March 15, 2024',
@@ -17,7 +17,7 @@ const galleryItems = [
   },
   {
     id: 2,
-    imageUrl: '/api/placeholder/800/600',
+    imageUrl: '/T.png',
     title: 'Startup Pitch Night',
     description: 'Emerging entrepreneurs showcase their innovative solutions',
     date: 'April 2, 2024',
@@ -25,7 +25,7 @@ const galleryItems = [
   },
   {
     id: 3,
-    imageUrl: '/api/placeholder/800/600',
+    imageUrl: '/T.png',
     title: 'Design Workshop',
     description: 'Interactive session on modern UI/UX principles',
     date: 'March 20, 2024',
@@ -33,7 +33,7 @@ const galleryItems = [
   },
   {
     id: 4,
-    imageUrl: '/api/placeholder/800/600',
+    imageUrl: '/T.png',
     title: 'Team Building Day',
     description: 'Collaborative activities to strengthen team bonds',
     date: 'April 5, 2024',
@@ -41,7 +41,7 @@ const galleryItems = [
   },
   {
     id: 5,
-    imageUrl: '/api/placeholder/800/600',
+    imageUrl: '/T.png',
     title: 'Innovation Summit',
     description: 'Exploring breakthrough technologies and future trends',
     date: 'March 25, 2024',
@@ -49,7 +49,7 @@ const galleryItems = [
   },
   {
     id: 6,
-    imageUrl: '/api/placeholder/800/600',
+    imageUrl: '/T.png',
     title: 'Code for Good',
     description: 'Hackathon focused on social impact projects',
     date: 'April 10, 2024',

@@ -8,7 +8,7 @@ const navItems = [
   { name: 'Meet the Team', href: '/team' },
   { name: 'Events', href: '/events' },
   { name: 'Gallery', href: '/gallery' },
-  { name: 'Department Work', href: '/department-work' },
+  { name: 'Department of AIML', href: '/department-work' },
   { name: 'Connect with us', href: '/connect' }
 ]
 

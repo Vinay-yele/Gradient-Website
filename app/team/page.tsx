@@ -32,37 +32,37 @@ const teamData: TeamSection[] = [
     {
       title: "Tech Heads",
       members: [
-        { name: "Ayush Sharma", role: "Tech Head", year: "Fourth year", image: "/placeholder.svg", github: "https://github.com", twitter: "https://twitter.com" },
-        { name: "Tech Head 2", role: "Tech Head", year: "Fourth year", image: "/placeholder.svg", github: "https://github.com", linkedin: "https://linkedin.com" },
-        { name: "Tech Head 3", role: "Tech Head", year: "Fourth year", image: "/placeholder.svg", github: "https://github.com", twitter: "https://twitter.com" },
+        { name: "Ankit L", role: "Tech Head", year: "Fourth year", image: "/T.png", github: "https://github.com", twitter: "https://twitter.com" },
+        { name: "Amal Srivatsa", role: "Tech Head", year: "Fourth year", image: "/T.png", github: "https://github.com", linkedin: "https://linkedin.com" },
+        { name: "Adhithya GJ ", role: "Tech Head", year: "Fourth year", image: "/T.png", github: "https://github.com", twitter: "https://twitter.com" },
       ]
     },
     {
       title: "Design Heads",
       members: [
-        { name: "Design Head 1", role: "Design Head", year: "Fourth year", image: "/placeholder.svg", linkedin: "https://linkedin.com" },
-        { name: "Design Head 2", role: "Design Head", year: "Fourth year", image: "/placeholder.svg", twitter: "https://twitter.com" },
+        { name: "Design Head 1", role: "Design Head", year: "Fourth year", image: "/T.png", linkedin: "https://linkedin.com" },
+        { name: "Design Head 2", role: "Design Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com" },
       ]
     },
     {
       title: "Social Media and Marketing Heads",
       members: [
-        { name: "Social Media Head 1", role: "Social Media & Marketing Head", year: "Fourth year", image: "/placeholder.svg", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
-        { name: "Social Media Head 2", role: "Social Media & Marketing Head", year: "Fourth year", image: "/placeholder.svg", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
+        { name: "Social Media Head 1", role: "Social Media & Marketing Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
+        { name: "Social Media Head 2", role: "Social Media & Marketing Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
       ]
     },
     {
       title: "Content Heads",
       members: [
-        { name: "Content Head 1", role: "Content Head", year: "Fourth year", image: "/placeholder.svg", linkedin: "https://linkedin.com" },
-        { name: "Content Head 2", role: "Content Head", year: "Fourth year", image: "/placeholder.svg", twitter: "https://twitter.com" },
+        { name: "Content Head 1", role: "Content Head", year: "Fourth year", image: "/T.png", linkedin: "https://linkedin.com" },
+        { name: "Content Head 2", role: "Content Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com" },
       ]
     },
     {
       title: "Logistics Heads",
       members: [
-        { name: "Logistics Head 1", role: "Logistics Head", year: "Fourth year", image: "/placeholder.svg", linkedin: "https://linkedin.com" },
-        { name: "Logistics Head 2", role: "Logistics Head", year: "Fourth year", image: "/placeholder.svg", github: "https://github.com" },
+        { name: "Logistics Head 1", role: "Logistics Head", year: "Fourth year", image: "/T.png", linkedin: "https://linkedin.com" },
+        { name: "Logistics Head 2", role: "Logistics Head", year: "Fourth year", image: "/T.png", github: "https://github.com" },
       ]
     },
   ]
