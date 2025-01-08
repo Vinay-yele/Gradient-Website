@@ -25,45 +25,76 @@ const teamData: TeamSection[] = [
     {
       title: "Club Coordinators",
       members: [
-        { name: "Vaishak Bhuvan", role: "Club Coordinator", year: "Fourth year", image: "/T.png", github: "https://github.com", linkedin: "https://linkedin.com" },
-        { name: "Archala Varsha", role: "Club Coordinator", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
+        { name: "Sudhanva Bharadwaj", role: "Club Coordinator", year: "Third year", image: "/sudhanva.png", github: "https://github.com/sudhanvabharadwaj", linkedin: "https://www.linkedin.com/in/sudhanva-bharadwaj/" },
+        { name: "Shashank Sharma", role: "Club Coordinator", year: "Third year", image: "/shashank.png", github: "https://github.com/csshashanksharma", linkedin: "https://www.linkedin.com/in/c-s-shashank-sharma-58532b277/" },
       ]
     },
     {
       title: "Tech Heads",
       members: [
-        { name: "Ankit L", role: "Tech Head", year: "Fourth year", image: "/T.png", github: "https://github.com", twitter: "https://twitter.com" },
-        { name: "Amal Srivatsa", role: "Tech Head", year: "Fourth year", image: "/T.png", github: "https://github.com", linkedin: "https://linkedin.com" },
-        { name: "Adhithya GJ ", role: "Tech Head", year: "Fourth year", image: "/T.png", github: "https://github.com", twitter: "https://twitter.com" },
+        { name: "Pranav V", role: "Tech Head", year: "Third Year", image: "/.png", github: "https://github.com/pranav1211", linkedin: "https://www.linkedin.com/in/pranav-veeraghanta-315760119/" },
+        { name: "Siddharth Sahay", role: "Tech Head", year: "Third Year", image: "/sid.JPG", github: "https://github.com/siddzzzz", linkedin: "https://www.linkedin.com/in/siddharth-sahay-9a8365254/" },
+
       ]
     },
     {
       title: "Design Heads",
       members: [
-        { name: "Design Head 1", role: "Design Head", year: "Fourth year", image: "/T.png", linkedin: "https://linkedin.com" },
-        { name: "Design Head 2", role: "Design Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com" },
+        { name: "Vinay Yele", role: "Design Head", year: "Third year", image: "/yele.JPG", github: "https://github.com/pranav1211", linkedin: "https://www.linkedin.com/in/pranav-veeraghanta-315760119/" },
+        { name: "Deepali", role: "Design Head", year: "Third Year", image: "/deepali.JPG", twitter: "https://twitter.com" },
       ]
     },
     {
-      title: "Social Media and Marketing Heads",
+      title: "Media and Sponsorship Heads",
       members: [
-        { name: "Social Media Head 1", role: "Social Media & Marketing Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
-        { name: "Social Media Head 2", role: "Social Media & Marketing Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com", linkedin: "https://linkedin.com" },
-      ]
+        {
+          name: "Varsh Gandhi",
+          role: "Media & Sponsorship Head",
+          year: "Third Year",
+          image: "/varsh.JPG",
+          twitter: "https://twitter.com",
+          linkedin: "https://linkedin.com",
+        },
+        {
+          name: "Supriya Gowda",
+          role: "Media & Sponsorship Head",
+          year: "Third Year",
+          image: "/supriya.JPG",
+          twitter: "https://twitter.com",
+          linkedin: "https://linkedin.com",
+        },
+        {
+          name: "Sanjana",
+          role: "Media & Sponsorship Head",
+          year: "Third Year",
+          image: "/sanj.JPG",
+          twitter: "https://twitter.com",
+          linkedin: "https://linkedin.com",
+        },
+        {
+          name: "Likith Choudary",
+          role: "Media & Sponsorship Head",
+          year: "Third Year",
+          image: "/.png",
+          github: "https://github.com/LikithChowdary2807",
+          linkedin: "https://www.linkedin.com/in/likith-chowdary-154204300",
+        },
+      ],
     },
     {
       title: "Content Heads",
       members: [
-        { name: "Content Head 1", role: "Content Head", year: "Fourth year", image: "/T.png", linkedin: "https://linkedin.com" },
-        { name: "Content Head 2", role: "Content Head", year: "Fourth year", image: "/T.png", twitter: "https://twitter.com" },
+        { name: "Yashas Nandan", role: "Content Head", year: "Third Year", image: "/yashas.JPG", github:"https://github.com/Yashas-Nandan", linkedin: "https://www.linkedin.com/in/yashas-nandan-399a0225a/" },
+        { name: "Ashrit", role: "Content Head", year: "Third Year", image: "/ashrit.JPG",github: "https://github.com/24ashrit", linkedin: "https://www.linkedin.com/in/ashrit-m-a771442bb/" },
       ]
     },
     {
       title: "Logistics Heads",
       members: [
-        { name: "Logistics Head 1", role: "Logistics Head", year: "Fourth year", image: "/T.png", linkedin: "https://linkedin.com" },
-        { name: "Logistics Head 2", role: "Logistics Head", year: "Fourth year", image: "/T.png", github: "https://github.com" },
-      ]
+        { name: "Suman", role: "Logistics and Event Management Head", year: "Third Year", image: "/suman.JPG",github:"https://github.com/Suman302004" ,linkedin: "https://www.linkedin.com/in/suman-rudraswamy-53450b25b/",  },
+        { name: "Vignesh Madan", role: "Logistics and Event Management Head", year: "Third Year", image: "/vignesh.JPG", github: "https://github.com/VIGNESHMADAN", linkedin: "https://www.linkedin.com/in/vignesh-madan-6505a4275/" },
+        { name: "Krishna Saket", role: "Logistics and Event Management Head", year: "Third Year", image: "/saket.JPG", github: "https://github.com/SakhamooriKrishnasaket", linkedin: "https://www.linkedin.com/in/krishna-saket-sakhamoori-82349b278/" },
+      ],
     },
   ]
 
