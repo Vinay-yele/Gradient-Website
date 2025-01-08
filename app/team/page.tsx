@@ -40,8 +40,8 @@ const teamData: TeamSection[] = [
     {
       title: "Design Heads",
       members: [
-        { name: "Vinay Yele", role: "Design Head", year: "Third year", image: "/yele.JPG", github: "https://github.com/pranav1211", linkedin: "https://www.linkedin.com/in/pranav-veeraghanta-315760119/" },
-        { name: "Deepali", role: "Design Head", year: "Third Year", image: "/deepali.JPG", twitter: "https://twitter.com" },
+        { name: "Vinay Yele", role: "Design Head", year: "Third year", image: "/yele.JPG", github: "https://github.com/Vinay-yele", linkedin: "https://www.linkedin.com/in/vinay-yele-08ab08295/" },
+        { name: "Deepali", role: "Design Head", year: "Third Year", image: "/deepali.JPG", linkedin: "http://linkedin.com/in/deepali-u-10a78a306" },
       ]
     },
     {
