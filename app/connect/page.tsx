@@ -64,7 +64,7 @@ export default function Connect() {
                   </span>
                 </motion.div>
                 
-                <motion.div 
+                {/* <motion.div 
                   className="flex items-center group cursor-pointer"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -75,7 +75,7 @@ export default function Connect() {
                   <span className="ml-4 text-gray-300 group-hover:text-purple-400 transition-colors duration-300">
                     +91 1234567890
                   </span>
-                </motion.div>
+                </motion.div> */}
                 
                 <motion.div 
                   className="flex items-center group cursor-pointer"
@@ -86,7 +86,11 @@ export default function Connect() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <span className="ml-4 text-gray-300 group-hover:text-purple-400 transition-colors duration-300">
-                    B.M.S. College of Engineering, Bengaluru
+                  Department of Machine Learning
+7th Floor, PJA Block
+B.M.S. College of Engineering
+#1908, Bull Temple Road
+Bengaluru - 560 01
                   </span>
                 </motion.div>
               </div>

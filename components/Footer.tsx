@@ -14,7 +14,7 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/gradientbmsce", label: "Facebook" },
+    // { icon: Facebook, href: "https://facebook.com/gradientbmsce", label: "Facebook" },
     { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
     { icon: Instagram, href: "https://instagram.com/gradientbmsce", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/gradientbmsce", label: "LinkedIn" }
@@ -109,15 +109,25 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="border-t border-purple-500/10 mt-12 pt-8 text-center text-gray-400"
-        >
-          <p>&copy; {new Date().getFullYear()} Gradient BMSCE. All rights reserved.</p>
-        </motion.div>
+       {/* Bottom Bar */}
+       <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5, delay: 0.4 }}
+  className="border-t border-purple-500/10 mt-12 pt-8 text-center text-gray-400"
+>
+  <p>&copy; {new Date().getFullYear()} Gradient BMSCE. All rights reserved.</p>
+  <p className="mt-2">
+    Designed and built by{" "}
+    <Link 
+      href="https://vinayyele.live/" 
+      target="_blank" 
+      className="text-purple-400 hover:underline"
+    >
+      Vinay Yele
+    </Link>, Design Head at Gradient.
+  </p>
+</motion.div>
       </div>
     </footer>
   )

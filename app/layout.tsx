@@ -34,7 +34,7 @@ export default function RootLayout({
         <div className=" bg-gradient-to-b from-gray-900 to-black">
         {children}
         <Analytics />
-        {/* <Footer/> */}
+        <Footer/>
         </div>
       </body>
     </html>

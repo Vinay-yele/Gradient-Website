@@ -5,8 +5,9 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'
+
 import TypingAnimation from '@/components/ui/typing-animation'
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false)
@@ -133,7 +134,7 @@ export default function Home() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      {/* <motion.div 
         className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -145,31 +146,29 @@ export default function Home() {
         >
           <ChevronDown size={24} className="text-purple-400" />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Social Media Links */}
       <motion.div 
-        className="fixed bottom-6 right-6 flex space-x-4 bg-[#1a1a1a]/80 backdrop-blur-sm p-4 rounded-lg shadow-lg"
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
-        transition={{ delay: 0.8 }}
-      >
-        {[
-          { Icon: FaFacebook, href: "https://facebook.com" },
-          { Icon: FaTwitter, href: "https://twitter.com" },
-          { Icon: FaLinkedin, href: "https://linkedin.com" },
-          { Icon: FaGithub, href: "https://github.com" }
-        ].map(({ Icon, href }) => (
-          <Link 
-            key={href}
-            href={href} 
-            target="_blank" 
-            className="text-gray-400 hover:text-purple-400 transform hover:scale-110 transition-all duration-300"
-          >
-            <Icon size={24} />
-          </Link>
-        ))}
-      </motion.div>
+  className="fixed bottom-6 right-6 flex space-x-4 bg-[#1a1a1a]/80 backdrop-blur-sm p-4 rounded-lg shadow-lg"
+  initial={{ x: 100 }}
+  animate={{ x: 0 }}
+  transition={{ delay: 0.8 }}
+>
+  {[
+    { Icon: FaInstagram, href: "https://www.instagram.com/gradient.aiml/" },
+    { Icon: FaLinkedin, href: "https://www.linkedin.com/company/gradient-club/" }
+  ].map(({ Icon, href }) => (
+    <Link 
+      key={href}
+      href={href} 
+      target="_blank" 
+      className="text-gray-400 hover:text-purple-400 transform hover:scale-110 transition-all duration-300"
+    >
+      <Icon size={24} />
+    </Link>
+  ))}
+</motion.div>
     </main>
   )
 }

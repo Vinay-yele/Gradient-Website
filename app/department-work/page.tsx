@@ -2,8 +2,27 @@
 import Footer from '@/components/Footer'
 import Navbar from '../../components/Navbar'
 import { motion } from 'framer-motion'
-import { Trophy, Users, Building2, Microscope, GraduationCap, Brain, Network, LineChart, Server, Code, Database, Cpu } from 'lucide-react'
+import { Trophy, Users, Building2, Microscope, GraduationCap, Brain, Network, LineChart, Server, Code, Database, Cpu, AtSign, BookOpen, Award } from 'lucide-react'
 import Image from 'next/image'
+
+// Add HOD information
+// Add HOD information
+const headOfDepartment = {
+  name: "Dr. M Dakshayini",
+  position: "Professor & HOD - AI & ML",
+  image: "/hod maam.png", // Replace with actual image path
+  education: "Ph.D. in Computer Science and Engineering",
+  experience: "26+ years of teaching experience",
+  specialization: "Computer Networks, Algorithms, Cloud Computing, Ad-hoc Networks, IoT, Data Analytics, Blockchain",
+  achievements: [
+    "Published 50+ International peer-reviewed Journal Papers",
+    "26+ International Conference Papers",
+    "5 research candidates awarded Ph.D under her guidance",
+    "NBA Evaluator appointed from NBA, India",
+    "Published patent for 'Co-operative Proxy Servers Architecture'"
+  ],
+  quote: "Pioneering innovation in AI & ML through collaborative research and industry partnerships to empower the next generation of tech leaders."
+}
 
 const stats = [
   { label: 'Research Papers', value: '50+', icon: Microscope },
@@ -107,6 +126,78 @@ export default function DepartmentWork() {
           </p>
         </motion.div>
 
+        {/* Head of Department Section */}
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="bg-gray-800/50 rounded-lg overflow-hidden backdrop-blur-sm border border-purple-500/20">
+            <div className="grid md:grid-cols-5 gap-0">
+              {/* Image Column */}
+              <div className="md:col-span-2 relative h-full min-h-[400px]">
+  <Image
+    src={headOfDepartment.image}
+    alt={headOfDepartment.name}
+    fill
+    className="object-cover"
+  />
+</div>
+              
+              {/* Content Column */}
+              <div className="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                <div className="flex flex-col space-y-4">
+                  <div className="inline-flex items-center space-x-2">
+                    <span className="h-1 w-10 bg-purple-500 rounded-full"></span>
+                    <span className="text-purple-400 tracking-wider text-sm uppercase">Leadership</span>
+                  </div>
+                  
+                  <h2 className="text-3xl md:text-4xl font-bold text-white">{headOfDepartment.name}</h2>
+                  <h3 className="text-xl text-purple-400">{headOfDepartment.position}</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="flex items-start">
+                      <GraduationCap className="w-5 h-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-300">{headOfDepartment.education}</span>
+                    </div>
+                    <div className="flex items-start">
+                      <AtSign className="w-5 h-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-300">{headOfDepartment.experience}</span>
+                    </div>
+                    <div className="flex items-start">
+                      <BookOpen className="w-5 h-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-300">{headOfDepartment.specialization}</span>
+                    </div>
+                    <div className="flex items-start">
+                      <Award className="w-5 h-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-gray-300">Award-winning Researcher</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4">
+                    <blockquote className="border-l-4 border-purple-500 pl-4 italic text-gray-400">
+                      "{headOfDepartment.quote}"
+                    </blockquote>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h4 className="text-lg font-semibold text-purple-400 mb-2">Key Achievements</h4>
+                    <ul className="space-y-2">
+                      {headOfDepartment.achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start text-gray-300">
+                          <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2 mt-2" />
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
         {/* Stats Section */}
         <motion.div 
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
@@ -158,6 +249,7 @@ export default function DepartmentWork() {
           </div>
         </motion.section>
 
+        {/* Rest of the sections remain unchanged */}
         {/* Center of Excellence Section */}
         <motion.section
           className="mt-16"
@@ -265,4 +357,3 @@ export default function DepartmentWork() {
     </main>
   )
 }
-
