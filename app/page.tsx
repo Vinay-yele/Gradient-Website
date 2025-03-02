@@ -121,9 +121,9 @@ export default function Home() {
                   <Image
                     src="/T.png"
                     alt="AI Visualization"
-                    width={600}
+                    width={400}
                     height={400}
-                    className="w-full h-[400px] object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-[450px] object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
               </div>
