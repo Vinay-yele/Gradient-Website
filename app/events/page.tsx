@@ -141,7 +141,6 @@ export default function Events() {
           </motion.div>
         </motion.div>
       </div>
-      <Footer/>
     </main>
   )
 }

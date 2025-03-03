@@ -353,7 +353,6 @@ export default function DepartmentWork() {
           </div>
         </motion.section>
       </div>
-      <Footer/>
     </main>
   )
 }

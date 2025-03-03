@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
+import { Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -14,10 +14,9 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    // { icon: Facebook, href: "https://facebook.com/gradientbmsce", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/gradientbmsce", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com/company/gradientbmsce", label: "LinkedIn" }
+    // { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
   ]
 
   return (
@@ -71,11 +70,11 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-purple-400" />
-                <span className="text-gray-300">gradient@bmsce.ac.in</span>
+                <span className="text-gray-300">gradient.mel@bmsce.ac.in</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-purple-400" />
-                <span className="text-gray-300">+91 1234567890</span>
+                <span className="text-gray-300">+91 97399 02042 / +91 63600 97899</span>                
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-purple-400" />
@@ -109,25 +108,32 @@ const Footer = () => {
           </motion.div>
         </div>
 
-       {/* Bottom Bar */}
-       <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.5, delay: 0.4 }}
-  className="border-t border-purple-500/10 mt-12 pt-8 text-center text-gray-400"
->
-  <p>&copy; {new Date().getFullYear()} Gradient BMSCE. All rights reserved.</p>
-  <p className="mt-2">
-    Designed and built by{" "}
-    <Link 
-      href="https://vinayyele.live/" 
-      target="_blank" 
-      className="text-purple-400 hover:underline"
-    >
-      Vinay Yele
-    </Link>, Design Head at Gradient.
-  </p>
-</motion.div>
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="border-t border-purple-500/10 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; {new Date().getFullYear()} Gradient BMSCE. All rights reserved.</p>
+          <p className="mt-2">
+            Designed and built by{" "}
+            <Link 
+              href="https://vinayyele.live/" 
+              target="_blank" 
+              className="text-purple-400 hover:underline"
+            >
+              Vinay Yele
+            </Link> (Design Head) and {" "}
+            <Link 
+              href="https://beyondmebtw.com" 
+              target="_blank" 
+              className="text-purple-400 hover:underline"
+            >
+              Pranav Veeraghanta
+            </Link> (Tech Head) at Gradient. 
+          </p>
+        </motion.div>
       </div>
     </footer>
   )

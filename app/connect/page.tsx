@@ -6,21 +6,21 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ChevronDow
 
 export default function Connect() {
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/gradientbmsce", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/gradientbmsce", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com/company/gradientbmsce", label: "LinkedIn" }
+    //   { icon: Facebook, href: "https://facebook.com/gradientbmsce", label: "Facebook" },
+    //   { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
   ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
-      
+
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-20">
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export default function Connect() {
           >
             <span className="text-purple-400">Get in Touch</span>
           </motion.div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             Connect with Us
           </h1>
@@ -51,7 +51,7 @@ export default function Connect() {
             >
               <h2 className="text-2xl font-bold mb-8 text-purple-400">Contact Information</h2>
               <div className="space-y-6">
-                <motion.div 
+                <motion.div
                   className="flex items-center group cursor-pointer"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -60,10 +60,10 @@ export default function Connect() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <span className="ml-4 text-gray-300 group-hover:text-purple-400 transition-colors duration-300">
-                    gradient@bmsce.ac.in
+                    gradient.mel@bmsce.ac.in
                   </span>
                 </motion.div>
-                
+
                 {/* <motion.div 
                   className="flex items-center group cursor-pointer"
                   whileHover={{ x: 10 }}
@@ -76,8 +76,8 @@ export default function Connect() {
                     +91 1234567890
                   </span>
                 </motion.div> */}
-                
-                <motion.div 
+
+                <motion.div
                   className="flex items-center group cursor-pointer"
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -86,11 +86,11 @@ export default function Connect() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <span className="ml-4 text-gray-300 group-hover:text-purple-400 transition-colors duration-300">
-                  Department of Machine Learning
-7th Floor, PJA Block
-B.M.S. College of Engineering
-#1908, Bull Temple Road
-Bengaluru - 560 01
+                    Department of Machine Learning
+                    7th Floor, PJA Block
+                    B.M.S. College of Engineering
+                    #1908, Bull Temple Road
+                    Bengaluru - 560 01
                   </span>
                 </motion.div>
               </div>
@@ -138,30 +138,30 @@ Bengaluru - 560 01
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-purple-500/10 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300" 
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-purple-500/10 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                   placeholder="Your name"
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-purple-500/10 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300" 
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-purple-500/10 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                   placeholder="your@email.com"
                 />
               </div>
               <div className="md:col-span-2">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows={4} 
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
                   className="w-full px-4 py-3 rounded-lg bg-gray-700/50 border border-purple-500/10 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
                   placeholder="Your message..."
                 ></textarea>
@@ -181,7 +181,7 @@ Bengaluru - 560 01
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        {/* <motion.div
           className="text-center mt-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -193,9 +193,8 @@ Bengaluru - 560 01
           >
             <ChevronDown size={24} className="text-purple-400 mx-auto" />
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </div>
-      <Footer/>
     </main>
   );
 }

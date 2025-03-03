@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
+
 const navItems = [
   { name: 'About', href: '/about' },
   { name: 'Meet the Team', href: '/team' },
@@ -20,23 +21,22 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-transparent backdrop-blur-md">
+    <header className="fixed w-full top-0 z-50 bg-transparent backdrop-blur-md border-b border-white/20">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-         {/* Logo */}
-<Link href="/" className="flex items-center space-x-3">
-  {/* <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md">
-    <Image
-      src="/Logo.png"
-      alt="Gradient Logo"
-      width={52}
-      height={52}
-      priority
-    />
-  </div> */}
-  <span className="text-xl font-bold text-white">Gradient</span>
-</Link>
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-26 h-26 rounded-full flex items-center justify-center ">
+              <Image
+                src="/Logo.png"
+                alt="Gradient Logo"
+                width={92}
+                height={92}
+                priority
+              />
+            </div>
+            <span className="text-4xl font-bold text-white">Gradient</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center justify-center">
@@ -45,7 +45,7 @@ export default function Navbar() {
                 <motion.li key={item.name} whileHover={{ scale: 1.1 }}>
                   <Link
                     href={item.href}
-                    className="text-white text-base hover:text-purple-400 transition-colors duration-300 font-medium"
+                    className="text-white text-xl hover:text-purple-400 transition-colors duration-300 font-medium"
                   >
                     {item.name}
                   </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path
+                  <path 
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
