@@ -210,7 +210,7 @@ export default function About() {
           </motion.div>
         </motion.div>
       </div>
-        <Footer/>
+        {/* <Footer/> */}
     </main>
   )
 }

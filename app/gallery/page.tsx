@@ -136,7 +136,7 @@ export default function Gallery() {
           ))}
         </motion.div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
