@@ -5,11 +5,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 const navItems = [
-  { name: 'About', href: '/about' },
   { name: 'Gradient Week', href: '/events' },
   { name: 'Meet the Team', href: '/team' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Department of AIML', href: '/department-work' },
+  { name: 'About', href: '/about' },
   { name: 'Connect with us', href: '/connect' }
 ]
 
