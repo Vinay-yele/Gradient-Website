@@ -209,11 +209,10 @@ export default function Events() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-4"
-          >
-            <span className="text-purple-400">Our Event Archives</span>
+          >            
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 mt-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             Events & Activities
           </h1>
           
