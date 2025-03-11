@@ -6,8 +6,8 @@ import Image from 'next/image'
 
 const navItems = [
   { name: 'About', href: '/about' },
+  { name: 'Gradient Week', href: '/events' },
   { name: 'Meet the Team', href: '/team' },
-  { name: 'Events', href: '/events' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Department of AIML', href: '/department-work' },
   { name: 'Connect with us', href: '/connect' }
@@ -40,16 +40,21 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center justify-center">
-            <ul className="flex space-x-8">
-              {navItems.map((item) => (
-                <motion.li key={item.name} whileHover={{ scale: 1.1 }}>
-                  <Link
-                    href={item.href}
-                    className="text-white text-xl hover:text-purple-400 transition-colors duration-300 font-medium"
-                  >
-                    {item.name}
-                  </Link>
-                </motion.li>
+            <ul className="flex items-center">
+              {navItems.map((item, index) => (
+                <>
+                  <motion.li key={item.name} whileHover={{ scale: 1.1 }}>
+                    <Link
+                      href={item.href}
+                      className="text-white text-xl hover:text-purple-400 transition-colors duration-300 font-medium"
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.li>
+                  {index < navItems.length - 1 && (
+                    <div className="h-5 w-px bg-white/30 mx-4"></div>
+                  )}
+                </>
               ))}
             </ul>
           </nav>
