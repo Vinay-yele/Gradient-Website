@@ -53,22 +53,13 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-6"
-          >
-            <span className="text-purple-400">Discover Our Story</span>
-          </motion.div>
-          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             About Gradient
           </h1>
         </motion.div>
 
         <div className="max-w-4xl mx-auto space-y-16">
-          {/* Mission Section */}
+          {/* Who We Are Section */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +70,7 @@ export default function About() {
               <div className="flex items-center justify-center mb-6">
                 <div className="h-px w-12 bg-purple-500/30" />
                 <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                  Our Mission
+                  Who We Are
                 </h2>
                 <div className="h-px w-12 bg-purple-500/30" />
               </div>
@@ -118,44 +109,6 @@ export default function About() {
                 <p className="text-gray-300 text-lg leading-relaxed text-center mb-8">
                   The official launch of Gradient marked a significant milestone in our journey towards advancing AI education and research at BMSCE.
                 </p>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.5 }}
-                    className="group relative"
-                  >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                      <Image
-                        src="/innaugaration.jpg"
-                        alt="Inauguration Ceremony 1"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.6 }}
-                    className="group relative"
-                  >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                      <Image
-                        src="/innaugaration.jpg"
-                        alt="Inauguration Ceremony 2"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                  </motion.div>
-                </div>
               </div>
             </div>
           </motion.section>
@@ -195,20 +148,6 @@ export default function About() {
             </div>
           </motion.section>
         </div>
-
-        <motion.div 
-          className="text-center mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ChevronDown size={24} className="text-purple-400 mx-auto" />
-          </motion.div>
-        </motion.div>
       </div>
         {/* <Footer/> */}
     </main>
