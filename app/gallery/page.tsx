@@ -197,9 +197,9 @@ export default function Events() {
       
       <Navbar />
       
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 pt-24 pb-16">
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -208,12 +208,12 @@ export default function Events() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-6"
+            className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-4"
           >
             <span className="text-purple-400">Our Event Archives</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             Events & Activities
           </h1>
           
@@ -222,7 +222,7 @@ export default function Events() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-6">
           {eventCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.name}
@@ -265,13 +265,13 @@ export default function Events() {
                       </div>
 
                       {openYear[`${categoryIndex}-${yearIndex}`] && (
-                        <div className="space-y-6 pl-6">
+                        <div className="space-y-4 pl-6">
                           {yearData.events.map((event, eventIndex) => (
                             <div 
                               key={event.title} 
-                              className="bg-gradient-to-b from-gray-800/30 to-gray-900/30 rounded-xl p-6 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-colors duration-300"
+                              className="bg-gradient-to-b from-gray-800/30 to-gray-900/30 rounded-xl p-5 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-colors duration-300"
                             >
-                              <div className="flex flex-col gap-4">
+                              <div className="flex flex-col gap-3">
                                 <div className="flex items-center gap-4">
                                   <h3 className="text-2xl font-bold text-white">{event.title}</h3>
                                   {event.status === "registration-open" && (
@@ -291,7 +291,7 @@ export default function Events() {
                                   )}
                                 </div>
                                 
-                                <div className="flex flex-wrap gap-6 text-gray-300">
+                                <div className="flex flex-wrap gap-4 text-gray-300">
                                   <div className="flex items-center space-x-2">
                                     <Calendar className="text-purple-400" size={18} />
                                     <span>{event.date}</span>
@@ -314,12 +314,12 @@ export default function Events() {
                                   {event.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-4 mt-2">
+                                <div className="flex flex-wrap gap-4 mt-1">
                                   {event.status === "registration-open" && (
                                     <motion.button
                                       whileHover={{ scale: 1.05 }}
                                       whileTap={{ scale: 0.95 }}
-                                      className="flex items-center justify-center space-x-2 px-6 py-3 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 group/btn"
+                                      className="flex items-center justify-center space-x-2 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 group/btn"
                                     >
                                       <span>Register Now</span>
                                       <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -331,7 +331,7 @@ export default function Events() {
                                       whileHover={{ scale: 1.05 }}
                                       whileTap={{ scale: 0.95 }}
                                       onClick={() => viewGallery(event)}
-                                      className="flex items-center justify-center space-x-2 px-6 py-3 bg-transparent border border-purple-500 rounded-full hover:bg-purple-500/10 transition-colors duration-300"
+                                      className="flex items-center justify-center space-x-2 px-6 py-2 bg-transparent border border-purple-500 rounded-full hover:bg-purple-500/10 transition-colors duration-300"
                                     >
                                       <ImageIcon size={18} />
                                       <span>View Gallery ({event.images.length})</span>
