@@ -19,8 +19,8 @@ export default function About() {
     },
     {
       icon: Users,
-      title: "Community Projects",
-      description: "Collaborative AI projects with real-world applications"
+      title: "Technical Events",
+      description: "Collaborative, Fun and innovative events with real-world applications"
     },
     {
       icon: BookOpen,
@@ -29,8 +29,8 @@ export default function About() {
     },
     {
       icon: Lightbulb,
-      title: "Innovation Hub",
-      description: "Resources and support for AI/ML skill development"
+      title: "Placement Talks",
+      description: "Educating students on the ever-changing landscape of placements and perparing to help them succeed"
     },
     {
       icon: Share2,
@@ -45,7 +45,7 @@ export default function About() {
       
       <Navbar />
       
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 pt-32 pb-20">
         {/* Header Section */}
         <motion.div 
           className="text-center mb-20"
@@ -109,6 +109,44 @@ export default function About() {
                 <p className="text-gray-300 text-lg leading-relaxed text-center mb-8">
                   The official launch of Gradient marked a significant milestone in our journey towards advancing AI education and research at BMSCE.
                 </p>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, delay: 0.5 }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
+                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                      <Image
+                        src="/innaugaration.jpg"
+                        alt="Inauguration Ceremony 1"
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, delay: 0.6 }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
+                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                      <Image
+                        src="/innaugaration.jpg"
+                        alt="Inauguration Ceremony 2"
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </motion.section>
