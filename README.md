@@ -1,4 +1,4 @@
-# Gradient Club - GradientAIML.tech
+# Gradient Club
 
 This repository contains the source code and assets for The **Gradient Club** Website. We are a Student Club focused on fostering learning and innovation in Artificial Intelligence and Machine Learning.  
 
