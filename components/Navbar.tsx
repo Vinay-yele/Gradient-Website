@@ -7,7 +7,7 @@ import Image from 'next/image'
 const navItems = [
   { name: 'Gradient Week', href: '/events' },
   { name: 'Meet the Team', href: '/team' },
-  { name: 'Gallery', href: '/gallery' },
+  { name: 'Event Gallery', href: '/gallery' },
   { name: 'Department of ML', href: '/department-work' },
   { name: 'About', href: '/about' },
   { name: 'Connect with us', href: '/connect' }
