@@ -195,23 +195,7 @@ export default function Events() {
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
       
-      <Navbar />
-      
-      <div className="container mx-auto px-4 pt-24 pb-16">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-4"
-          >            
-          </motion.div>
-          
+      <Navbar />    
           <h1 className="text-5xl md:text-7xl font-bold mb-4 mt-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             Events & Activities
           </h1>
