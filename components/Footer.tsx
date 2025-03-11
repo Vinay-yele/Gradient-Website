@@ -9,8 +9,8 @@ const Footer = () => {
     { name: "About", href: "/about" },
     { name: "Events", href: "/events" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Department of Machine Learning", href: "/department-work" },
-    { name: "Connect", href: "/connect" }
+    { name: "Connect", href: "/connect" },
+    { name: "Department of Machine Learning", href: "/department-work" }    
   ]
 
   const socialLinks = [
