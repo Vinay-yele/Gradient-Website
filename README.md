@@ -13,4 +13,4 @@ Visit our website: [GradientAIML.tech](https://GradientAIML.tech)
 
 Feel free to explore, use, or contribute to the code in this repository. Contributions are welcome!
 
-_Gradient: Intelligence Redifined._
+_Gradient, Intelligence Redifined._
