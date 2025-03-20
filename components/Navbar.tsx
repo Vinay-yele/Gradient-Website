@@ -5,11 +5,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 const navItems = [
-  { name: 'About', href: '/about' },
+  { name: 'Gradient Week', href: '/events' },
   { name: 'Meet the Team', href: '/team' },
-  { name: 'Events', href: '/events' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Department of AIML', href: '/department-work' },
+  { name: 'Event Gallery', href: '/gallery' },
+  { name: 'Department of ML', href: '/department-work' },
+  { name: 'About', href: '/about' },
   { name: 'Connect with us', href: '/connect' }
 ]
 
@@ -40,12 +40,12 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center justify-center">
-            <ul className="flex flex-wrap justify-end">
+            <ul className="flex space-x-8">
               {navItems.map((item) => (
-                <motion.li key={item.name} whileHover={{ scale: 1.1 }} className="px-2 md:px-3 lg:px-4 py-1">
+                <motion.li key={item.name} whileHover={{ scale: 1.1 }}>
                   <Link
                     href={item.href}
-                    className="text-white text-base lg:text-xl hover:text-purple-400 transition-colors duration-300 font-medium whitespace-nowrap"
+                    className="text-white text-xl hover:text-purple-400 transition-colors duration-300 font-medium"
                   >
                     {item.name}
                   </Link>

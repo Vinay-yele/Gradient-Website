@@ -19,8 +19,8 @@ export default function About() {
     },
     {
       icon: Users,
-      title: "Community Projects",
-      description: "Collaborative AI projects with real-world applications"
+      title: "Technical Events",
+      description: "Collaborative, Fun and innovative events with real-world applications"
     },
     {
       icon: BookOpen,
@@ -29,8 +29,8 @@ export default function About() {
     },
     {
       icon: Lightbulb,
-      title: "Innovation Hub",
-      description: "Resources and support for AI/ML skill development"
+      title: "Placement Talks",
+      description: "Educating students on the ever-changing landscape of placements and perparing to help them succeed"
     },
     {
       icon: Share2,
@@ -45,7 +45,7 @@ export default function About() {
       
       <Navbar />
       
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 pt-32 pb-20">
         {/* Header Section */}
         <motion.div 
           className="text-center mb-20"
@@ -53,22 +53,13 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-6 py-2 rounded-full bg-purple-900/30 border border-purple-500/30 mb-6"
-          >
-            <span className="text-purple-400">Discover Our Story</span>
-          </motion.div>
-          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             About Gradient
           </h1>
         </motion.div>
 
         <div className="max-w-4xl mx-auto space-y-16">
-          {/* Mission Section */}
+          {/* Who We Are Section */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +70,7 @@ export default function About() {
               <div className="flex items-center justify-center mb-6">
                 <div className="h-px w-12 bg-purple-500/30" />
                 <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                  Our Mission
+                  Who We Are
                 </h2>
                 <div className="h-px w-12 bg-purple-500/30" />
               </div>
@@ -195,20 +186,6 @@ export default function About() {
             </div>
           </motion.section>
         </div>
-
-        <motion.div 
-          className="text-center mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ChevronDown size={24} className="text-purple-400 mx-auto" />
-          </motion.div>
-        </motion.div>
       </div>
         {/* <Footer/> */}
     </main>
