@@ -72,7 +72,7 @@ const centerOfExcellence = {
 
 export default function DepartmentWork() {
   return (
-    <main className="min-h-screen bg-[#1a1a1a] text-white">
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
       <Navbar />
       <div className="pt-32">
         <div className="container mx-auto px-4 py-10">
