@@ -7,14 +7,14 @@ const Footer = () => {
   const quickLinks = [
     { name: "Gradient Week", href: "/events" },
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },    ,
+    { name: "About", href: "/about" },    
     { name: "Event Gallery", href: "/gallery" },
     { name: "Connect", href: "/connect" },
     { name: "Department of Machine Learning", href: "/department-work" }    
   ]
 
   const socialLinks = [
-    // { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
+    { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
     { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
   ]
