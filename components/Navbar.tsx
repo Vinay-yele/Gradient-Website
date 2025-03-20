@@ -40,12 +40,12 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center justify-center">
-            <ul className="flex space-x-8">
+            <ul className="flex flex-wrap justify-end">
               {navItems.map((item) => (
-                <motion.li key={item.name} whileHover={{ scale: 1.1 }}>
+                <motion.li key={item.name} whileHover={{ scale: 1.1 }} className="px-2 md:px-3 lg:px-4 py-1">
                   <Link
                     href={item.href}
-                    className="text-white text-xl hover:text-purple-400 transition-colors duration-300 font-medium"
+                    className="text-white text-base lg:text-xl hover:text-purple-400 transition-colors duration-300 font-medium whitespace-nowrap"
                   >
                     {item.name}
                   </Link>
