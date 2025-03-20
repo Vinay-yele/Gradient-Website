@@ -42,12 +42,12 @@ export default function About() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
-      
+
       <Navbar />
-      
+
       <div className="container mx-auto px-4 pt-32 pb-20">
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function About() {
                 </h2>
                 <div className="h-px w-12 bg-purple-500/30" />
               </div>
-              
+
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                 <p>
                   Gradient, the AIML club of B.M.S. College of Engineering, is dedicated to exploring the fascinating world of Artificial Intelligence and Machine Learning. Our mission is to foster a community of AI enthusiasts, provide hands-on experience with cutting-edge technologies, and bridge the gap between academic learning and industry requirements.
@@ -99,7 +99,7 @@ export default function About() {
                 <div className="flex items-center space-x-2 px-6">
                   <Calendar className="text-purple-400" size={24} />
                   <h2 className="text-3xl font-bold text-center text-purple-400">
-                    Inauguration Ceremony
+                    Our Roots
                   </h2>
                 </div>
                 <div className="h-px w-12 bg-purple-500/30" />
@@ -107,7 +107,7 @@ export default function About() {
 
               <div className="space-y-6">
                 <p className="text-gray-300 text-lg leading-relaxed text-center mb-8">
-                  The official launch of Gradient marked a significant milestone in our journey towards advancing AI education and research at BMSCE.
+                  Gradient founded in 2022, With the aim of reachin new heights and boldy doing what no one has done before.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -120,13 +120,14 @@ export default function About() {
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
                       <Image
-                        src="/innaugaration.jpg"
+                        src="/inaugration.png"
                         alt="Inauguration Ceremony 1"
                         width={600}
                         height={400}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
+                    <p className="text-center mt-2 text-white-100 mb-2">Inauguration ceremony of Gradient(2022)</p>
                   </motion.div>
 
                   <motion.div
@@ -138,13 +139,14 @@ export default function About() {
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
                       <Image
-                        src="/innaugaration.jpg"
+                        src="/founding core.png"
                         alt="Inauguration Ceremony 2"
                         width={600}
                         height={400}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
+                    <p className="text-center mt-2 text-white-100 mb-2">The Founding Core Team</p>
                   </motion.div>
                 </div>
               </div>
@@ -187,7 +189,7 @@ export default function About() {
           </motion.section>
         </div>
       </div>
-        {/* <Footer/> */}
+      {/* <Footer/> */}
     </main>
   )
 }

@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Gradient Week", href: "/events" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },    ,
     { name: "Event Gallery", href: "/gallery" },
     { name: "Connect", href: "/connect" },
     { name: "Department of Machine Learning", href: "/department-work" }    
@@ -117,7 +117,7 @@ const Footer = () => {
         >
           <p>&copy; {new Date().getFullYear()} Gradient BMSCE. All rights reserved.</p>
           <p className="mt-2">
-            Designed and built by{" "}
+            Designed, Built and Managed by{" "}
             <Link 
               href="https://vinayyele.live/" 
               target="_blank" 

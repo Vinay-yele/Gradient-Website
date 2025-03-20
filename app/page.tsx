@@ -24,16 +24,17 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center min-h-[calc(100vh-80px)] pt-20">
-          {/* Left Section */}
+        {/* Modified breakpoints from md to lg for better responsive behavior */}
+        <div className="flex flex-col lg:flex-row items-center min-h-[calc(100vh-80px)] pt-20">
+          {/* Left Section - Adjusted width and added padding for medium screens */}
           <motion.div
-            className="md:w-1/2 space-y-8 relative z-10"
+            className="w-full md:max-w-2xl lg:w-1/2 space-y-8 relative z-10 px-4 md:px-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight mt-10 text-center md:text-left">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight mt-10 text-center lg:text-left">
                 Welcome to
                 <div className="mt-2">
                   <TypingAnimation className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 ">
@@ -43,12 +44,12 @@ export default function Home() {
               </h1>
             </div>
 
-            <p className="text-gray-300 text-xl md:text-2xl max-w-lg leading-relaxed text-center md:text-left">
+            <p className="text-gray-300 text-xl md:text-2xl max-w-lg mx-auto lg:mx-0 leading-relaxed text-center lg:text-left">
               Pioneering the future through AI and Machine Learning innovation at B.M.S. College of Engineering.
             </p>
 
             <motion.div
-              className="flex flex-col md:flex-row items-center space-x-8 justify-center md:justify-start"
+              className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -60,34 +61,13 @@ export default function Home() {
                 <span>Discover Our Club</span>
                 <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
-
-              {/* Uncomment if needed */}
-              {/* <motion.div
-    className="hidden md:flex items-center space-x-3"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ delay: 0.6 }}
-  >
-    <div className="w-12 h-[2px] bg-purple-600" />
-    <div className="flex space-x-1">
-      {[...Array(4)].map((_, i) => (
-        <motion.div
-          key={i}
-          className={`w-2 h-2 ${i === 3 ? 'bg-purple-600' : 'bg-purple-800'} rounded-sm`}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.1 * i }}
-        />
-      ))}
-    </div>
-  </motion.div> */}
             </motion.div>
 
           </motion.div>
 
-          {/* Right Section */}
+          {/* Right Section - Added padding and adjusted margins for better spacing */}
           <motion.div
-            className="md:w-1/2 mt-12 md:mt-0 relative z-10"
+            className="w-full md:max-w-2xl lg:w-1/2 mt-12 lg:mt-0 relative z-10 px-4 md:px-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
@@ -115,12 +95,10 @@ export default function Home() {
                     alt="Group photo"
                     width={500}
                     height={400}
-                    className="w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl h-auto object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
               </div>
-
-
             </div>
           </motion.div>
         </div>

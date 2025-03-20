@@ -13,3 +13,9 @@
 - Fixed email in the footer
 - Changed homepage to make it more attractive and improved the call-to-action (CTA)
 - Added a line to distinguish between navbar and body
+
+## 20/03/2025 (Pranav)
+- Updated favicon to a better version
+- made responsiveness work better for all pages
+- add images and data in the about page
+- added data and poster images to the events gallery page
