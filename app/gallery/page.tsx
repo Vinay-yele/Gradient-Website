@@ -218,7 +218,7 @@ export default function Events() {
             <div className="overflow-y-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
               {selectedEvent.images.slice(0, 2).map((img, index) => (
                 <div key={index} className="rounded-lg overflow-hidden bg-gray-800 aspect-video">
-                  <img src={img} alt={`${selectedEvent.title} event photo ${index + 1}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`${selectedEvent.title} event photo ${index + 1}`} className="w-full h-full object-contain" />
                 </div>
               ))}
             </div>

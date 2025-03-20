@@ -254,7 +254,7 @@ export const eventCategories = [
                         status: "completed",
                         poster: "/posters/krishnaik.png",
                         images: [
-                            "/gallery/sa/2023/",
+                            "/gallery/sa/2023/pvvykn.jpg",
                             "/gallery/sa/2023/"
                         ]
                     },
