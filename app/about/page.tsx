@@ -174,8 +174,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
             <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
               <div className="flex items-center justify-center mb-6">
                 <div className="h-px w-12 bg-purple-500/30" />
-                <div className="flex items-center space-x-2 px-6">
-                  <Calendar className="text-purple-400" size={24} />
+                <div className="flex items-center space-x-2 px-6">                  
                   <h2 className="text-3xl font-bold text-center text-purple-400">
                     Our Roots
                   </h2>
