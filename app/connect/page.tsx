@@ -19,7 +19,7 @@ export default function Connect() {
       <div className="container mx-auto px-4 py-20">
         {/* Header Section */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -27,6 +27,25 @@ export default function Connect() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             Connect with Us
           </h1>
+        </motion.div>
+
+        {/* Partner With Us & Sponsor Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 mb-12"
+        >
+          <h2 className="text-3xl font-bold mb-6 text-purple-400">Partner With Us & Sponsor</h2>
+          <p className="text-gray-300 mb-4">
+            At Gradient, we offer unparalleled opportunities to collaborate with some of the brightest minds in AI & Machine Learning. Our network is a thriving community of tech enthusiasts, students, and industry leaders.
+          </p>
+          <p className="text-gray-300 mb-4">
+            By partnering with us, you not only get access to innovative talent and state-of-the-art projects but also enhance your brand visibility in a cutting-edge field. Whether you're looking to sponsor events, workshops, or initiatives, our platform is the ideal place to showcase your commitment to innovation.
+          </p>
+          <p className="text-lg text-purple-400 font-semibold mt-4">
+            Ready to elevate your brand? <a href="mailto:gradient.mel@bmsce.ac.in" className="underline hover:text-purple-300">Reach out to us today!</a>
+          </p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -98,26 +117,6 @@ export default function Connect() {
               </div>
             </motion.div>
           </div>
-
-          {/* Why Connect & Sponsorship Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300"
-          >
-            <h2 className="text-2xl font-bold mb-8 text-purple-400">Why Partner With Us?</h2>
-            <p className="text-gray-300 mb-6">
-              Collaborating with Gradient provides unparalleled opportunities for networking, innovation, and brand exposure within the AI & ML community. Whether you're a tech enthusiast, student, or industry leader, we have something valuable to offer.
-            </p>
-            <h2 className="text-2xl font-bold mb-8 text-purple-400">Become a Sponsor</h2>
-            <p className="text-gray-300 mb-6">
-              Elevate your brand by partnering with us! Get direct access to a talented pool of students and professionals, showcase your innovations, and establish a strong presence in the AI & ML space.
-            </p>
-            <p className="text-lg text-purple-400 font-semibold mt-4">
-              Ready to make an impact? <a href="mailto:gradient.mel@bmsce.ac.in" className="underline hover:text-purple-300">Get in touch now!</a>
-            </p>
-          </motion.div>
         </div>
       </div>
     </main>
