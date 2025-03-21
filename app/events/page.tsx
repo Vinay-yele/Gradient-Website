@@ -6,8 +6,9 @@ import { Instagram, Linkedin } from 'lucide-react'
 
 export default function Events() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-purple-900 text-white relative overflow-hidden flex flex-col items-center justify-center text-center px-6">
+    <main className="min-h-screen bg-gradient-to-br from-purple-800 via-black to-purple-900 text-white relative overflow-hidden flex flex-col items-center justify-center text-center px-6">
       <Navbar />
+      <div className="absolute inset-0 animate-gradient bg-[radial-gradient(circle_at_center,_rgba(128,0,255,0.5),_transparent)] pointer-events-none" />
       <div className="relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
@@ -16,12 +17,12 @@ export default function Events() {
         >
           <h1 className="text-6xl md:text-8xl font-extrabold bg-gradient-to-r from-purple-400 to-purple-600 text-transparent bg-clip-text uppercase relative">
             Gradient Week
-            <span className="absolute -top-6 -left-8 w-16 h-16 bg-purple-600/30 rounded-full blur-2xl" />
-            <span className="absolute -bottom-6 -right-8 w-20 h-20 bg-purple-500/20 rounded-full blur-3xl" />
+            <span className="absolute -top-6 -left-8 w-16 h-16 bg-purple-600/30 rounded-full blur-2xl animate-pulse" />
+            <span className="absolute -bottom-6 -right-8 w-20 h-20 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
           </h1>
           <h2 className="text-4xl md:text-6xl font-bold text-gray-300 mt-4 relative">
             Coming Soon
-            <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-purple-400/10 rounded-full blur-3xl" />
+            <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-purple-400/10 rounded-full blur-3xl animate-pulse" />
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mt-6">
             Stay tuned for an immersive experience. Follow us on social media for the latest updates and exclusive content!
@@ -43,7 +44,19 @@ export default function Events() {
         </motion.div>
       </div>
       
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(128,0,128,0.3),_transparent)] pointer-events-none" />
+      <style>
+        {`
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+          }
+        `}
+      </style>
     </main>
   )
 }
