@@ -106,13 +106,16 @@ export default function Connect() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300"
           >
-            <h2 className="text-2xl font-bold mb-8 text-purple-400">Why Connect With Us?</h2>
+            <h2 className="text-2xl font-bold mb-8 text-purple-400">Why Partner With Us?</h2>
             <p className="text-gray-300 mb-6">
-              At Gradient, we are dedicated to pushing the boundaries of AI & Machine Learning. By connecting with us, you become part of a network of innovators, researchers, and students passionate about the future of technology.
+              Collaborating with Gradient provides unparalleled opportunities for networking, innovation, and brand exposure within the AI & ML community. Whether you're a tech enthusiast, student, or industry leader, we have something valuable to offer.
             </p>
-            <h2 className="text-2xl font-bold mb-8 text-purple-400">Sponsorship Opportunities</h2>
-            <p className="text-gray-300">
-              Partnering with Gradient gives sponsors access to a talented pool of future industry leaders. We offer brand exposure, recruitment opportunities, and the ability to showcase cutting-edge technologies to our engaged audience.
+            <h2 className="text-2xl font-bold mb-8 text-purple-400">Become a Sponsor</h2>
+            <p className="text-gray-300 mb-6">
+              Elevate your brand by partnering with us! Get direct access to a talented pool of students and professionals, showcase your innovations, and establish a strong presence in the AI & ML space.
+            </p>
+            <p className="text-lg text-purple-400 font-semibold mt-4">
+              Ready to make an impact? <a href="mailto:gradient.mel@bmsce.ac.in" className="underline hover:text-purple-300">Get in touch now!</a>
             </p>
           </motion.div>
         </div>
