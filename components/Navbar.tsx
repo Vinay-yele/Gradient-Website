@@ -11,7 +11,7 @@ const navItems = [
   { name: 'Event Gallery', href: '/gallery' },
   { name: 'About', href: '/about' },
   { name: 'Dept. of ML', href: '/department-work' },
-  { name: 'Let's Connect', href: '/connect' }
+  { name: 'Let\'s Connect', href: '/connect' }
 ]
 
 export default function Navbar() {
