@@ -8,8 +8,8 @@ import Image from 'next/image'
 const navItems = [
   { name: 'Gradient Week', href: '/events' },
   { name: 'Core Team', href: '/team' },
-  { name: 'Event Gallery', href: '/gallery' },  
-  { name: 'Dept. of ML', href: '/department-work' },  
+  { name: 'Event Gallery', href: '/gallery' },
+  { name: 'Dept. of ML', href: '/department-work' },
   { name: 'Let\'s Connect', href: '/connect' },
   { name: 'About', href: '/about' }
 ]
@@ -37,17 +37,16 @@ export default function Navbar() {
   }
 
   return (
-    <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 bg-gray-900/80 ${
-        scrolled 
-          ? 'backdrop-blur-md shadow-lg shadow-purple-900/20' 
+    <header
+      className={`fixed w-full top-0 z-50 transition-all duration-300 bg-gray-900/80 ${scrolled
+          ? 'backdrop-blur-md shadow-lg shadow-purple-900/20'
           : 'backdrop-blur-sm'
-      } border-b ${scrolled ? 'border-purple-900/30' : 'border-white/10'}`}
+        } border-b ${scrolled ? 'border-purple-900/30' : 'border-white/10'}`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center py-3">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center space-x-3 flex-shrink-0 group transition-all duration-300"
           >
             <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center overflow-hidden">
@@ -85,7 +84,7 @@ export default function Navbar() {
                   {index > 0 && (
                     <div className="h-6 w-px bg-gradient-to-b from-purple-400/10 via-white/30 to-purple-400/10 mx-5"></div>
                   )}
-                  <motion.li 
+                  <motion.li
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
@@ -105,7 +104,7 @@ export default function Navbar() {
           <div className="xl:hidden flex items-center ml-auto">
             <motion.button
               whileTap={{ scale: 0.95 }}
-              className="text-white focus:outline-none bg-purple-900/30 p-2 rounded-lg"
+              className="text-white focus:outline-none"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -141,9 +140,46 @@ export default function Navbar() {
                 </svg>
               )}
             </motion.button>
+
           </div>
         </div>
       </div>
+
+      {/* Mobile menu - this is what was missing */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="xl:hidden bg-gray-900/95 backdrop-blur-md border-t border-purple-900/30"
+          >
+            <nav className="container mx-auto px-4 py-4">
+              <ul className="flex flex-col space-y-3">
+                {navItems.map((item) => (
+                  <motion.li
+                    key={item.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-full"
+                  >
+                    <Link
+                      href={item.href}
+                      className="text-white hover:text-purple-400 transition-colors duration-300 font-medium text-lg block py-2 px-3 rounded-lg hover:bg-purple-900/20"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                    <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-500/20 to-transparent mt-2"></div>
+                  </motion.li>
+                ))}
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

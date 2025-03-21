@@ -41,7 +41,7 @@ const teamData: TeamSection[] = [
     title: "Design Heads",
     members: [
       { name: "Vinay Yele", role: "Design Head", year: "Third year", image: "/yele.JPG", github: "https://github.com/Vinay-yele", linkedin: "https://www.linkedin.com/in/vinay-yele-08ab08295/" },
-      { name: "Deepali", role: "Design Head", year: "Third Year", image: "/deepali.JPG", linkedin: "http://linkedin.com/in/deepali-u-10a78a306" },
+      { name: "Deepali", role: "Design Head", year: "Third Year", image: "/deepali.JPG",github:"", linkedin: "http://linkedin.com/in/deepali-u-10a78a306" },
     ]
   },  
   { 
@@ -60,7 +60,7 @@ const teamData: TeamSection[] = [
         role: "Media & Sponsorship Head",
         year: "Third Year",
         image: "/varsh.JPG",
-        twitter: "https://twitter.com",
+        github: "https://twitter.com",
         linkedin: "https://linkedin.com",
       },
       {
@@ -68,7 +68,7 @@ const teamData: TeamSection[] = [
         role: "Media & Sponsorship Head",
         year: "Third Year",
         image: "/supriya.JPG",
-        twitter: "https://twitter.com",
+        github: "https://twitter.com",
         linkedin: "https://linkedin.com",
       },
       {
@@ -76,7 +76,7 @@ const teamData: TeamSection[] = [
         role: "Media & Sponsorship Head",
         year: "Third Year",
         image: "/sanj.JPG",
-        twitter: "https://twitter.com",
+        github: "https://twitter.com",
         linkedin: "https://linkedin.com",
       },
       {
