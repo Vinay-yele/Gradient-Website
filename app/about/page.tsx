@@ -232,42 +232,32 @@ Our mission is to create a platform where passion for technology thrives, and gr
           </motion.section>
 
           {/* What We Do Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          >
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
-              <div className="flex items-center justify-center mb-6">
-                <div className="h-px w-12 bg-purple-500/30" />
-                <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                  What We Do
-                </h2>
-                <div className="h-px w-12 bg-purple-500/30" />
-              </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {activities.map((activity, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="relative group"
+              >
+                <div className="flex flex-col h-full p-6 rounded-xl bg-gradient-to-r from-purple-800/40 to-purple-900/40 shadow-md border border-purple-500/20 group-hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-4">
+                    {/* Icon */}
+                    <activity.icon
+                      className="text-purple-400 group-hover:text-purple-300 transition-colors"
+                      size={40}
+                    />
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-purple-200">{activity.title}</h3>
+                  </div>
+                  {/* Description */}
+                  <p className="text-m text-white-700 mt-4 flex-grow">{activity.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                {activities.map((activity, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: index * 0.2 }}
-                    className="relative"
-                  >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="flex items-center space-x-4 p-4 rounded-lg border border-purple-500/20 group">
-                      <activity.icon className="text-purple-400" size={36} />
-                      <div>
-                        <h3 className="text-lg font-semibold text-purple-400">{activity.title}</h3>
-                        <p className="text-gray-300 text-sm">{activity.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.section>
         </div>
       </div>
 

@@ -30,7 +30,7 @@ export default function Connect() {
           <h1 className="text-6xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
             Connect with Us
           </h1>
-          <motion.div 
+          <motion.div
             className="h-1 w-24 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: 120, opacity: 1 }}
@@ -49,7 +49,7 @@ export default function Connect() {
             <div className="h-3 bg-gradient-to-r from-purple-500 to-indigo-500" />
             <div className="p-8 md:p-10">
               <h2 className="text-4xl font-bold mb-8 text-white">Get in Touch</h2>
-              
+
               <div className="space-y-8">
                 <motion.a
                   href="mailto:gradient.mel@bmsce.ac.in"
@@ -64,7 +64,7 @@ export default function Connect() {
                     <p className="text-gray-300 text-xl group-hover:text-white transition-colors">gradient.mel@bmsce.ac.in</p>
                   </div>
                 </motion.a>
-                
+
                 <motion.div
                   className="flex items-start"
                   whileHover={{ x: 5 }}
@@ -75,15 +75,15 @@ export default function Connect() {
                   <div className="flex-1">
                     <h3 className="text-2xl font-semibold text-purple-300 mb-1">Visit Us</h3>
                     <p className="text-gray-300 text-xl">
-                      Department of Machine Learning<br/>
-                      7th Floor, PJA Block<br/>
-                      B.M.S. College of Engineering<br/>
+                      Department of Machine Learning<br />
+                      7th Floor, PJA Block<br />
+                      B.M.S. College of Engineering<br />
                       Bengaluru - 560 019
                     </p>
                   </div>
                 </motion.div>
               </div>
-              
+
               <div className="mt-12">
                 <h3 className="text-xl font-semibold text-purple-300 mb-6">Follow Us</h3>
                 <div className="flex space-x-4">
@@ -104,7 +104,7 @@ export default function Connect() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Sponsorship Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -116,7 +116,7 @@ export default function Connect() {
             <div className="p-8 md:p-10 flex-1 flex flex-col">
               <h2 className="text-4xl font-bold mb-4 text-white">Partner With Us</h2>
               <p className="text-purple-300 text-2xl mb-6">Elevate your brand through strategic partnerships</p>
-              
+
               <div className="flex-1 text-xl">
                 <ul className="space-y-4 text-gray-300 mb-8">
                   <li className="flex items-start">
@@ -145,7 +145,7 @@ export default function Connect() {
                   </li>
                 </ul>
               </div>
-              
+
               <motion.a
                 href="mailto:gradient.mel@bmsce.ac.in?subject=Sponsorship%20Inquiry%20-%20We%20Want%20to%20Partner%20with%20Gradient&body=Hello%20Gradient%20Team%2C%0A%0AWe%20are%20interested%20in%20exploring%20sponsorship%20opportunities%20with%20your%20organization.%0A%0APlease%20share%20more%20details%20about%20partnership%20options%20and%20how%20we%20can%20collaborate.%0A%0AThank%20you%2C"
                 className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl flex items-center justify-center group transition-all duration-300 shadow-lg shadow-purple-900/20"
@@ -158,7 +158,7 @@ export default function Connect() {
             </div>
           </motion.div>
         </div>
-        
+
         {/* Bottom Banner */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -168,7 +168,7 @@ export default function Connect() {
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Join the Gradient Community</h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
-            Whether you're a student, researcher, industry professional, or simply passionate about AI & ML, 
+            Whether you're a student, researcher, industry professional, or simply passionate about AI & ML,
             we welcome you to connect with us and be part of our innovative community.
           </p>
         </motion.div>
