@@ -2,7 +2,7 @@
 import Navbar from '../../components/Navbar'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ChevronDown, Terminal, Users, Code, BookOpen, Lightbulb, Share2, Calendar } from 'lucide-react'
+import { ChevronDown, Terminal, Users, Code, BookOpen, Lightbulb, Share2, Calendar, Award } from 'lucide-react'
 import Footer from '@/components/Footer'
 
 export default function About() {
@@ -30,7 +30,7 @@ export default function About() {
     {
       icon: Lightbulb,
       title: "Placement Talks",
-      description: "Educating students on the ever-changing landscape of placements and perparing to help them succeed"
+      description: "Educating students on the ever-changing landscape of placements and preparing to help them succeed"
     },
     {
       icon: Share2,
@@ -57,9 +57,34 @@ export default function About() {
             About Gradient
           </h1>
         </motion.div>
+        {/* Who Are We Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="container mx-auto px-4 pb-10"
+        >
+          <div className="max-w-4xl mx-auto bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px w-12 bg-purple-500/30" />
+              <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
+                Who Are We?
+              </h2>
+              <div className="h-px w-12 bg-purple-500/30" />
+            </div>
+            <p className="text-gray-300 text-lg leading-relaxed text-center">
+              <span style={{ whiteSpace: 'pre-line' }}>
+                {`Gradient is a vibrant student community that embraces the dynamic field of AI and ML.
+We focus on fostering innovation, collaboration, and knowledge-sharing among aspiring technologists.
+
+Our mission is to create a platform where passion for technology thrives, and groundbreaking ideas flourish.`}
+              </span>
+            </p>
+          </div>
+        </motion.section>
 
         <div className="max-w-4xl mx-auto space-y-16">
-          {/* Who We Are Section */}
+          {/* Our Achievements Section */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,23 +95,76 @@ export default function About() {
               <div className="flex items-center justify-center mb-6">
                 <div className="h-px w-12 bg-purple-500/30" />
                 <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                  Who We Are
+                  Our Achievements
                 </h2>
                 <div className="h-px w-12 bg-purple-500/30" />
               </div>
 
-              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-                <p>
-                  Gradient, the AIML club of B.M.S. College of Engineering, is dedicated to exploring the fascinating world of Artificial Intelligence and Machine Learning. Our mission is to foster a community of AI enthusiasts, provide hands-on experience with cutting-edge technologies, and bridge the gap between academic learning and industry requirements.
-                </p>
-                <p>
-                  We aim to inspire and educate students about the potential of AI and ML, encouraging innovation and collaboration in this rapidly evolving field.
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center text-gray-300">
+                <div>
+                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
+                  <h3 className="text-2xl font-bold">40+</h3>
+                  <p className="text-lg">Events Conducted</p>
+                </div>
+                <div>
+                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
+                  <h3 className="text-2xl font-bold">2000+</h3>
+                  <p className="text-lg">Participants</p>
+                </div>
+                <div>
+                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
+                  <h3 className="text-2xl font-bold">200+</h3>
+                  <p className="text-lg">Community Members</p>
+                </div>
+                <div>
+                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
+                  <h3 className="text-2xl font-bold">₹3L+</h3>
+                  <p className="text-lg">Sponsorship Raised</p>
+                </div>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                  <Image
+                    src="/merchbackshot.png"
+                    alt="Our Very Merchandise"
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                  <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
+                    Our Very Own Merchandise
+                  </p>
+                </div>
+                <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                  <Image
+                    src="/gw1.jpg"
+                    alt="The First Ever Gradient Week"
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                  <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
+                    The First Ever Gradient Week
+                  </p>
+                </div>
+                <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                  <Image
+                    src="/posters/hacka24.webp"
+                    alt="website"
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                  <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
+                    Our Biggest Hackathon
+                  </p>
+                </div>
               </div>
             </div>
           </motion.section>
 
-          {/* Inauguration Section */}
+          {/* Our Roots Section */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,7 +185,7 @@ export default function About() {
 
               <div className="space-y-6">
                 <p className="text-gray-300 text-lg leading-relaxed text-center mb-8">
-                  Gradient founded in 2022, With the aim of reachin new heights and boldy doing what no one has done before.
+                  Gradient founded in 2022, with the aim of reaching new heights and boldly doing what no one has done before.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -127,7 +205,7 @@ export default function About() {
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
-                    <p className="text-center mt-2 text-white-100 mb-2">Inauguration ceremony of Gradient(2022)</p>
+                    <p className="text-center mt-2 text-white-100 mb-2">Inauguration ceremony of Gradient (2022)</p>
                   </motion.div>
 
                   <motion.div
@@ -159,37 +237,41 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            <div className="flex items-center justify-center mb-12">
-              <div className="h-px w-12 bg-purple-500/30" />
-              <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                What We Do
-              </h2>
-              <div className="h-px w-12 bg-purple-500/30" />
-            </div>
+            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
+              <div className="flex items-center justify-center mb-6">
+                <div className="h-px w-12 bg-purple-500/30" />
+                <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
+                  What We Do
+                </h2>
+                <div className="h-px w-12 bg-purple-500/30" />
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {activities.map((activity, index) => (
-                <motion.div
-                  key={activity.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-6 backdrop-blur-sm border border-purple-500/10 group hover:border-purple-500/30 transition-all duration-300"
-                >
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 rounded-lg bg-purple-900/30 text-purple-400 group-hover:scale-110 transition-transform duration-300">
-                      <activity.icon size={24} />
+              <div className="grid md:grid-cols-2 gap-8">
+                {activities.map((activity, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, delay: index * 0.2 }}
+                    className="relative"
+                  >
+                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
+                    <div className="flex items-center space-x-4 p-4 rounded-lg border border-purple-500/20 group">
+                      <activity.icon className="text-purple-400" size={36} />
+                      <div>
+                        <h3 className="text-lg font-semibold text-purple-400">{activity.title}</h3>
+                        <p className="text-gray-300 text-sm">{activity.description}</p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-purple-400">{activity.title}</h3>
-                  </div>
-                  <p className="text-gray-300">{activity.description}</p>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.section>
         </div>
       </div>
-      {/* <Footer/> */}
+
+      <Footer />
     </main>
   )
 }

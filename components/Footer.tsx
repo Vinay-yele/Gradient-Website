@@ -13,8 +13,7 @@ const Footer = () => {
     { name: "Department of Machine Learning", href: "/department-work" }    
   ]
 
-  const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com/gradientbmsce", label: "Twitter" },
+  const socialLinks = [    
     { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
   ]
@@ -35,7 +34,7 @@ const Footer = () => {
               Gradient
             </h3>
             <p className="text-gray-300 mb-6">
-              The AIML club of B.M.S. College of Engineering, dedicated to exploring and advancing artificial intelligence and machine learning.
+              Intelligence Redifined
             </p>
           </motion.div>
 
