@@ -17,7 +17,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="relative min-h-screen bg-[#1a1a1a] text-white overflow-hidden">
+    <main className="relative min-h-screen bg-gradient-to-b text-white overflow-hidden">
       <Navbar />
 
       {/* Background Gradient */}
@@ -67,7 +67,7 @@ export default function Home() {
 
           {/* Right Section - Added padding and adjusted margins for better spacing */}
           <motion.div
-            className="w-full md:max-w-2xl lg:w-1/2 mt-12 lg:mt-0 relative z-10 px-4 md:px-8"
+            className="w-full md:max-w-5xl lg:w-1/2 mt-12 lg:mt-0 relative z-10 px-4 md:px-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}

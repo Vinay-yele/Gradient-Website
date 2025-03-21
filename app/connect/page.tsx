@@ -15,11 +15,8 @@ export default function Connect() {
 
   const handleMailTo = () => {
     const mailToLink = "mailto:gradient.mel@bmsce.ac.in";
-    const mailWindow = window.open(mailToLink, "_blank");
-
-    if (!mailWindow || mailWindow.closed || typeof mailWindow.closed === "undefined") {
-      setShowPopup(true);
-    }
+    window.open(mailToLink, "_blank");
+    setShowPopup(true);
   };
 
   return (
