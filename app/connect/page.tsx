@@ -113,14 +113,15 @@ export default function Connect() {
             <p className="text-lg text-gray-300 mb-8">
               Whether you're looking to showcase your technology, recruit future leaders, or simply support cutting-edge research, our platform provides unmatched visibility and engagement.
             </p>
-            <motion.a
-              href="mailto:gradient.mel@bmsce.ac.in"
-              className="inline-block bg-purple-600 hover:bg-purple-500 text-white text-lg font-medium py-3 px-6 rounded-md transition-all duration-300 shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Become a Sponsor
-            </motion.a>
+<motion.a
+  href="mailto:gradient.mel@bmsce.ac.in"
+  className="inline-block bg-purple-600 hover:bg-purple-500 text-white text-lg font-medium py-3 px-6 rounded-2xl transition-all duration-300 shadow-lg"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Become a Sponsor
+</motion.a>
+
           </motion.div>
         </div>
       </div>
