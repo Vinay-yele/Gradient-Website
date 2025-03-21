@@ -1,27 +1,43 @@
-'use client'
+'use client';
 import Footer from '@/components/Footer';
-import Navbar from '../../components/Navbar'
-import { motion } from 'framer-motion'
-import { Mail, MapPin, Instagram, Linkedin, ExternalLink, ArrowRight } from 'lucide-react'
-import { useState } from 'react';
+import Navbar from '../../components/Navbar';
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Instagram, Linkedin, ArrowRight, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Connect() {
   const [showPopup, setShowPopup] = useState(false);
 
   const socialLinks = [
-    { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
+    { icon: Instagram, href: 'https://instagram.com/gradient.aiml', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/gradient-club', label: 'LinkedIn' },
   ];
 
+  // Close popup automatically when it's shown
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 5000); // Close after 5 seconds
+
+      return () => clearTimeout(timer); // Cleanup timeout on component unmount
+    }
+  }, [showPopup]);
+
   const handleMailTo = () => {
-    const mailToLink = "mailto:gradient.mel@bmsce.ac.in";
-    window.open(mailToLink, "_blank");
+    // Show the popup
     setShowPopup(true);
+
+    // Trigger the mailto after a short delay
+    setTimeout(() => {
+      const mailToLink = 'mailto:gradient.mel@bmsce.ac.in';
+      window.open(mailToLink, '_blank');
+    }, 500); // 500ms delay for better user experience
   };
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden pt-24">
-      {/* Background effects */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
       <div className="absolute top-40 -left-64 w-96 h-96 bg-purple-700/10 rounded-full filter blur-3xl" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-700/10 rounded-full filter blur-3xl" />
@@ -69,15 +85,16 @@ export default function Connect() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div className="flex-1 text-left">
-                    <h3 className="text-2xl font-semibold text-purple-300 mb-1 group-hover:text-purple-400 transition-colors">Email Us</h3>
-                    <p className="text-gray-300 text-xl group-hover:text-white transition-colors">gradient.mel@bmsce.ac.in</p>
+                    <h3 className="text-2xl font-semibold text-purple-300 mb-1 group-hover:text-purple-400 transition-colors">
+                      Email Us
+                    </h3>
+                    <p className="text-gray-300 text-xl group-hover:text-white transition-colors">
+                      gradient.mel@bmsce.ac.in
+                    </p>
                   </div>
                 </motion.button>
 
-                <motion.div
-                  className="flex items-start"
-                  whileHover={{ x: 5 }}
-                >
+                <motion.div className="flex items-start" whileHover={{ x: 5 }}>
                   <div className="p-3 rounded-lg bg-purple-900/40 text-purple-400 mr-5 mt-1">
                     <MapPin className="w-6 h-6" />
                   </div>
@@ -124,7 +141,9 @@ export default function Connect() {
             <div className="h-3 bg-gradient-to-r from-indigo-500 to-purple-500" />
             <div className="p-8 md:p-10 flex-1 flex flex-col">
               <h2 className="text-4xl font-bold mb-4 text-white">Partner With Us</h2>
-              <p className="text-purple-300 text-2xl mb-6">Elevate your brand through strategic partnerships</p>
+              <p className="text-purple-300 text-2xl mb-6">
+                Elevate your brand through strategic partnerships
+              </p>
 
               <div className="flex-1 text-xl">
                 <ul className="space-y-4 text-gray-300 mb-8">
@@ -168,36 +187,37 @@ export default function Connect() {
           </motion.div>
         </div>
 
-        {/* Bottom Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-2xl p-8 backdrop-blur-sm border border-purple-500/20 text-center"
-        >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Join the Gradient Community</h2>
-          <p className="text-gray-300 max-w-3xl mx-auto">
-            Whether you're a student, researcher, industry professional, or simply passionate about AI & ML,
-            we welcome you to connect with us and be part of our innovative community.
-          </p>
-        </motion.div>
+        {/* Popup */}
+        {showPopup && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-gray-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+            >
+              <h3 className="text-2xl font-bold">Opening Email</h3>
+              <p>
+                Please wait while we redirect you to your email client. If nothing happens, manually email us
+                at <span className="text-purple-400">gradient.mel@bmsce.ac.in</span>.
+              </p>
+              <button
+                className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-500 transition"
+                onClick={() => setShowPopup(false)}
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
       </div>
 
-      {/* Popup */}
-      {showPopup && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-gray-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4">
-            <h3 className="text-2xl font-bold">Unable to Open Email</h3>
-            <p>Please manually email us at <span className="text-purple-400">gradient.mel@bmsce.ac.in</span>.</p>
-            <button
-              className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-500 transition"
-              onClick={() => setShowPopup(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <Footer />
     </main>
   );
 }
