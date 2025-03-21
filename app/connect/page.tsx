@@ -144,7 +144,7 @@ export default function Connect() {
                     <span>Showcase your technology</span>
                   </li>
                 </ul>
-              </div>
+              </div> 
 
               <motion.a
                 href="mailto:gradient.mel@bmsce.ac.in?subject=Sponsorship%20Inquiry%20-%20We%20Want%20to%20Partner%20with%20Gradient&body=Hello%20Gradient%20Team%2C%0A%0AWe%20are%20interested%20in%20exploring%20sponsorship%20opportunities%20with%20your%20organization.%0A%0APlease%20share%20more%20details%20about%20partnership%20options%20and%20how%20we%20can%20collaborate.%0A%0AThank%20you%2C"
