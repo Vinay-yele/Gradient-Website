@@ -1,7 +1,7 @@
 'use client';
 import Footer from '@/components/Footer';
 import Navbar from '../../components/Navbar';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, MapPin, Instagram, Linkedin, ArrowRight, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -25,14 +25,14 @@ export default function Connect() {
   }, [showPopup]);
 
   const handleMailTo = () => {
-    // Show the popup
+    // Show the popup first
     setShowPopup(true);
-
-    // Trigger the mailto after a short delay
+    
+    // Only attempt the mailto after a delay
     setTimeout(() => {
       const mailToLink = 'mailto:gradient.mel@bmsce.ac.in';
       window.open(mailToLink, '_blank');
-    }, 500); // 500ms delay for better user experience
+    }, 3000); // 3 second delay after popup shows
   };
 
   return (
@@ -187,34 +187,36 @@ export default function Connect() {
           </motion.div>
         </div>
 
-        {/* Popup */}
-        {showPopup && (
-          <motion.div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+        {/* Updated Popup */}
+        <AnimatePresence>
+          {showPopup && (
             <motion.div
-              className="bg-gray-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              <h3 className="text-2xl font-bold">Opening Email</h3>
-              <p>
-                Please wait while we redirect you to your email client. If nothing happens, manually email us
-                at <span className="text-purple-400">gradient.mel@bmsce.ac.in</span>.
-              </p>
-              <button
-                className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-500 transition"
-                onClick={() => setShowPopup(false)}
+              <motion.div
+                className="bg-gray-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
               >
-                Close
-              </button>
+                <h3 className="text-2xl font-bold">Not Working</h3>
+                <p>
+                  Unable to open your email client automatically. Please manually email us at{' '}
+                  <span className="text-purple-400">gradient.mel@bmsce.ac.in</span>
+                </p>
+                <button
+                  className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-500 transition"
+                  onClick={() => setShowPopup(false)}
+                >
+                  Close
+                </button>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          )}
+        </AnimatePresence>
       </div>
 
       <Footer />
