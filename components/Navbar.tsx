@@ -7,11 +7,11 @@ import Image from 'next/image'
 
 const navItems = [
   { name: 'Gradient Week', href: '/events' },
-  { name: 'Meet the Team', href: '/team' },
+  { name: 'Core Team', href: '/team' },
   { name: 'Event Gallery', href: '/gallery' },
   { name: 'About', href: '/about' },
-  { name: 'Department of ML', href: '/department-work' },
-  { name: 'Connect with us', href: '/connect' }
+  { name: 'Dept. of ML', href: '/department-work' },
+  { name: 'Connect', href: '/connect' }
 ]
 
 export default function Navbar() {
