@@ -11,11 +11,7 @@ export const eventCategories = [
                         participants: 92,
                         description: "The hackathon, a 24-hour marathon of innovation, was aimed to foster creativity and problem-solving within four primary domains: Transportation, Healthcare, Education, and Agriculture. Participants were tasked with developing innovative solutions to pressing challenges in these areas. ₹15,000 prize pool.",
                         status: "completed",
-                        poster: "/posters/impact1.png",
-                        images: [
-                            "/gallery/gw/2024/",
-                            "/gallery/gw/2024/"
-                        ]
+                        poster: "/posters/impact1.png"
                     },
                     {
                         title: "RAG Chatbots Demystified Workshop",
