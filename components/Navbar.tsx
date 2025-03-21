@@ -8,10 +8,10 @@ import Image from 'next/image'
 const navItems = [
   { name: 'Gradient Week', href: '/events' },
   { name: 'Core Team', href: '/team' },
-  { name: 'Event Gallery', href: '/gallery' },
-  { name: 'About', href: '/about' },
-  { name: 'Dept. of ML', href: '/department-work' },
-  { name: 'Let\'s Connect', href: '/connect' }
+  { name: 'Event Gallery', href: '/gallery' },  
+  { name: 'Dept. of ML', href: '/department-work' },  
+  { name: 'Let\'s Connect', href: '/connect' },
+  { name: 'About', href: '/about' }
 ]
 
 export default function Navbar() {
