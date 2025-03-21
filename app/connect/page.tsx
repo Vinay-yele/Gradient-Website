@@ -3,12 +3,24 @@ import Footer from '@/components/Footer';
 import Navbar from '../../components/Navbar'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Instagram, Linkedin, ExternalLink, ArrowRight } from 'lucide-react'
+import { useState } from 'react';
 
 export default function Connect() {
+  const [showPopup, setShowPopup] = useState(false);
+
   const socialLinks = [
     { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
   ];
+
+  const handleMailTo = () => {
+    const mailToLink = "mailto:gradient.mel@bmsce.ac.in";
+    const mailWindow = window.open(mailToLink, "_blank");
+
+    if (!mailWindow || mailWindow.closed || typeof mailWindow.closed === "undefined") {
+      setShowPopup(true);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden pt-24">
@@ -20,7 +32,7 @@ export default function Connect() {
       <Navbar />
 
       <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Header Section with animated underline */}
+        {/* Header Section */}
         <motion.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -51,19 +63,19 @@ export default function Connect() {
               <h2 className="text-4xl font-bold mb-8 text-white">Get in Touch</h2>
 
               <div className="space-y-8">
-                <motion.a
-                  href="mailto:gradient.mel@bmsce.ac.in"
+                <motion.button
+                  onClick={handleMailTo}
                   className="flex items-start group"
                   whileHover={{ x: 5 }}
                 >
                   <div className="p-3 rounded-lg bg-purple-900/40 text-purple-400 mr-5 mt-1">
                     <Mail className="w-6 h-6" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 text-left">
                     <h3 className="text-2xl font-semibold text-purple-300 mb-1 group-hover:text-purple-400 transition-colors">Email Us</h3>
                     <p className="text-gray-300 text-xl group-hover:text-white transition-colors">gradient.mel@bmsce.ac.in</p>
                   </div>
-                </motion.a>
+                </motion.button>
 
                 <motion.div
                   className="flex items-start"
@@ -144,7 +156,7 @@ export default function Connect() {
                     <span>Showcase your technology</span>
                   </li>
                 </ul>
-              </div> 
+              </div>
 
               <motion.a
                 href="mailto:gradient.mel@bmsce.ac.in?subject=Sponsorship%20Inquiry%20-%20We%20Want%20to%20Partner%20with%20Gradient&body=Hello%20Gradient%20Team%2C%0A%0AWe%20are%20interested%20in%20exploring%20sponsorship%20opportunities%20with%20your%20organization.%0A%0APlease%20share%20more%20details%20about%20partnership%20options%20and%20how%20we%20can%20collaborate.%0A%0AThank%20you%2C"
@@ -173,6 +185,22 @@ export default function Connect() {
           </p>
         </motion.div>
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-gray-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4">
+            <h3 className="text-2xl font-bold">Unable to Open Email</h3>
+            <p>Please manually email us at <span className="text-purple-400">gradient.mel@bmsce.ac.in</span>.</p>
+            <button
+              className="bg-purple-600 px-4 py-2 rounded-lg hover:bg-purple-500 transition"
+              onClick={() => setShowPopup(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
