@@ -25,3 +25,5 @@
 - changed the format of the connect page for better approachability
 - added an achievements section in the about page
 - compressed all the images on the site to improve performance
+- in the connect page addded a sponsorship cta, fallbacks in case it didnt work and a map for a better experience
+- fixed some gradients and format issues
