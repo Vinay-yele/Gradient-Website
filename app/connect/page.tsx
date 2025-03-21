@@ -115,7 +115,7 @@ export default function Connect() {
             </p>
             <motion.a
               href="mailto:gradient.mel@bmsce.ac.in"
-              className="inline-block bg-purple-600 hover:bg-purple-500 text-white text-lg font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg"
+              className="inline-block bg-purple-600 hover:bg-purple-500 text-white text-lg font-medium py-3 px-6 rounded-md transition-all duration-300 shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
