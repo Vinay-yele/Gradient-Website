@@ -34,7 +34,7 @@ const Footer = () => {
               Gradient
             </h3>
             <p className="text-gray-300 mb-6">
-              Intelligence Redifined
+              Intelligence Redefined
             </p>
           </motion.div>
 
