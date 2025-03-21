@@ -35,10 +35,10 @@ export default function Events() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.7 }}
         >
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-500 transition">
+          <a href="https://instagram.com/gradient.aiml" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-500 transition">
             <Instagram size={40} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-500 transition">
+          <a href="https://linkedin.com/gradient-club" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-500 transition">
             <Linkedin size={40} />
           </a>
         </motion.div>
