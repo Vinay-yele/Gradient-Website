@@ -18,7 +18,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  // Add scroll effect
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20
@@ -39,15 +38,14 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-300 bg-gray-900/80 ${
         scrolled 
-          ? 'bg-black/80 backdrop-blur-md shadow-lg shadow-purple-900/20' 
-          : 'bg-transparent backdrop-blur-sm'
+          ? 'backdrop-blur-md shadow-lg shadow-purple-900/20' 
+          : 'backdrop-blur-sm'
       } border-b ${scrolled ? 'border-purple-900/30' : 'border-white/10'}`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center py-3">
-          {/* Logo */}
           <Link 
             href="/" 
             className="flex items-center space-x-3 flex-shrink-0 group transition-all duration-300"
@@ -78,10 +76,8 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Spacer div to push navigation to the right */}
           <div className="flex-grow"></div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center justify-center">
             <ul className="flex items-center">
               {navItems.map((item, index) => (
@@ -106,7 +102,6 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Mobile Menu Toggle with improved button */}
           <div className="xl:hidden flex items-center ml-auto">
             <motion.button
               whileTap={{ scale: 0.95 }}
@@ -148,45 +143,6 @@ export default function Navbar() {
             </motion.button>
           </div>
         </div>
-
-        {/* Mobile Menu with improved styling */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="xl:hidden overflow-hidden"
-            >
-              <nav className="py-4">
-                <ul className="flex flex-col space-y-4 bg-black/40 backdrop-blur-md rounded-lg p-4 border border-purple-900/30">
-                  {navItems.map((item, index) => (
-                    <motion.li
-                      key={item.name}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.2, delay: index * 0.05 }}
-                      className="text-center"
-                    >
-                      <Link
-                        href={item.href}
-                        className="text-white text-lg hover:text-purple-400 transition-all duration-300 font-medium block py-2 px-4 rounded-md hover:bg-purple-900/20"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                      {index < navItems.length - 1 && (
-                        <div className="h-px w-3/4 mx-auto mt-4 bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
-                      )}
-                    </motion.li>
-                  ))}
-                </ul>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </header>
   )
