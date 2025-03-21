@@ -13,26 +13,57 @@ export default function Connect() {
     { icon: Linkedin, href: 'https://linkedin.com/company/gradient-club', label: 'LinkedIn' },
   ];
 
-  // Close popup automatically when it's shown
+  // Close popup automatically after 5 seconds when it's shown
   useEffect(() => {
     if (showPopup) {
       const timer = setTimeout(() => {
         setShowPopup(false);
-      }, 5000); // Close after 5 seconds
+      }, 5000);
 
       return () => clearTimeout(timer); // Cleanup timeout on component unmount
     }
   }, [showPopup]);
 
+  // Shared function to handle email actions
+  const handleEmailAction = (emailUrl) => {
+    try {
+      const newWindow = window.open(emailUrl, '_blank');
+
+      // Check if window was successfully opened
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // Show popup if opening the window failed
+        setShowPopup(true);
+        return;
+      }
+
+      // Try to detect about:blank pages
+      // Use setTimeout to give the window time to navigate
+      setTimeout(() => {
+        try {
+          // This will throw an error if cross-origin
+          // But if it's about:blank, we can check the URL
+          if (newWindow.location.href === 'about:blank') {
+            setShowPopup(true);
+            newWindow.close(); // Close the blank page as it's not useful
+          }
+        } catch (error) {
+          // If we can't access the location due to cross-origin,
+          // it means a valid page was probably loaded (not about:blank)
+          // No need to show the popup
+        }
+      }, 500);
+    } catch (error) {
+      // Show popup if there was an error
+      setShowPopup(true);
+    }
+  };
+
   const handleMailTo = () => {
-    // Show the popup first
-    setShowPopup(true);
-    
-    // Only attempt the mailto after a delay
-    setTimeout(() => {
-      const mailToLink = 'mailto:gradient.mel@bmsce.ac.in';
-      window.open(mailToLink, '_blank');
-    }, 3000); // 3 second delay after popup shows
+    handleEmailAction('mailto:gradient.mel@bmsce.ac.in');
+  };
+
+  const handleSponsorshipMailTo = () => {
+    handleEmailAction('mailto:gradient.mel@bmsce.ac.in?subject=Sponsorship%20Inquiry%20-%20We%20Want%20to%20Partner%20with%20Gradient&body=Hello%20Gradient%20Team%2C%0A%0AWe%20are%20interested%20in%20exploring%20sponsorship%20opportunities%20with%20your%20organization.%0A%0APlease%20share%20more%20details%20about%20partnership%20options%20and%20how%20we%20can%20collaborate.%0A%0AThank%20you%2C');
   };
 
   return (
@@ -63,13 +94,14 @@ export default function Connect() {
           />
         </motion.div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
+        {/* Changed from grid to flex with flex-col to stack vertically */}
+        <div className="max-w-4xl mx-auto flex flex-col gap-8 mb-16">
           {/* Contact Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl overflow-hidden shadow-xl backdrop-blur-sm border border-purple-500/20 h-full"
+            className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl overflow-hidden shadow-xl backdrop-blur-sm border border-purple-500/20"
           >
             <div className="h-3 bg-gradient-to-r from-purple-500 to-indigo-500" />
             <div className="p-8 md:p-10">
@@ -100,12 +132,35 @@ export default function Connect() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-semibold text-purple-300 mb-1">Visit Us</h3>
-                    <p className="text-gray-300 text-xl">
+                    <p className="text-gray-300 text-xl mb-4">
                       Department of Machine Learning<br />
                       7th Floor, PJA Block<br />
                       B.M.S. College of Engineering<br />
                       Bengaluru - 560 019
                     </p>
+
+                    {/* Google Maps Embed */}
+                    <div className="mt-4 w-full h-64 rounded-xl overflow-hidden border border-purple-500/20">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4980576658236!2d77.5632131!3d12.9410422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b11e34d2f%3A0x5f4adbdbab8bd80f!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1616537773339!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        title="BMS College of Engineering Location"
+                        className="rounded-xl"
+                      />
+                    </div>                    
+                    <a
+                      href="https://maps.app.goo.gl/LWvaG3K55votuPv39"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center mt-3 text-purple-400 hover:text-purple-300 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-1" />
+                      <span>View on Google Maps</span>
+                    </a>
                   </div>
                 </motion.div>
               </div>
@@ -133,10 +188,10 @@ export default function Connect() {
 
           {/* Sponsorship Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl overflow-hidden shadow-xl backdrop-blur-sm border border-purple-500/20 flex flex-col h-full"
+            className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl overflow-hidden shadow-xl backdrop-blur-sm border border-purple-500/20 flex flex-col"
           >
             <div className="h-3 bg-gradient-to-r from-indigo-500 to-purple-500" />
             <div className="p-8 md:p-10 flex-1 flex flex-col">
@@ -174,20 +229,20 @@ export default function Connect() {
                 </ul>
               </div>
 
-              <motion.a
-                href="mailto:gradient.mel@bmsce.ac.in?subject=Sponsorship%20Inquiry%20-%20We%20Want%20to%20Partner%20with%20Gradient&body=Hello%20Gradient%20Team%2C%0A%0AWe%20are%20interested%20in%20exploring%20sponsorship%20opportunities%20with%20your%20organization.%0A%0APlease%20share%20more%20details%20about%20partnership%20options%20and%20how%20we%20can%20collaborate.%0A%0AThank%20you%2C"
+              <motion.button
+                onClick={handleSponsorshipMailTo}
                 className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl flex items-center justify-center group transition-all duration-300 shadow-lg shadow-purple-900/20"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="font-medium text-lg">Become a Sponsor</span>
                 <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         </div>
 
-        {/* Updated Popup */}
+        {/* Updated Popup - only shows when email action fails */}
         <AnimatePresence>
           {showPopup && (
             <motion.div
@@ -219,7 +274,6 @@ export default function Connect() {
         </AnimatePresence>
       </div>
 
-      <Footer />
     </main>
   );
 }
