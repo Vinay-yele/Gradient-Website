@@ -86,7 +86,7 @@ export default function DepartmentWork() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">
               Department of AI & ML
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-white-400 max-w-3xl mx-auto">
               Pioneering research and innovation in Artificial Intelligence and Machine Learning, 
               preparing students for the future of technology.
             </p>
@@ -106,7 +106,7 @@ export default function DepartmentWork() {
               >
                 <stat.icon className="w-8 h-8 mx-auto mb-4 text-purple-400" />
                 <h3 className="text-3xl font-bold text-purple-400 mb-2">{stat.value}</h3>
-                <p className="text-gray-400">{stat.label}</p>
+                <p className="text-white-400">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -129,10 +129,10 @@ export default function DepartmentWork() {
                 >
                   <area.icon className="w-8 h-8 text-purple-400 mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-purple-400">{area.title}</h3>
-                  <p className="text-gray-400 mb-4">{area.description}</p>
+                  <p className="text-white-400 mb-4">{area.description}</p>
                   <ul className="space-y-2">
                     {area.projects.map((project) => (
-                      <li key={project} className="text-gray-500 text-sm flex items-center">
+                      <li key={project} className="text-white-500 text-sm flex items-center">
                         <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
                         {project}
                       </li>
@@ -155,7 +155,7 @@ export default function DepartmentWork() {
                 B.S. Narayan Center of Excellence
                 <span className="block text-xl text-purple-400 mt-2">in AI&ML</span>
               </h2>
-              <p className="text-gray-400 max-w-3xl mx-auto">
+              <p className="text-white-400 max-w-3xl mx-auto">
                 A state-of-the-art facility fostering dynamic industry-academic synergy for AI adoption, 
                 powered by cutting-edge infrastructure and expertise.
               </p>
@@ -171,7 +171,7 @@ export default function DepartmentWork() {
                       <item.icon className="w-6 h-6 text-purple-400 mr-4 mt-1" />
                       <div>
                         <h4 className="font-semibold mb-1">{item.title}</h4>
-                        <p className="text-gray-400 text-sm">{item.description}</p>
+                        <p className="text-white-400 text-sm">{item.description}</p>
                       </div>
                     </div>
                   ))}
@@ -185,7 +185,7 @@ export default function DepartmentWork() {
                   {centerOfExcellence.services.map((service, index) => (
                     <li key={index} className="flex items-start">
                       <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 mt-2" />
-                      <span className="text-gray-300">{service}</span>
+                      <span className="text-white-300">{service}</span>
                     </li>
                   ))}
                 </ul>
@@ -206,7 +206,7 @@ export default function DepartmentWork() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <p className="text-lg text-gray-300">
+                  <p className="text-lg text-white-300">
                     Experience the future of AI research and development at our cutting-edge facility
                   </p>
                 </div>
@@ -239,7 +239,7 @@ export default function DepartmentWork() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
                     <h3 className="text-xl font-semibold mb-2 text-purple-400">{facility.name}</h3>
-                    <p className="text-gray-300 text-sm">{facility.description}</p>
+                    <p className="text-white-300 text-sm">{facility.description}</p>
                   </div>
                 </motion.div>
               ))}

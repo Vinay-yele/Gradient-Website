@@ -259,8 +259,6 @@ Our mission is to create a platform where passion for technology thrives, and gr
 
         </div>
       </div>
-
-      <Footer />
     </main>
   )
 }

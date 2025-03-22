@@ -96,6 +96,62 @@ export default function Connect() {
 
         {/* Changed from grid to flex with flex-col to stack vertically */}
         <div className="max-w-4xl mx-auto flex flex-col gap-8 mb-16">
+
+          {/* Sponsorship Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl overflow-hidden shadow-xl backdrop-blur-sm border border-purple-500/20 flex flex-col"
+          >
+            <div className="h-3 bg-gradient-to-r from-indigo-500 to-purple-500" />
+            <div className="p-8 md:p-10 flex-1 flex flex-col">
+              <h2 className="text-4xl font-bold mb-4 text-white">Partner With Us</h2>
+              <p className="text-purple-300 text-2xl mb-6">
+                Elevate your brand through strategic partnerships
+              </p>
+
+              <div className="flex-1 text-xl">
+                <ul className="space-y-4 text-gray-300 mb-8">
+                  <li className="flex items-start">
+                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                    <span>Access to top AI & ML talent</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                    <span>Mentorship opportunities</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                    <span>Event sponsorships and visibility</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                    <span>Showcase your technology</span>
+                  </li>
+                </ul>
+              </div>
+
+              <motion.button
+                onClick={handleSponsorshipMailTo}
+                className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl flex items-center justify-center group transition-all duration-300 shadow-lg shadow-purple-900/20"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="font-medium text-lg">Become a Sponsor</span>
+                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </div>
+          </motion.div>
+
           {/* Contact Card */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -183,61 +239,6 @@ export default function Connect() {
                   ))}
                 </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Sponsorship Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-gradient-to-br from-gray-800/70 to-gray-900/70 rounded-2xl overflow-hidden shadow-xl backdrop-blur-sm border border-purple-500/20 flex flex-col"
-          >
-            <div className="h-3 bg-gradient-to-r from-indigo-500 to-purple-500" />
-            <div className="p-8 md:p-10 flex-1 flex flex-col">
-              <h2 className="text-4xl font-bold mb-4 text-white">Partner With Us</h2>
-              <p className="text-purple-300 text-2xl mb-6">
-                Elevate your brand through strategic partnerships
-              </p>
-
-              <div className="flex-1 text-xl">
-                <ul className="space-y-4 text-gray-300 mb-8">
-                  <li className="flex items-start">
-                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                    <span>Access to top AI & ML talent</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                    <span>Mentorship opportunities</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                    <span>Event sponsorships and visibility</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                    <span>Showcase your technology</span>
-                  </li>
-                </ul>
-              </div>
-
-              <motion.button
-                onClick={handleSponsorshipMailTo}
-                className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl flex items-center justify-center group transition-all duration-300 shadow-lg shadow-purple-900/20"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="font-medium text-lg">Become a Sponsor</span>
-                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
             </div>
           </motion.div>
         </div>
