@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, Calendar, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 import TypingAnimation from '@/components/ui/typing-animation'
@@ -18,7 +18,53 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-gradient-to-b text-white overflow-hidden">
+
       <Navbar />
+
+      {/* Gradient Week Banner - positioned before navbar but with margin for proper spacing */}
+      <motion.div
+        className="relative w-full bg-gradient-to-r from-purple-800 via-purple-600 to-purple-800 py-4 
+    mt-[90px] lg:mt-[100px] text-center -mb-[90px]"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="w-full lg:w-auto flex items-center justify-center lg:justify-start">
+              <div className="flex items-center space-x-3 sm:space-x-6">
+                <Sparkles size={28} className="text-yellow-300 animate-pulse lg:block" />
+
+                <div className="text-center lg:text-left">
+                  <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start space-y-1 lg:space-y-0 lg:space-x-3">
+                    <h2 className="font-bold text-2xl md:text-3xl text-white">
+                      <span className="text-yellow-300">GRADIENT WEEK</span>
+                    </h2>
+                    <p className="text-xl md:text-3xl text-white">
+                      COMING SOON!
+                    </p>
+                  </div>
+                </div>
+
+                <Sparkles size={24} className="text-yellow-300 animate-pulse lg:block" />
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end w-full lg:w-auto space-y-3 sm:space-y-0 sm:space-x-4 mt-3 lg:mt-0">
+              <p className="text-purple-100 text-center lg:text-right font-medium text-xl">
+                Workshops • Hackathons • Tech Talks • Networking
+              </p>
+              <Link
+                href="/events"
+                className="inline-flex items-center space-x-2 px-6 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-lg transition-all duration-300 transform hover:scale-105 text-purple-900 font-bold text-xl shadow-lg"
+              >
+                <span>EXPLORE</span>
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent pointer-events-none" />

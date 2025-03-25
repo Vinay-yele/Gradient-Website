@@ -27,3 +27,6 @@
 - compressed all the images on the site to improve performance
 - in the connect page addded a sponsorship cta, fallbacks in case it didnt work and a map for a better experience
 - fixed some gradients and format issues
+
+## 25/3/25 (pranav)
+- added a coming soon banner on the homepage for gradient week
