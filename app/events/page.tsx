@@ -52,7 +52,7 @@ export default function Events() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            Coming Soon
+            7th - 9th APRIL
             <motion.span
               className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-36 h-36 bg-purple-400/25 rounded-full blur-3xl"
               animate={{
