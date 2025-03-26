@@ -75,7 +75,8 @@ export default function About() {
             <p className="text-gray-300 text-lg leading-relaxed text-center">
               <span style={{ whiteSpace: 'pre-line' }}>
                 {`Gradient is a vibrant student community that embraces the dynamic field of AI and ML.
-We focus on fostering innovation, collaboration, and knowledge-sharing among aspiring technologists.
+
+We focus on fostering innovation, collaboration and knowledge sharing among aspiring machine learning enthusiasts.
 
 Our mission is to create a platform where passion for technology thrives, and groundbreaking ideas flourish.`}
               </span>
@@ -231,32 +232,48 @@ Our mission is to create a platform where passion for technology thrives, and gr
           </motion.section>
 
           {/* What We Do Section */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {activities.map((activity, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative group"
-              >
-                <div className="flex flex-col h-full p-6 rounded-xl bg-gradient-to-r from-purple-800/40 to-purple-900/40 shadow-md border border-purple-500/20 group-hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-center gap-4">
-                    {/* Icon */}
-                    <activity.icon
-                      className="text-purple-400 group-hover:text-purple-300 transition-colors"
-                      size={40}
-                    />
-                    {/* Title */}
-                    <h3 className="text-lg font-bold text-purple-200">{activity.title}</h3>
-                  </div>
-                  {/* Description */}
-                  <p className="text-m text-white-700 mt-4 flex-grow">{activity.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="relative"
+          >
+            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
+              <div className="flex items-center justify-center mb-6">
+                <div className="h-px w-12 bg-purple-500/30" />
+                <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
+                  What We Do
+                </h2>
+                <div className="h-px w-12 bg-purple-500/30" />
+              </div>
 
+              <div className="grid md:grid-cols-2 gap-6">
+                {activities.map((activity, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    className="relative group"
+                  >
+                    <div className="flex flex-col h-full p-6 rounded-xl bg-gradient-to-r from-purple-800/40 to-purple-900/40 shadow-md border border-purple-500/20 group-hover:shadow-lg transition-all duration-300">
+                      <div className="flex items-center gap-4">
+                        {/* Icon */}
+                        <activity.icon
+                          className="text-purple-400 group-hover:text-purple-300 transition-colors"
+                          size={40}
+                        />
+                        {/* Title */}
+                        <h3 className="text-lg font-bold text-purple-200">{activity.title}</h3>
+                      </div>
+                      {/* Description */}
+                      <p className="text-m text-white-700 mt-4 flex-grow">{activity.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
         </div>
       </div>
     </main>
