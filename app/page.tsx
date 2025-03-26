@@ -41,7 +41,7 @@ export default function Home() {
                       <span className="text-yellow-300">GRADIENT WEEK</span>
                     </h2>
                     <p className="text-xl md:text-3xl text-white">
-                      7th - 9th APRIL!!
+                      7th - 9th APRIL!
                     </p>
                   </div>
                 </div>
