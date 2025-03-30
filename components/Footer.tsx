@@ -124,14 +124,25 @@ const Footer = () => {
               className="text-purple-400 hover:underline"
             >
               Vinay Yele
-            </Link> (Design Head) and {" "}
+            </Link> (Design Head) and{" "}
             <Link 
               href="https://beyondmebtw.com" 
               target="_blank" 
               className="text-purple-400 hover:underline"
             >
               Pranav Veeraghanta
-            </Link> (Tech Head) at Gradient. 
+            </Link> (Tech Head) at Gradient.
+          </p>
+          {/* Source Code Link */}
+          <p className="mt-2">
+            Check out the source code on{" "}
+            <Link 
+              href="https://github.com/Vinay-yele/Gradient-Website" 
+              target="_blank" 
+              className="text-purple-400 hover:underline"
+            >
+              GitHub
+            </Link>.
           </p>
         </motion.div>
       </div>

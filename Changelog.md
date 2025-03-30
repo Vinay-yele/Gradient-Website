@@ -28,5 +28,9 @@
 - in the connect page addded a sponsorship cta, fallbacks in case it didnt work and a map for a better experience
 - fixed some gradients and format issues
 
-## 25/3/25 (pranav)
+## 25/3/25 (Pranav)
 - added a coming soon banner on the homepage for gradient week
+
+## 30/3/25 (Pranav)
+- added source code link in footer
+- some text changes on home page
