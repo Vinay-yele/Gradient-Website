@@ -34,3 +34,4 @@
 ## 30/3/25 (Pranav)
 - added source code link in footer
 - some text changes on home page
+- added gradient week events, changed the design of that
