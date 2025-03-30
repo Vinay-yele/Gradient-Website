@@ -104,7 +104,7 @@ export default function Home() {
                 href="/about"
                 className="group flex items-center justify-center md:justify-start space-x-3 px-8 py-4 bg-purple-600 rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 text-lg font-medium"
               >
-                <span>Discover Our Club</span>
+                <span>Explore Our Club</span>
                 <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </motion.div>
