@@ -13,7 +13,7 @@ import {
   Mail,
   Users,
 } from 'lucide-react';
-import { flagshipEvents, culturalEvent, collaborationEvents } from './events-data';
+import { flagshipEvents, culturalEvent, collaborationEvents,teams } from './events-data';
 
 type EventId = string | number;
 
@@ -93,16 +93,31 @@ export default function Events() {
           {flagshipEvents.map((event) => (
             <EventCard key={event.id} event={event} onOpenPopup={openPopup} />
           ))}
-        </div>
+        </div>      
 
         <div className="my-16">
-          <div className="bg-gradient-to-r from-purple-900/80 to-black/80 backdrop-blur-md rounded-xl p-8 border border-purple-700/50 text-center max-w-3xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">{culturalEvent.title}</h3>
-            <p className="text-xl">
-              Join us on <strong>{culturalEvent.date} at {culturalEvent.time} at {culturalEvent.venue}</strong> to conclude this amazing week with performances, music, and celebration!
+          <div className="bg-gradient-to-r from-purple-900 to-black backdrop-blur-md rounded-xl p-8 border border-purple-700 text-center max-w-3xl mx-auto shadow-lg">
+            <h3 className="text-3xl font-bold mb-6 text-white">{culturalEvent.title}</h3>
+            <p className="text-xl mb-6 text-white">
+              Join us on <span className="font-bold">{culturalEvent.date} at {culturalEvent.time}</span> at <span className="font-bold">{culturalEvent.venue}</span> to conclude this amazing week with performances, music and celebration!
             </p>
+            <p className="text-lg mb-8 text-white">
+              Featuring Performances From:
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-8 mb-6">
+              {teams.map((team) => (
+                <div key={team.name} className="flex flex-col items-center">
+                  <div className="w-24 h-24 mb-3 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src={team.logo} alt={`${team.name} Logo`} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <span className="text-base font-medium text-white">{team.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+
 
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collaboration Events</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

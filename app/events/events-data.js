@@ -68,7 +68,7 @@ export const flagshipEvents = [
     title: "Cultural Evening",
     date: "April 9th",
     time: "2:30 pm",
-    venue: "Auditorium 1, Ground floor, Platinum Jubilee Block BMSCE"
+    venue: "Auditorium 1, Ground floor, Platinum Jubilee Block, BMSCE"
   };
   
   export const collaborationEvents = [
@@ -141,3 +141,12 @@ export const flagshipEvents = [
       registrationLink: "#"
     }
   ];
+
+  export const teams = [    
+    {name: "Ninaad", logo: "./posters/gw/ninaad.png" },
+    {name: "Danz Addix", logo: "./posters/gw/danza.png" },
+    {name: "Pravrutthi", logo: "./posters/gw/prav.png" },    
+    {name: "Groovehouse", logo: "./posters/gw/groove.jpg" },
+    {name: "Paramvah", logo: "./posters/gw/paramvah.jpg" }
+    
+  ]
