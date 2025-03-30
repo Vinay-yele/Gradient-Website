@@ -9,7 +9,7 @@ Visit our website: [GradientAIML.tech](https://GradientAIML.tech)
   - **Pranav Veeraghanta**, Tech Head  
   - **Vinay Yele**, Design Head  
 
-## How to Use
+(Changelog)[changelog.md]
 
 Feel free to explore, use, or contribute to the code in this repository. Contributions are welcome!
 
