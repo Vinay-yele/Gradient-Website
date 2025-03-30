@@ -6,10 +6,10 @@ Visit our website: [GradientAIML.tech](https://GradientAIML.tech)
 
 ## About
 - **Designed and managed by:**
-  - [**Pranav Veeraghanta**](https://beyondmetw.com), Tech Head  
+  - [**Pranav Veeraghanta**](https://beyondmebtw.com), Tech Head  
   - [**Vinay Yele**](https://vinayyele.live), Design Head  
 
-[Changelog](https://github.com/Vinay-yele/Gradient-Website/blob/main/Changelog.md)
+Check out the Changelog : [Changelog](https://github.com/Vinay-yele/Gradient-Website/blob/main/Changelog.md)
 
 Feel free to explore, use, or contribute to the code in this repository. Contributions are welcome!
 
