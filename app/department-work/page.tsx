@@ -55,7 +55,7 @@ const researchAreas = [
 
 const facilities = [
   {
-    name: 'Classroom',
+    name: 'Classrooms',
     description: 'State-of-the-art clasrooms with advanced technology to enhance the student learning experience.',
     image: '/coe.jpeg'
   },
