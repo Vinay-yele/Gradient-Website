@@ -183,7 +183,7 @@ export default function Events() {
               )}
               {popupEvent.fee && (
                 <div className="flex items-center gap-2 text-purple-300">
-                  {popupEvent.fee.includes('₹') ? <IndianRupee size={16} /> : null}
+                  {<IndianRupee size={16} />}
                   <span>{popupEvent.fee}</span>
                 </div>
               )}
@@ -196,19 +196,19 @@ export default function Events() {
                   {popupEvent.prizes.first && (
                     <div className="bg-yellow-500/20 p-3 rounded-lg border border-yellow-500/50">
                       <p className="font-bold text-yellow-300 text-center">First Place</p>
-                      <p className="text-center">{popupEvent.prizes.first}</p>
+                      <p className="text-center">{'₹'+popupEvent.prizes.first}</p>
                     </div>
                   )}
                   {popupEvent.prizes.second && (
                     <div className="bg-gray-300/20 p-3 rounded-lg border border-gray-300/50">
                       <p className="font-bold text-gray-300 text-center">Second Place</p>
-                      <p className="text-center">{popupEvent.prizes.second}</p>
+                      <p className="text-center">{'₹'+popupEvent.prizes.second}</p>
                     </div>
                   )}
                   {popupEvent.prizes.third && (
                     <div className="bg-amber-700/20 p-3 rounded-lg border border-amber-700/50">
                       <p className="font-bold text-amber-600 text-center">Third Place</p>
-                      <p className="text-center">{popupEvent.prizes.third}</p>
+                      <p className="text-center">{'₹'+popupEvent.prizes.third}</p>
                     </div>
                   )}
                 </div>
