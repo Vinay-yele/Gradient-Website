@@ -1,8 +1,28 @@
 'use client'
 import Footer from '@/components/Footer'
 import Navbar from '../../components/Navbar'
+import React from 'react';
 import { motion } from 'framer-motion'
-import { Trophy, Users, Building2, Microscope, GraduationCap, Brain, Network, LineChart, Server, Code, Database, Cpu, AtSign, BookOpen, Award } from 'lucide-react'
+import {
+  Trophy,
+  Users,
+  Building2,
+  Microscope,
+  GraduationCap,
+  Microchip,
+  Server,
+  Cpu,
+  Database,
+  HardDrive,
+  Monitor,
+  Network,
+  LineChart,
+  Code,
+  AtSign,
+  BookOpen,
+  Award,
+  Brain
+} from 'lucide-react';
 import Image from 'next/image'
 
 const stats = [
@@ -53,14 +73,41 @@ const facilities = [
 
 const centerOfExcellence = {
   infrastructure: [
-    { icon: Server, title: 'Nvidia DGX A100 Server', description: 'State-of-the-art supercomputing server with 320GB GPU memory, 2 AMD 128-core CPUs, 1TB RAM, and NVSwitch with 600 GB/s GPU-GPU Bandwidth for large-scale AI computation.' },
-    { icon: Cpu, title: 'HP ELITE 800 G9', description: 'Windows 11 Pro, Intel Core i7-12700, 32GB memory for high-performance computing tasks.' },
-    { icon: Cpu, title: 'HP ELITE 600 G9', description: 'Intel Core i7-10700 CPU @ 2.90 GHz, 16GB RAM for AI model development and testing.' },
-    { icon: Cpu, title: 'HP PRODESK 400 G7', description: 'Intel Core i7-10700 CPU @ 2.90 GHz, 16GB RAM supporting research projects and AI simulations.' },
-    { icon: Cpu, title: 'HP ELITE TOWER 600 G9', description: 'Intel Core i7-10700 CPU @ 2.90 GHz, 16GB RAM optimized for AI research workloads.' },
-    { icon: Cpu, title: 'LENOVO P520 Workstation', description: 'Intel Xeon W-2295 CPU 18 Core, 128GB RAM, Lenovo Curved 1500R Monitor 27" FHD, Nvidia Graphics Card RTX A5000 for intensive AI and ML applications.' },
-    { icon: Database, title: 'Sense Interactive Intelligent Panel 86"', description: 'Intel i5 Processor, 8500 CPU @ 3.00GHz, 8GB DDR4 RAM for interactive AI and ML learning sessions.' },
-  ],
+    {
+      icon: Server,
+      title: 'Nvidia DGX A100 Server',
+      description: 'State-of-the-art supercomputing server with 320GB GPU memory, 2 AMD 128-core CPUs, 1TB RAM, and NVSwitch with 600 GB/s GPU-GPU Bandwidth for large-scale AI computation.'
+    },
+    {
+      icon: Microchip,
+      title: 'HP ELITE 800 G9',
+      description: 'Windows 11 Pro, Intel Core i7-12700, 32GB memory for high-performance computing tasks.'
+    },
+    {
+      icon: Cpu,
+      title: 'HP ELITE 600 G9',
+      description: 'Intel Core i7-10700 CPU @ 2.90 GHz, 16GB RAM for AI model development and testing.'
+    },
+    {
+      icon: Cpu,
+      title: 'HP PRODESK 400 G7',
+      description: 'Intel Core i7-10700 CPU @ 2.90 GHz, 16GB RAM supporting research projects and AI simulations.'
+    },
+    {
+      icon: HardDrive,
+      title: 'HP ELITE TOWER 600 G9',
+      description: 'Intel Core i7-10700 CPU @ 2.90 GHz, 16GB RAM optimized for AI research workloads.'
+    },
+    {
+      icon: Microchip,
+      title: 'LENOVO P520 Workstation',
+      description: 'Intel Xeon W-2295 CPU 18 Core, 128GB RAM, Lenovo Curved 1500R Monitor 27" FHD, Nvidia Graphics Card RTX A5000 for intensive AI and ML applications.'
+    },
+    {
+      icon: Monitor,
+      title: 'Sense Interactive Intelligent Panel 86"',
+      description: 'Intel i5 Processor, 8500 CPU @ 3.00GHz, 8GB DDR4 RAM for interactive AI and ML learning sessions.'
+    }],
   services: [
     'Access to cutting-edge AI technology and infrastructure',
     'Project-based collaboration and support',
@@ -77,7 +124,7 @@ export default function DepartmentWork() {
       <div className="pt-32">
         <div className="container mx-auto px-4 py-10">
           {/* Hero Section */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,21 +134,21 @@ export default function DepartmentWork() {
               Department of AI & ML
             </h1>
             <p className="text-xl text-white-400 max-w-3xl mx-auto">
-              Pioneering research and innovation in Artificial Intelligence and Machine Learning, 
+              Pioneering research and innovation in Artificial Intelligence and Machine Learning,
               preparing students for the future of technology.
             </p>
           </motion.div>
 
           {/* Stats Section */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {stats.map((stat, index) => (
-              <div 
-                key={stat.label} 
+              <div
+                key={stat.label}
                 className="bg-gray-800/50 rounded-lg p-6 text-center backdrop-blur-sm border border-purple-500/20"
               >
                 <stat.icon className="w-8 h-8 mx-auto mb-4 text-purple-400" />
@@ -112,7 +159,7 @@ export default function DepartmentWork() {
           </motion.div>
 
           {/* Research Areas Section */}
-          <motion.section 
+          <motion.section
             className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -156,7 +203,7 @@ export default function DepartmentWork() {
                 <span className="block text-xl text-purple-400 mt-2">in AI&ML</span>
               </h2>
               <p className="text-white-400 max-w-3xl mx-auto">
-                A state-of-the-art  fostering dynamic industry-academic synergy for AI adoption, 
+                A state-of-the-art  fostering dynamic industry-academic synergy for AI adoption,
                 powered by cutting-edge infrastructure and expertise.
               </p>
             </div>
