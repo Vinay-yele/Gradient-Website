@@ -61,7 +61,7 @@ export const flagshipEvents = [
   {
     id: "workshop",
     title: "Workshop on AI Agents",
-    image: "/posters/gw",
+    image: "/posters/gw/aiwork.png",
     description: "Description for the AI Workshop.",
     date: "9th April, 2025",
     time: "11:00 AM - 1:00 PM",
