@@ -13,7 +13,7 @@ import {
   Mail,
   Users,
 } from 'lucide-react';
-import { flagshipEvents, culturalEvent, collaborationEvents,teams } from './events-data';
+import { flagshipEvents, culturalEvent, collaborationEvents, teams } from './events-data';
 
 type EventId = string | number;
 
@@ -27,6 +27,11 @@ interface EventType {
   venue?: string;
   teamSize?: string;
   fee?: string;
+  prizes?: {
+    first?: string;
+    second?: string;
+    third?: string;
+  };
   registrationLink: string;
   coordinators?: Array<{
     name: string;
@@ -52,7 +57,7 @@ export default function Events() {
         <img
           src={event.image}
           alt={event.title}
-          className="w-full aspect-square object-cover cursor-pointer"
+          className="w-full aspect-square object-conatin cursor-pointer"
           onClick={() => onOpenPopup(event)}
         />
         <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-4">
@@ -119,12 +124,12 @@ export default function Events() {
         </div>
 
 
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collaboration Events</h2>
+        {/* <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collaboration Events</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {collaborationEvents.map((event) => (
             <EventCard key={event.id} event={event} onOpenPopup={openPopup} />
           ))}
-        </div>
+        </div> */}
       </section>
 
       {popupEvent && (
@@ -140,7 +145,7 @@ export default function Events() {
               <img
                 src={popupEvent.image}
                 alt={popupEvent.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               <button
                 className="absolute top-2 right-2 text-gray hover:text-gray-300 text-3xl font-bold bg-gray-800/75 p-1 rounded-full"
@@ -183,6 +188,33 @@ export default function Events() {
                 </div>
               )}
             </div>
+
+            {popupEvent.prizes && (
+              <div className="mb-6">
+                <h4 className="text-2xl font-bold mb-4 text-center">Prize Pool</h4>
+                <div className="space-y-3">
+                  {popupEvent.prizes.first && (
+                    <div className="bg-yellow-500/20 p-3 rounded-lg border border-yellow-500/50">
+                      <p className="font-bold text-yellow-300 text-center">First Place</p>
+                      <p className="text-center">{popupEvent.prizes.first}</p>
+                    </div>
+                  )}
+                  {popupEvent.prizes.second && (
+                    <div className="bg-gray-300/20 p-3 rounded-lg border border-gray-300/50">
+                      <p className="font-bold text-gray-300 text-center">Second Place</p>
+                      <p className="text-center">{popupEvent.prizes.second}</p>
+                    </div>
+                  )}
+                  {popupEvent.prizes.third && (
+                    <div className="bg-amber-700/20 p-3 rounded-lg border border-amber-700/50">
+                      <p className="font-bold text-amber-600 text-center">Third Place</p>
+                      <p className="text-center">{popupEvent.prizes.third}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
             {popupEvent.coordinators && popupEvent.coordinators.length > 0 && (
               <div className="mb-6">
                 <h4 className="text-lg font-semibold mb-2">

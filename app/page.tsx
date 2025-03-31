@@ -52,7 +52,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end w-full lg:w-auto space-y-3 sm:space-y-0 sm:space-x-4 mt-3 lg:mt-0">
               <p className="text-purple-100 text-center lg:text-right font-medium text-xl">
-                Workshops • Hackathons • Tech Events • Networking
+                Workshops • Hackathons • Tech Events and More!
               </p>
               <Link
                 href="/events"
