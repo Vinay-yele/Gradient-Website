@@ -38,7 +38,7 @@ export const flagshipEvents = [
     description: "Parallel Fusion is a two-player puzzle challenge where each player takes a different path but shares the same goal. Solve unique puzzles, exchange crucial information, and work together to crack the final code. A test of logic, teamwork, and fun. Are you up for the challenge?",
     date: "8th April, 2025",
     time: "2:00 PM - 4:00 PM",
-    venue: "MEL Lab 1, 7th Floor, PJA Block",
+    venue: "MEL Lab 1, 7th Floor, PJA Block, BMSCE",
     teamSize: "2 members per team",
     fee: "Free Entry",
     prizes: {
@@ -64,19 +64,23 @@ export const flagshipEvents = [
     image: "/posters/gw/aiwork.png",
     description: "Description for the AI Workshop.",
     date: "9th April, 2025",
-    time: "11:00 AM - 1:00 PM",
-    venue: "Workshop Room",
+    time: "10:00 AM - 1:00 PM",
+    venue: "MEL Seminar Hall, 7th Floor, PJA Block, BMSCE",
     teamSize: "Individual",
-    fee: "",
+    fee: "Free Entry",
     prizes: {
-      first: "",
-      second: "",
+      first: "Exciting Prizes!",
+      second: "Exciting Prizes!",
       third: ""
     },
     coordinators: [
       {
-        name: "Coordinator Name",
-        phone: "Phone Number"
+        name: "Ashrit",
+        phone: "97406 57349"
+      },
+      {
+        name: "Supriya",
+        phone: "86186 37400"
       }
     ],
     registrationLink: "#"
