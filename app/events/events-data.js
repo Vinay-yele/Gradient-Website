@@ -9,11 +9,11 @@ export const flagshipEvents = [
     time: "9:00 AM - 9:00 AM (next day)",
     venue: "7th Floor, MEL Seminar Hall, PJA Block, BMSCE",
     teamSize: "4 members per team",
-    fee: "₹400 per team",
+    fee: "400 per team",
     prizes: {
-      first: "₹ 15,000",
-      second: "₹ 10,000",
-      third: "₹ 5,000"
+      first: "15,000",
+      second: "10,000",
+      third: "5,000"
     },
     coordinators: [
       {
@@ -60,7 +60,7 @@ export const flagshipEvents = [
   },
   {
     id: "workshop",
-    title: "Workshop on Impact AI",
+    title: "Workshop on AI Agents",
     image: "/posters/gw",
     description: "Description for the AI Workshop.",
     date: "9th April, 2025",
