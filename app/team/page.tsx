@@ -80,7 +80,7 @@ const teamData: TeamSection[] = [
         linkedin: "https://linkedin.com",
       },
       {
-        name: "Likith Choudary",
+        name: "Likith Chowdary",
         role: "Media & Sponsorship Head",
         year: "Third Year",
         image: "/likith.JPG",
