@@ -35,19 +35,19 @@ const researchAreas = [
 
 const facilities = [
   {
-    name: 'AI Research Lab',
-    description: 'State-of-the-art computing facilities with GPU clusters for deep learning research.',
-    image: '/T.png'
+    name: 'Classroom',
+    description: 'State-of-the-art clasrooms with advanced technology to enhance the student learning experience.',
+    image: '/coe.jpeg'
   },
   {
-    name: 'Innovation Center',
-    description: 'Collaborative space for students to work on AI/ML projects with industry mentors.',
-    image: '/T.png'
+    name: 'Computer Labs',
+    description: 'High-performance computing clusters with the high end NVIDIA GPUs.',
+    image: '/lab.webp'
   },
   {
-    name: 'Computing Infrastructure',
-    description: 'High-performance computing clusters with the latest NVIDIA GPUs.',
-    image: '/T.png'
+    name: 'Seminar Hall',
+    description: 'A spacious seminar hall designed for engaging lectures and discussions, featuring modern seating, clear acoustics, and a professional ambiance.',
+    image: '/semh.jpeg'
   }
 ]
 
@@ -156,7 +156,7 @@ export default function DepartmentWork() {
                 <span className="block text-xl text-purple-400 mt-2">in AI&ML</span>
               </h2>
               <p className="text-white-400 max-w-3xl mx-auto">
-                A state-of-the-art facility fostering dynamic industry-academic synergy for AI adoption, 
+                A state-of-the-art  fostering dynamic industry-academic synergy for AI adoption, 
                 powered by cutting-edge infrastructure and expertise.
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function DepartmentWork() {
               transition={{ duration: 0.2 }}
             >
               <Image
-                src="/T.png"
+                src="/class.jpeg"
                 alt="B.S. Narayan Center of Excellence"
                 fill
                 className="object-cover"
