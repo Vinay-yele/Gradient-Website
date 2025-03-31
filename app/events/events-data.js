@@ -62,7 +62,7 @@ export const flagshipEvents = [
     id: "workshop",
     title: "Workshop on AI Agents",
     image: "/posters/gw/aiwork.png",
-    description: "Description for the AI Workshop.",
+    description: "This hands-on workshop will introduce you to the world of AI Agents—autonomous systems that can learn, adapt, and make intelligent decisions. Participants will not only explore their real-world applications but will also build and implement their own AI Agents using industry-relevant tools and techniques.",
     date: "9th April, 2025",
     time: "10:00 AM - 1:00 PM",
     venue: "MEL Seminar Hall, 7th Floor, PJA Block, BMSCE",
@@ -83,7 +83,7 @@ export const flagshipEvents = [
         phone: "86186 37400"
       }
     ],
-    registrationLink: "#"
+    registrationLink: "https://forms.gle/qYhnzW3razMo4AXF6"
   }
 ];
 
