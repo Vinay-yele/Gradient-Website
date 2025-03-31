@@ -1,6 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { motion } from 'framer-motion';
 // Other imports
@@ -47,38 +46,10 @@ interface EventCardProps {
 }
 
 export default function Events() {
-
   const [popupEvent, setPopupEvent] = useState<EventType | null>(null);
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  
-  // Combine all events for easier searching
-  const allEvents = [...flagshipEvents, culturalEvent, ...collaborationEvents];
-  
-  // Check URL for event ID on component mount and when URL changes
-  useEffect(() => {
-    const eventId = searchParams.get('event');
-    if (eventId) {
-      // Find the event with the matching ID
-      const event = allEvents.find(e => String(e.id).toLowerCase() === eventId.toLowerCase());
-      if (event) {
-        setPopupEvent(event);
-      }
-    }
-  }, [searchParams]);
 
-  const openPopup = (event: EventType) => {
-    setPopupEvent(event);
-    // Update URL without refreshing the page
-    const newUrl = `/events?event=${event.id}`;
-    router.push(newUrl, { scroll: false });
-  };
-  
-  const closePopup = () => {
-    setPopupEvent(null);
-    // Remove the event parameter from URL
-    router.push('/events', { scroll: false });
-  };
+  const openPopup = (event: EventType) => setPopupEvent(event);
+  const closePopup = () => setPopupEvent(null);
 
   const EventCard = ({ event, onOpenPopup }: EventCardProps) => (
     <div className="bg-gray-900/80 backdrop-blur-sm rounded-xl overflow-hidden border border-purple-700/50 hover:border-purple-500/50 transition-all duration-300 flex flex-col">
@@ -212,7 +183,7 @@ export default function Events() {
               )}
               {popupEvent.fee && (
                 <div className="flex items-center gap-2 text-purple-300">
-                  {<IndianRupee size={16} />}
+                  {popupEvent.fee.includes('₹') ? <IndianRupee size={16} /> : null}
                   <span>{popupEvent.fee}</span>
                 </div>
               )}
@@ -223,21 +194,21 @@ export default function Events() {
                 <h4 className="text-2xl font-bold mb-4 text-center">Prize Pool</h4>
                 <div className="space-y-3">
                   {popupEvent.prizes.first && (
-                    <div className="bg-yellow-500/20 p-3 rounded-lg border border-yellow-500/50">                      
+                    <div className="bg-yellow-500/20 p-3 rounded-lg border border-yellow-500/50">
                       <p className="font-bold text-yellow-300 text-center">First Place</p>
-                      <p className="text-center">{'₹ '+popupEvent.prizes.first}</p>
+                      <p className="text-center">{popupEvent.prizes.first}</p>
                     </div>
                   )}
                   {popupEvent.prizes.second && (
                     <div className="bg-gray-300/20 p-3 rounded-lg border border-gray-300/50">
                       <p className="font-bold text-gray-300 text-center">Second Place</p>
-                      <p className="text-center">{'₹ '+popupEvent.prizes.second}</p>
+                      <p className="text-center">{popupEvent.prizes.second}</p>
                     </div>
                   )}
                   {popupEvent.prizes.third && (
                     <div className="bg-amber-700/20 p-3 rounded-lg border border-amber-700/50">
                       <p className="font-bold text-amber-600 text-center">Third Place</p>
-                      <p className="text-center">{'₹ '+popupEvent.prizes.third}</p>
+                      <p className="text-center">{popupEvent.prizes.third}</p>
                     </div>
                   )}
                 </div>
