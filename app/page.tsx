@@ -148,29 +148,8 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Social Media Links */}
-      <motion.div
-        className="fixed bottom-6 right-6 flex space-x-4 bg-[#1a1a1a]/80 backdrop-blur-sm p-4 rounded-lg shadow-lg"
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
-        transition={{ delay: 0.8 }}
-      >
-        {[
-          { Icon: FaInstagram, href: "https://www.instagram.com/gradient.aiml/" },
-          { Icon: FaLinkedin, href: "https://www.linkedin.com/company/gradient-club/" }
-        ].map(({ Icon, href }) => (
-          <Link
-            key={href}
-            href={href}
-            target="_blank"
-            className="text-gray-400 hover:text-purple-400 transform hover:scale-110 transition-all duration-300"
-          >
-            <Icon size={24} />
-          </Link>
-        ))}
-      </motion.div>
+      </div>     
+      
     </main>
   )
 }
