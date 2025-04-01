@@ -119,19 +119,19 @@ const Footer = () => {
           <p className="mt-2">
             Designed, Built and Managed by{" "}
             <Link 
-              href="https://vinayyele.live/" 
-              target="_blank" 
-              className="text-purple-400 hover:underline"
-            >
-              Vinay Yele
-            </Link> (Design Head) and{" "}
-            <Link 
-              href="https://beyondmebtw.com" 
+              href="https://beyondmebtw.com/" 
               target="_blank" 
               className="text-purple-400 hover:underline"
             >
               Pranav Veeraghanta
-            </Link> (Tech Head) at Gradient.
+            </Link> (Tech Head) and{" "}
+            <Link 
+              href="https://vinayyele.live" 
+              target="_blank" 
+              className="text-purple-400 hover:underline"
+            >
+              Vinay Yele
+            </Link> (Design Head) at Gradient.
           </p>
           {/* Source Code Link */}
           <p className="mt-2">
