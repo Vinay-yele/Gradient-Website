@@ -3,7 +3,7 @@ export const flagshipEvents = [
   {
     id: "hackathon",
     title: "Impact AI 2.0 24hr Hackathon",
-    image: "/posters/gw/impact2.png",
+    image: "/posters/gw/impact2.webp",
     description: "Join us for a thrilling 24-hour hackathon where you can unleash your creativity and coding skills using AI. \n\nNote: Dinner, Breakfast and Refreshments provided. Bring your own devices.",
     date: "7th April, 2025 to 8th April, 2025",
     time: "9:00 AM - 9:00 AM (next day)",
@@ -34,7 +34,7 @@ export const flagshipEvents = [
   {
     id: "fusion",
     title: "Parallel Fusion",
-    image: "/posters/gw/pf.png",
+    image: "/posters/gw/pf.webp",
     description: "Parallel Fusion is a two-player puzzle challenge where each player takes a different path but shares the same goal. Solve unique puzzles, exchange crucial information, and work together to crack the final code. A test of logic, teamwork, and fun. Are you up for the challenge?",
     date: "8th April, 2025",
     time: "2:00 PM - 4:00 PM",
@@ -61,7 +61,7 @@ export const flagshipEvents = [
   {
     id: "workshop",
     title: "Workshop on AI Agents",
-    image: "/posters/gw/aiwork.png",
+    image: "/posters/gw/aiwork.webp",
     description: "This hands-on workshop will introduce you to the world of AI Agents—autonomous systems that can learn, adapt, and make intelligent decisions. Participants will not only explore their real-world applications but will also build and implement their own AI Agents using industry-relevant tools and techniques.",
     date: "9th April, 2025",
     time: "10:00 AM - 1:00 PM",
@@ -76,11 +76,11 @@ export const flagshipEvents = [
     coordinators: [
       {
         name: "Ashrit",
-        phone: "97406 57349"
+        phone: "+91 97406 57349"
       },
       {
         name: "Supriya",
-        phone: "86186 37400"
+        phone: "+91 86186 37400"
       }
     ],
     registrationLink: "https://forms.gle/qYhnzW3razMo4AXF6"
@@ -96,99 +96,89 @@ export const culturalEvent = {
 
 export const collaborationEvents = [
   {
-    id: "collab1",
-    title: "Collab Event 1",
-    image: "/posters/gw",
-    description: "Description for collaborative event 1.",
-    date: "10th April, 2025",
-    time: "3:00 PM - 5:00 PM",
-    venue: "Collab Venue 1",
+    id: "codel",
+    title: "Figma2web",
+    image: "/posters/gw/codel.webp",
+    description: "🚀 Think you can turn a UI design into a fully functional webpage with just your skills and the power of AI? 🎨💻 No pre-made templates, no copy-pasting—just you, your prompts, and your ability to recreate a perfect match. ✨⚡ Precision 🎯, speed ⏩, and creativity 🎭 will set the best apart, but beware—unexpected bounty rounds 🎁🔥 might just change the game! 👀🚀 This is more than a challenge. It’s a test of how well you can think, prompt, and build. Are you up for it?  ",
+    date: "8th April, 2025",
+    time: "2:00 PM - 4:30 PM",
+    venue: "AI DS Lab",
     fee: "Free",
     prizes: {
-      first: "",
-      second: "",
+      first: "Exciting Prizes!",
+      second: "Exciting Prizes!",
       third: ""
     },
     coordinators: [
       {
-        name: "Coordinator 1",
-        phone: "Phone Number"
+        name: "Vivek Boora",
+        phone: "+91 89010 68695"
+      },
+      {
+        name: "Rohana Edalur",
+        phone: "+91 86603 27098"
       }
     ],
-    registrationLink: "#"
+    registrationLink: "https://forms.gle/JYdL76nu8bHHnCkVA"
   },
   {
-    id: "collab2",
-    title: "Collab Event 2",
-    image: "/posters/gw",
-    description: "Description for collaborative event 2.",
-    date: "11th April, 2025",
-    time: "10:00 AM - 12:00 PM",
-    venue: "Collab Venue 2",
+    id: "penta",
+    title: "Logic Lockdown",
+    image: "/posters/gw/pent.webp",
+    description: "Logic Lockdown is more than just a competition - it's a mental showdown where quick thinking, sharp problem-solving, and strategic brilliance will determine the ultimate champion. Prepare to put your logic to the test, think on your feet, and outmaneuver your opponents in a thrilling quest for victory.",
+    date: "8th April, 2025",
+    time: "11:15 AM - 1:30 PM",
+    venue: "MeL CR 02, PJ Block 7th Floor, BMSCE",
     fee: "Free",
     prizes: {
-      first: "",
-      second: "",
+      first: "Exciting Prizes!",
+      second: "Exciting Prizes!",
       third: ""
     },
     coordinators: [
       {
-        name: "Coordinator 2",
-        phone: "Phone Number"
+        name: "Anagha Chebbi",
+        phone: "+91 96327 34520"
+      },
+      {
+        name: "Sanjana Srinivas",
+        phone: "+91 80500 94052"
       }
     ],
-    registrationLink: "#"
+    registrationLink: "https://forms.gle/eQTZApNscsgzhh9R8"
   },
   {
-    id: "collab3",
-    title: "Collab Event 3",
-    image: "/posters/gw",
-    description: "Description for collaborative event 3.",
-    date: "12th April, 2025",
-    time: "1:00 PM - 3:00 PM",
-    venue: "Collab Venue 3",
+    id: "comsoc",
+    title: "Glide & Go",
+    image: "/posters/gw/compsoc.webp",
+    description: "This 2-hour no-code app development competition begins with an introductory session on Glide platform, equipping participants with the essential knowledge to design and develop innovative mobile applications. Showcase your creativity and technical skills in this exciting challenge.",
+    date: "8th April, 2025",
+    time: "11:00 AM - 1:00 PM",
+    venue: "ECE Seminar Hall",
     fee: "Free",
     prizes: {
-      first: "",
-      second: "",
+      first: "Exciting Prizes!",
+      second: "Exciting Prizes!",
       third: ""
     },
     coordinators: [
       {
-        name: "Coordinator 3",
-        phone: "Phone Number"
-      }
-    ],
-    registrationLink: "#"
-  },
-  {
-    id: "collab4",
-    title: "Collab Event 4",
-    image: "/posters/gw",
-    description: "Description for collaborative event 4.",
-    date: "13th April, 2025",
-    time: "4:00 PM - 6:00 PM",
-    venue: "Collab Venue 4",
-    fee: "Free",
-    prizes: {
-      first: "",
-      second: "",
-      third: ""
-    },
-    coordinators: [
+        name: "Sahithi",
+        phone: "+91 91481 83348"
+      },
       {
-        name: "Coordinator 4",
-        phone: "Phone Number"
+        name: "Sahithi",
+        phone: "+91 94484 17413"
       }
     ],
-    registrationLink: "#"
+    registrationLink: "https://forms.gle/zLhLueXkLPVRceNz5"
   }
 ];
 
 export const teams = [    
-  {name: "Ninaad", logo: "./posters/gw/ninaad.png" },
-  {name: "Danz Addix", logo: "./posters/gw/danza.png" },
-  {name: "Pravrutthi", logo: "./posters/gw/prav.png" },    
-  {name: "Groovehouse", logo: "./posters/gw/groove.jpg" },
-  {name: "Paramvah", logo: "./posters/gw/paramvah.jpg" }
+  {name: "Ninaad", logo: "./posters/gw/ninaad.webp" },
+  {name: "Danz Addix", logo: "./posters/gw/danza.webp" },
+  {name: "Pravrutthi", logo: "./posters/gw/prav.webp" },    
+  {name: "Groovehouse", logo: "./posters/gw/groove.webp" },
+  {name: "Paramvah", logo: "./posters/gw/paramvah.webp" }
 ];

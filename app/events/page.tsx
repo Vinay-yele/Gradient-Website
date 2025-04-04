@@ -124,12 +124,12 @@ export default function Events() {
         </div>
 
 
-        {/* <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collaboration Events</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Collaboration Events</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {collaborationEvents.map((event) => (
             <EventCard key={event.id} event={event} onOpenPopup={openPopup} />
           ))}
-        </div> */}
+        </div>
       </section>
 
       {popupEvent && (
