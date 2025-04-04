@@ -68,11 +68,6 @@ export const flagshipEvents = [
     venue: "MEL Seminar Hall, 7th Floor, PJA Block, BMSCE",
     teamSize: "Individual",
     fee: "Free Entry",
-    prizes: {
-      first: "Exciting Prizes!",
-      second: "Exciting Prizes!",
-      third: ""
-    },
     coordinators: [
       {
         name: "Ashrit",
