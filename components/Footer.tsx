@@ -73,10 +73,6 @@ const Footer = () => {
                 <span className="text-gray-300">gradient.mel@bmsce.ac.in</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-purple-400" />
-                <span className="text-gray-300">+91 97399 02042 / +91 63600 97899</span>                
-              </div>
-              <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-purple-400" />
                 <span className="text-gray-300">BMSCE, Bengaluru</span>
               </div>
