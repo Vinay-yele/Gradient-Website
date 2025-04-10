@@ -34,7 +34,16 @@
 - added source code link in footer
 - some text changes on home page
 - added gradient week events, changed the design of that page
+- added an animation to the background
+- adjusted for responsiveness
+- added our achievements, roots part to the about section
 
 ## 31/3/25 (Pranav)
 - Added cultural evening performers
 - temperorarily removed collab section
+
+## 5/4/25 (Pranav)
+- added colab event details
+- fixed image issue for ai agents workshop
+
+## 10/04/25 (Pranav) added '25 core to the roots section in about page, renamed founding core to '24 Core, The foudning core
