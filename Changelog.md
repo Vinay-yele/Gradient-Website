@@ -17,7 +17,7 @@
 - Updated favicon to a better version
 - made responsiveness work better for all pages
 - add images and data in the about page
-- added data and poster images to the events gallery page
+- added data and poster images to the events gallery page 
 
 ## 21/03/2025 (Pranav)
 - made the gradient week page into a coming soon page
