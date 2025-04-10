@@ -8,7 +8,6 @@
 - Added Pranav and Likith photos to the team
 - Fixed alignment to center in team page for all domains
 - Fixed footer LinkedIn and Instagram links
-- Added phone number of coordinators to the footer
 - Fixed group photo on homepage shrinking in mobile view
 - Fixed email in the footer
 - Changed homepage to make it more attractive and improved the call-to-action (CTA)
