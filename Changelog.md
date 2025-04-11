@@ -46,4 +46,6 @@
 - added colab event details
 - fixed image issue for ai agents workshop
 
-## 10/04/25 (Pranav) added '25 core to the roots section in about page, renamed founding core to '24 Core, The foudning core
+## 10/04/25 (Pranav) 
+- added '25 core to the roots section in about page, 
+- renamed founding core to '24 Core,Foudning core
