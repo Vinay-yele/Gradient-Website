@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Gradient ",
-  description: "Gradient Student Club official Website",
+  description: "Gradine AIML WEBSITE",
 };
 
 export default function RootLayout({

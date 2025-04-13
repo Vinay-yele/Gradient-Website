@@ -38,10 +38,10 @@ export default function Home() {
                 <div className="text-center lg:text-left">
                   <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start space-y-1 lg:space-y-0 lg:space-x-3">
                     <h2 className="font-bold text-2xl md:text-3xl text-white">
-                      <span className="text-yellow-300">GRADIENT WEEK</span>
+                      <span className="text-yellow-300">GRADIENT WEEK '25</span>
                     </h2>
                     <p className="text-xl md:text-3xl text-white">
-                      7th - 9th APRIL!
+                      Has Concluded
                     </p>
                   </div>
                 </div>
@@ -52,13 +52,13 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end w-full lg:w-auto space-y-3 sm:space-y-0 sm:space-x-4 mt-3 lg:mt-0">
               <p className="text-purple-100 text-center lg:text-right font-medium text-xl">
-                Workshops • Hackathons • Tech Events and More!
+                Check out the highlights of the event!
               </p>
               <Link
                 href="/events"
                 className="inline-flex items-center space-x-2 px-6 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-lg transition-all duration-300 transform hover:scale-105 text-purple-900 font-bold text-xl shadow-lg"
               >
-                <span>EXPLORE</span>
+                <span>RECAP</span>
                 <ArrowRight size={18} />
               </Link>
             </div>

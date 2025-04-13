@@ -175,7 +175,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
             <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
               <div className="flex items-center justify-center mb-6">
                 <div className="h-px w-12 bg-purple-500/30" />
-                <div className="flex items-center space-x-2 px-6">
+                <div className="flex items-center space-x-2 px-6">                  
                   <h2 className="text-3xl font-bold text-center text-purple-400">
                     Our Roots
                   </h2>
@@ -188,7 +188,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                   Gradient founded in 2022, with the aim of reaching new heights and boldly doing what no one has done before.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-6 items-center justify-center">
+                <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -224,29 +224,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
-                    <p className="text-center mt-2 text-white-100 mb-2">'24 Core, Founding Core</p>
-                  </motion.div>
-                </div>
-
-                {/* 2025 Core Section - Now Centered */}
-                <div className="flex justify-center w-full">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.7 }}
-                    className="group relative max-w-md"
-                  >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                      <Image
-                        src="/core25.webp"
-                        alt="2025 Core"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    <p className="text-center mt-2 text-white-100 mb-2">2025 Core</p>
+                    <p className="text-center mt-2 text-white-100 mb-2">The Founding Core Team</p>
                   </motion.div>
                 </div>
               </div>

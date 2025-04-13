@@ -50,8 +50,5 @@
 - added '25 core to the roots section in about page, 
 - renamed founding core to '24 Core,Foudning core
 
-## 12/04/25 (Pranav)
-- Migrated to tailwind 4
-
 ## 13/04/25 (Pranav)
-- Migrated to NextJS 15
+- Made the Gradient week page into a recap page
