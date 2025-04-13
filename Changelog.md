@@ -52,3 +52,6 @@
 
 ## 12/04/25 (Pranav)
 - Migrated to tailwind 4
+
+## 13/04/25 (Pranav)
+- Migrated to NextJS 15
