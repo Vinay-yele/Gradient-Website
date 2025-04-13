@@ -52,3 +52,5 @@
 
 ## 13/04/25 (Pranav)
 - Made the Gradient week page into a recap page
+- Migrated to Tailwind V4
+- Migrated to NextJS 15
