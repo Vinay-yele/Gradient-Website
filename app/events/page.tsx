@@ -75,7 +75,7 @@ export default function GradientWeekRecap() {
   ].filter(Boolean); // This ensures any undefined sections are removed
 
   return (
-    <main className="min-h-screen text-white relative bg-gradient-to-br from-purple-900 via-blue-900 to-black">
+    <main className="min-h-screen text-white relative bg-gradient-to-br from-purple-900 via-blue-900 to-black overflow-x-hidden">
       <Navbar />
 
       <div className="relative z-10 container mx-auto px-4 py-16 mt-20">
@@ -174,7 +174,7 @@ export default function GradientWeekRecap() {
 
           {/* Mobile layout (stacked vertically) */}
           {isMobile && (
-            <div className="relative">
+            <div className="relative w-full">
               {/* Main vertical timeline line */}
               <motion.div
                 className="absolute left-4 top-0 bottom-0 w-2 bg-gradient-to-b from-purple-600 via-blue-600 to-purple-600 z-0"
@@ -190,7 +190,7 @@ export default function GradientWeekRecap() {
                 return (
                   <motion.div
                     key={section.id}
-                    className="relative mb-16 pl-12"
+                    className="relative mb-16 pl-12 pr-4 w-full"
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
@@ -198,7 +198,7 @@ export default function GradientWeekRecap() {
                   >
                     {/* Connecting horizontal line */}
                     <motion.div
-                      className="absolute left-4 top-9 w-29 h-2 bg-gradient-to-r from-purple-600 to-transparent"
+                      className="absolute left-4 top-9 w-8 h-2 bg-gradient-to-r from-purple-600 to-transparent"
                       initial={{ scaleX: 0, opacity: 0 }}
                       whileInView={{ scaleX: 1, opacity: 1 }}
                       viewport={{ once: true }}
@@ -222,7 +222,7 @@ export default function GradientWeekRecap() {
 
                     {/* Section card */}
                     <motion.div
-                      className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20"
+                      className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20 w-full"
                       whileHover={{ scale: 1.03 }}
                       onClick={() => openSection(section)}
                     >
@@ -287,14 +287,14 @@ export default function GradientWeekRecap() {
       <AnimatePresence>
         {activeSection && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeSection}
           >
             <motion.div
-              className="bg-gray-900 rounded-xl w-full max-w-4xl overflow-hidden relative"
+              className="bg-gray-900 rounded-xl w-full max-w-4xl overflow-hidden relative mx-auto my-4"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -309,7 +309,8 @@ export default function GradientWeekRecap() {
               </button>
 
               {/* Main slideshow */}
-              <div className="relative aspect-video">
+              <div className="relative">
+                <div className="aspect-video bg-black">
                 {activeSection.images[currentImageIndex].url.endsWith('.mp4') ? (
                   <motion.video
                     key={currentImageIndex}
@@ -317,7 +318,7 @@ export default function GradientWeekRecap() {
                     controls
                     autoPlay={true}
                     muted={true}
-                    className="w-full h-full object-contain bg-black/70"
+                    className="w-full h-full object-contain"
                     initial={{ opacity: 0.5 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -327,15 +328,16 @@ export default function GradientWeekRecap() {
                     key={currentImageIndex}
                     src={activeSection.images[currentImageIndex].url}
                     alt={activeSection.images[currentImageIndex].alt}
-                    className="w-full h-full object-contain bg-black/70"
+                    className="w-full h-full object-contain"
                     initial={{ opacity: 0.5 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   />
                 )}
+                </div>
 
-                {/* Image Title */}
-                <div className="absolute left-0 right-0 top-0 bg-black/60 text-white p-3 text-center">
+                {/* Image Title - Moved below the image */}
+                <div className="bg-black/80 text-white p-3 text-center">
                   <p className="font-medium">{activeSection.images[currentImageIndex].alt}</p>
                 </div>
 
@@ -361,13 +363,13 @@ export default function GradientWeekRecap() {
                 </button>
 
                 {/* Image counter */}
-                <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                <div className="absolute bottom-12 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
                   {currentImageIndex + 1} / {activeSection.images.length}
                 </div>
               </div>
 
               {/* Image thumbnails */}
-              <div className="flex overflow-x-auto p-2 gap-2 bg-black/50">
+              <div className="flex overflow-x-auto p-2 gap-2 bg-black/50 w-full">
                 {activeSection.images.map((image, idx) => (
                   <div
                     key={idx}
