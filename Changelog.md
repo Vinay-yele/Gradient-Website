@@ -54,3 +54,6 @@
 - Made the Gradient week page into a recap page
 - Migrated to Tailwind V4
 - Migrated to NextJS 15
+
+## 14/04/25 (Pranav)
+- Fixed the Gradient week page lag
