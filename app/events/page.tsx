@@ -49,15 +49,16 @@ export default function GradientWeekRecap() {
   const goToImage = (index) => {
     setCurrentImageIndex(index);
   };
+  
   // Reorganize sections for the desired layout
   const reorganizedSections = [
     // First row (unchanged)
     [recapSections.find(s => s.id === 'inauguration'), recapSections.find(s => s.id === 'impact-ai'), recapSections.find(s => s.id === 'parallel-fusion')],
 
-    // Second row (cultural evening, collaboration events, AI agents workshop [new])
+    // Second row
     [recapSections.find(s => s.id === 'cultural-evening'), recapSections.find(s => s.id === 'collab-events'), recapSections.find(s => s.id === 'ai-agents-workshop')],
 
-    // Third row (general shots, behind the scenes)
+    // Third row
     [recapSections.find(s => s.id === 'general-shots'), recapSections.find(s => s.id === 'behind-scenes')]
   ];
 
@@ -74,70 +75,7 @@ export default function GradientWeekRecap() {
   ].filter(Boolean); // This ensures any undefined sections are removed
 
   return (
-    <main className="min-h-screen text-white relative overflow-hidden bg-black">
-      {/* Animated Gradient Background with improved flow animation */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-black">
-          {/* Animated flowing particles/circles with improved animation */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              className="absolute w-96 h-96 rounded-full bg-purple-600/20 blur-3xl"
-              animate={{
-                x: ['-10%', '60%', '20%', '-10%'],
-                y: ['10%', '40%', '60%', '10%'],
-                scale: [1, 1.2, 1, 1.1]
-              }}
-              transition={{
-                duration: 30,
-                repeat: Infinity,
-                repeatType: "mirror"
-              }}
-            />
-            <motion.div
-              className="absolute w-80 h-80 rounded-full bg-blue-600/20 blur-3xl"
-              animate={{
-                x: ['70%', '30%', '50%', '70%'],
-                y: ['60%', '20%', '40%', '60%'],
-                scale: [1.1, 1, 1.2, 1.1]
-              }}
-              transition={{
-                duration: 25,
-                repeat: Infinity,
-                repeatType: "mirror"
-              }}
-            />
-            <motion.div
-              className="absolute w-64 h-64 rounded-full bg-indigo-600/20 blur-3xl"
-              animate={{
-                x: ['40%', '80%', '10%', '40%'],
-                y: ['30%', '60%', '10%', '30%'],
-                scale: [1, 1.3, 0.9, 1]
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                repeatType: "mirror"
-              }}
-            />
-            {/* Additional subtle flowing element */}
-            <motion.div
-              className="absolute w-72 h-72 rounded-full bg-pink-600/10 blur-3xl"
-              animate={{
-                x: ['10%', '50%', '30%', '10%'],
-                y: ['50%', '20%', '70%', '50%'],
-                scale: [0.8, 1.1, 0.9, 0.8]
-              }}
-              transition={{
-                duration: 35,
-                repeat: Infinity,
-                repeatType: "mirror"
-              }}
-            />
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] opacity-50"></div>
-      </div>
-
+    <main className="min-h-screen text-white relative bg-gradient-to-br from-purple-900 via-blue-900 to-black">
       <Navbar />
 
       <div className="relative z-10 container mx-auto px-4 py-16 mt-20">
@@ -154,7 +92,7 @@ export default function GradientWeekRecap() {
         <div className="relative">
           {!isMobile && reorganizedSections.map((row, rowIndex) => (
             <div key={`row-${rowIndex}`} className="relative mb-24">
-              {/* Horizontal line connecting the row - now with animation and increased thickness */}
+              {/* Horizontal line connecting the row */}
               <motion.div
                 className="absolute left-0 right-0 top-1/2 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 transform -translate-y-1/2 z-0 hidden md:block"
                 initial={{ scaleX: 0, opacity: 0 }}
@@ -182,36 +120,7 @@ export default function GradientWeekRecap() {
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 0.6, delay: colIndex * 0.1 }}
                     >
-                      {/* Vertical line connecting to horizontal timeline - now with animation and increased thickness */}
-                      {!isMobile && (
-                        <motion.div
-                          className={`absolute left-1/2 w-2 transform -translate-x-1/2 bg-gradient-to-b from-transparent via-purple-500 to-transparent z-0 hidden md:block
-                            ${/* Connect specific sections between rows */
-                            (rowIndex === 0 && colIndex === 2) || // Third section in first row
-                              (rowIndex === 1 && colIndex === 0) || // First section in second row
-                              (rowIndex === 1 && colIndex === 0) || // First section in second row connects to third row
-                              (rowIndex === 2 && colIndex === 0)    // First section in third row
-                              ? '' : 'invisible'
-                            }
-                          `}
-                          initial={{ scaleY: 0, opacity: 0 }}
-                          whileInView={{ scaleY: 1, opacity: 1 }}
-                          viewport={{ once: true, margin: "-100px" }}
-                          transition={{ duration: 0.5, delay: 0.3 + colIndex * 0.1 }}
-                        >
-                          {/* Top line for connecting rows */}
-                          {((rowIndex === 1 && colIndex === 0) || (rowIndex === 2 && colIndex === 0)) &&
-                            <div className="h-12 bottom-full absolute left-0 right-0"></div>
-                          }
-
-                          {/* Bottom line for connecting to next row */}
-                          {((rowIndex === 0 && colIndex === 2) || (rowIndex === 1 && colIndex === 0)) &&
-                            <div className="h-12 top-full absolute left-0 right-0"></div>
-                          }
-                        </motion.div>
-                      )}
-
-                      {/* The section card - Increased height with min-h-full to make cards taller */}
+                      {/* Section card */}
                       <motion.div
                         className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20 relative z-10 h-full"
                         style={{ transform: `rotate(${tiltAngle})` }}
@@ -222,7 +131,7 @@ export default function GradientWeekRecap() {
                           <img
                             src={section.coverImage}
                             alt={section.title}
-                            className="w-full aspect-[4/3] object-cover" // Changed to be more square with aspect-[4/3]
+                            className="w-full aspect-[4/3] object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end">
                             <div className="p-6">
@@ -247,7 +156,7 @@ export default function GradientWeekRecap() {
                 })}
               </div>
 
-              {/* Vertical connecting line to next row - now with animation and increased thickness */}
+              {/* Vertical connecting line to next row */}
               {rowIndex < reorganizedSections.length - 1 && !isMobile && (
                 <motion.div
                   className={`absolute w-2 h-24 transform -translate-x-1/2 bg-gradient-to-b from-purple-500 via-blue-500 to-purple-500 -bottom-24 hidden md:block`}
@@ -263,10 +172,10 @@ export default function GradientWeekRecap() {
             </div>
           ))}
 
-          {/* Mobile layout (stacked vertically) - with fixed alignment */}
+          {/* Mobile layout (stacked vertically) */}
           {isMobile && (
             <div className="relative">
-              {/* Main vertical timeline line with animation and increased thickness */}
+              {/* Main vertical timeline line */}
               <motion.div
                 className="absolute left-4 top-0 bottom-0 w-2 bg-gradient-to-b from-purple-600 via-blue-600 to-purple-600 z-0"
                 initial={{ scaleY: 0, opacity: 0 }}
@@ -287,7 +196,7 @@ export default function GradientWeekRecap() {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6 }}
                   >
-                    {/* Fixed: Connecting horizontal line with animation and increased thickness */}
+                    {/* Connecting horizontal line */}
                     <motion.div
                       className="absolute left-4 top-9 w-29 h-2 bg-gradient-to-r from-purple-600 to-transparent"
                       initial={{ scaleX: 0, opacity: 0 }}
@@ -297,7 +206,7 @@ export default function GradientWeekRecap() {
                       style={{ transformOrigin: 'left' }}
                     ></motion.div>
 
-                    {/* Fixed: Timeline dot positioned correctly on the timeline and slightly larger */}
+                    {/* Timeline dot */}
                     <motion.div
                       className="absolute left-3 top-8 w-8 h-8 rounded-full bg-purple-600 transform -translate-x-2 -translate-y-2 z-10"
                       initial={{ scale: 0, opacity: 0 }}
@@ -311,7 +220,7 @@ export default function GradientWeekRecap() {
                       }}
                     ></motion.div>
 
-                    {/* The section card with more square image */}
+                    {/* Section card */}
                     <motion.div
                       className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20"
                       whileHover={{ scale: 1.03 }}
@@ -321,7 +230,7 @@ export default function GradientWeekRecap() {
                         <img
                           src={section.coverImage}
                           alt={section.title}
-                          className="w-full aspect-[4/3] object-cover" // Changed to aspect-[4/3] for more square look
+                          className="w-full aspect-[4/3] object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end">
                           <div className="p-4">
@@ -425,7 +334,7 @@ export default function GradientWeekRecap() {
                   />
                 )}
 
-                {/* Added Image Title - displaying the alt text as a visible caption */}
+                {/* Image Title */}
                 <div className="absolute left-0 right-0 top-0 bg-black/60 text-white p-3 text-center">
                   <p className="font-medium">{activeSection.images[currentImageIndex].alt}</p>
                 </div>
@@ -457,21 +366,19 @@ export default function GradientWeekRecap() {
                 </div>
               </div>
 
-              {/* Image thumbnails with alt text as tooltips */}
-              <div className="flex overflow-x-auto scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-gray-800 p-2 gap-2 bg-black/50">
+              {/* Image thumbnails */}
+              <div className="flex overflow-x-auto p-2 gap-2 bg-black/50">
                 {activeSection.images.map((image, idx) => (
                   <div
                     key={idx}
-                    className={`flex-none h-16 w-24 cursor-pointer transition-all rounded overflow-hidden ${idx === currentImageIndex ? 'ring-2 ring-purple-500' : 'opacity-60 hover:opacity-100'
-                      }`}
+                    className={`flex-none h-16 w-24 cursor-pointer transition-all rounded overflow-hidden ${idx === currentImageIndex ? 'ring-2 ring-purple-500' : 'opacity-60 hover:opacity-100'}`}
                     onClick={() => goToImage(idx)}
-                    title={image.alt} // Added tooltip showing alt text on hover
+                    title={image.alt}
                   >
-                    {/* Conditional rendering for video thumbnails */}
                     {image.url.endsWith('.mp4') ? (
                       <video
                         src={image.url}
-                        poster={image.thumbnail || undefined} // Use 'thumbnail' if available, else fallback
+                        poster={image.thumbnail || undefined}
                         className="h-full w-full object-cover"
                       />
                     ) : (
@@ -481,7 +388,6 @@ export default function GradientWeekRecap() {
                         className="h-full w-full object-cover"
                       />
                     )}
-                    {/* Mini caption under thumbnail */}
                     <div className="bg-black/70 text-xs text-center text-white truncate px-1">
                       {image.alt.length > 15 ? image.alt.substring(0, 15) + '...' : image.alt}
                     </div>
@@ -498,6 +404,6 @@ export default function GradientWeekRecap() {
           </motion.div>
         )}
       </AnimatePresence>
-    </main >
+    </main>
   );
 }
