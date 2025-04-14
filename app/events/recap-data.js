@@ -205,11 +205,11 @@ export const recapSections = [
       },
       {
         url: '/gallery/recap/bts/3.webp',
-        alt: 'When you need don\'t have a ladder, you get creative '
+        alt: 'When you need a ladder but don\'t have one, you get creative '
       },
       {
         url: '/gallery/recap/bts/1.webp',
-        alt: 'Core Team Pre Gradient Week Preparations'
+        alt: 'Core Team, Pre Gradient Week'
       }
     ]
   }
