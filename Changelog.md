@@ -47,8 +47,8 @@
 - fixed image issue for ai agents workshop
 
 ## 10/04/25 (Pranav) 
-- added '25 core to the roots section in about page, 
-- renamed founding core to '24 Core,Foudning core
+- added '24 core to the roots section in about page, 
+- renamed founding core to '23 Core, Foudning core
 
 ## 13/04/25 (Pranav)
 - Made the Gradient week page into a recap page
@@ -57,3 +57,6 @@
 
 ## 14/04/25 (Pranav)
 - Fixed the Gradient week page lag
+
+## 15/04/25 (Pranav)
+- Fixed the '23 core photo being cut on the sides
