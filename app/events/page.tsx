@@ -7,8 +7,24 @@ import { ChevronLeft, ChevronRight, X, MousePointerClick } from 'lucide-react';
 // Import data from separate file
 import { recapSections } from './recap-data';
 
+// Define TypeScript interfaces to fix type errors
+interface Image {
+  url: string;
+  alt: string;
+  thumbnail?: string;
+}
+
+interface Section {
+  id: string;
+  title: string;
+  brief: string;
+  description: string;
+  coverImage: string;
+  images: Image[];
+}
+
 export default function GradientWeekRecap() {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<Section | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -23,7 +39,7 @@ export default function GradientWeekRecap() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const openSection = (section) => {
+  const openSection = (section: Section) => {
     setActiveSection(section);
     setCurrentImageIndex(0);
   };
@@ -46,34 +62,49 @@ export default function GradientWeekRecap() {
     }
   };
 
-  const goToImage = (index) => {
+  const goToImage = (index: number) => {
     setCurrentImageIndex(index);
   };
   
   // Reorganize sections for the desired layout
+  // Cast recapSections to Section[] to ensure TypeScript recognizes it correctly
+  const typedSections = recapSections as Section[];
+  
   const reorganizedSections = [
-    // First row (unchanged)
-    [recapSections.find(s => s.id === 'inauguration'), recapSections.find(s => s.id === 'impact-ai'), recapSections.find(s => s.id === 'parallel-fusion')],
+    // First row
+    [
+      typedSections.find(s => s.id === 'inauguration'),
+      typedSections.find(s => s.id === 'impact-ai'), 
+      typedSections.find(s => s.id === 'parallel-fusion')
+    ],
 
     // Second row
-    [recapSections.find(s => s.id === 'cultural-evening'), recapSections.find(s => s.id === 'collab-events'), recapSections.find(s => s.id === 'ai-agents-workshop')],
+    [
+      typedSections.find(s => s.id === 'cultural-evening'), 
+      typedSections.find(s => s.id === 'collab-events'), 
+      typedSections.find(s => s.id === 'ai-agents-workshop')
+    ],
 
     // Third row
-    [recapSections.find(s => s.id === 'general-shots'), recapSections.find(s => s.id === 'behind-scenes')]
+    [
+      typedSections.find(s => s.id === 'general-shots'), 
+      typedSections.find(s => s.id === 'behind-scenes')
+    ]
   ];
 
   // Group sections for mobile layout in the specified order
   const mobileSections = [
-    recapSections.find(s => s.id === 'inauguration'),
-    recapSections.find(s => s.id === 'impact-ai'),
-    recapSections.find(s => s.id === 'parallel-fusion'),
-    recapSections.find(s => s.id === 'ai-agents-workshop'),
-    recapSections.find(s => s.id === 'collab-events'),
-    recapSections.find(s => s.id === 'cultural-evening'),
-    recapSections.find(s => s.id === 'general-shots'),
-    recapSections.find(s => s.id === 'behind-scenes')
-  ].filter(Boolean); // This ensures any undefined sections are removed
+    typedSections.find(s => s.id === 'inauguration'),
+    typedSections.find(s => s.id === 'impact-ai'),
+    typedSections.find(s => s.id === 'parallel-fusion'),
+    typedSections.find(s => s.id === 'ai-agents-workshop'),
+    typedSections.find(s => s.id === 'collab-events'),
+    typedSections.find(s => s.id === 'cultural-evening'),
+    typedSections.find(s => s.id === 'general-shots'),
+    typedSections.find(s => s.id === 'behind-scenes')
+  ].filter(Boolean) as Section[]; // Filter out undefined and cast to Section[]
 
+  // Optimize performance by lazy loading images and reducing animations
   return (
     <main className="min-h-screen text-white relative bg-gradient-to-br from-purple-900 via-blue-900 to-black overflow-x-hidden">
       <Navbar />
@@ -83,7 +114,7 @@ export default function GradientWeekRecap() {
           className="text-5xl md:text-7xl font-bold text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }} // Reduced duration
         >
           Gradient Week <span className="text-purple-500">'25</span> Recap
         </motion.h1>
@@ -99,7 +130,7 @@ export default function GradientWeekRecap() {
                 style={{ left: '20%', right: '20%' }}
                 whileInView={{ scaleX: 1, opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1, delay: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.1 }} // Optimized timing
               ></motion.div>
 
               {/* Section cards in this row */}
@@ -115,16 +146,16 @@ export default function GradientWeekRecap() {
                     <motion.div
                       key={section.id}
                       className="relative"
-                      initial={{ opacity: 0, y: 50 }}
+                      initial={{ opacity: 0, y: 30 }} // Reduced y distance
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.6, delay: colIndex * 0.1 }}
+                      viewport={{ once: true, margin: "-50px" }} // Adjusted margin
+                      transition={{ duration: 0.4, delay: colIndex * 0.08 }} // Optimized timing
                     >
                       {/* Section card */}
                       <motion.div
                         className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20 relative z-10 h-full"
                         style={{ transform: `rotate(${tiltAngle})` }}
-                        whileHover={{ scale: 1.05, rotate: '0deg' }}
+                        whileHover={{ scale: 1.03, rotate: '0deg' }} // Reduced scale for better performance
                         onClick={() => openSection(section)}
                       >
                         <div className="relative h-full flex flex-col">
@@ -132,6 +163,7 @@ export default function GradientWeekRecap() {
                             src={section.coverImage}
                             alt={section.title}
                             className="w-full aspect-[4/3] object-cover"
+                            loading="lazy" // Added lazy loading
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end">
                             <div className="p-6">
@@ -166,7 +198,7 @@ export default function GradientWeekRecap() {
                   initial={{ scaleY: 0, opacity: 0 }}
                   whileInView={{ scaleY: 1, opacity: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 0.3 }} // Optimized timing
                 ></motion.div>
               )}
             </div>
@@ -180,21 +212,19 @@ export default function GradientWeekRecap() {
                 className="absolute left-4 top-0 bottom-0 w-2 bg-gradient-to-b from-purple-600 via-blue-600 to-purple-600 z-0"
                 initial={{ scaleY: 0, opacity: 0 }}
                 animate={{ scaleY: 1, opacity: 1 }}
-                transition={{ duration: 1.2 }}
+                transition={{ duration: 1 }} // Reduced duration
                 style={{ transformOrigin: 'top' }}
               ></motion.div>
 
               {mobileSections.map((section, index) => {
-                if (!section) return null;
-
                 return (
                   <motion.div
                     key={section.id}
                     className="relative mb-16 pl-12 pr-4 w-full"
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: 30 }} // Reduced distance
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.4 }} // Reduced duration
                   >
                     {/* Connecting horizontal line */}
                     <motion.div
@@ -202,7 +232,7 @@ export default function GradientWeekRecap() {
                       initial={{ scaleX: 0, opacity: 0 }}
                       whileInView={{ scaleX: 1, opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
+                      transition={{ duration: 0.3, delay: 0.1 }} // Optimized timing
                       style={{ transformOrigin: 'left' }}
                     ></motion.div>
 
@@ -214,16 +244,16 @@ export default function GradientWeekRecap() {
                       viewport={{ once: true }}
                       transition={{
                         type: "spring",
-                        stiffness: 260,
+                        stiffness: 200, // Reduced stiffness
                         damping: 20,
-                        delay: 0.3
+                        delay: 0.2 // Reduced delay
                       }}
                     ></motion.div>
 
                     {/* Section card */}
                     <motion.div
                       className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20 w-full"
-                      whileHover={{ scale: 1.03 }}
+                      whileHover={{ scale: 1.02 }} // Reduced scale
                       onClick={() => openSection(section)}
                     >
                       <div className="relative">
@@ -231,6 +261,7 @@ export default function GradientWeekRecap() {
                           src={section.coverImage}
                           alt={section.title}
                           className="w-full aspect-[4/3] object-cover"
+                          loading="lazy" // Added lazy loading
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end">
                           <div className="p-4">
@@ -262,7 +293,7 @@ export default function GradientWeekRecap() {
           className="text-center mt-32 mb-16 relative z-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }} // Reduced duration
           viewport={{ once: true }}
         >
           <motion.div
@@ -271,7 +302,7 @@ export default function GradientWeekRecap() {
             whileInView={{ scale: 1 }}
             transition={{
               type: "spring",
-              stiffness: 260,
+              stiffness: 200, // Reduced stiffness
               damping: 20
             }}
           >
@@ -291,6 +322,7 @@ export default function GradientWeekRecap() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }} // Reduced duration
             onClick={closeSection}
           >
             <motion.div
@@ -298,6 +330,7 @@ export default function GradientWeekRecap() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }} // Reduced duration
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -311,7 +344,7 @@ export default function GradientWeekRecap() {
               {/* Main slideshow */}
               <div className="relative">
                 <div className="aspect-video bg-black">
-                {activeSection.images[currentImageIndex].url.endsWith('.mp4') ? (
+                {activeSection.images && activeSection.images[currentImageIndex]?.url.endsWith('.mp4') ? (
                   <motion.video
                     key={currentImageIndex}
                     src={activeSection.images[currentImageIndex].url}
@@ -321,81 +354,91 @@ export default function GradientWeekRecap() {
                     className="w-full h-full object-contain"
                     initial={{ opacity: 0.5 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }} // Reduced duration
                   />
                 ) : (
                   <motion.img
                     key={currentImageIndex}
-                    src={activeSection.images[currentImageIndex].url}
-                    alt={activeSection.images[currentImageIndex].alt}
+                    src={activeSection.images && activeSection.images[currentImageIndex]?.url}
+                    alt={activeSection.images && activeSection.images[currentImageIndex]?.alt || ''}
                     className="w-full h-full object-contain"
                     initial={{ opacity: 0.5 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }} // Reduced duration
                   />
                 )}
                 </div>
 
                 {/* Image Title - Moved below the image */}
                 <div className="bg-black/80 text-white p-3 text-center">
-                  <p className="font-medium">{activeSection.images[currentImageIndex].alt}</p>
+                  <p className="font-medium">
+                    {activeSection.images && activeSection.images[currentImageIndex]?.alt || ''}
+                  </p>
                 </div>
 
-                {/* Navigation arrows */}
-                <button
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    prevImage();
-                  }}
-                >
-                  <ChevronLeft size={24} />
-                </button>
+                {/* Navigation arrows - Only show if there's more than one image */}
+                {activeSection.images && activeSection.images.length > 1 && (
+                  <>
+                    <button
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage();
+                      }}
+                    >
+                      <ChevronLeft size={24} />
+                    </button>
 
-                <button
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    nextImage();
-                  }}
-                >
-                  <ChevronRight size={24} />
-                </button>
+                    <button
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage();
+                      }}
+                    >
+                      <ChevronRight size={24} />
+                    </button>
 
-                {/* Image counter */}
-                <div className="absolute bottom-12 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-                  {currentImageIndex + 1} / {activeSection.images.length}
-                </div>
-              </div>
-
-              {/* Image thumbnails */}
-              <div className="flex overflow-x-auto p-2 gap-2 bg-black/50 w-full">
-                {activeSection.images.map((image, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex-none h-16 w-24 cursor-pointer transition-all rounded overflow-hidden ${idx === currentImageIndex ? 'ring-2 ring-purple-500' : 'opacity-60 hover:opacity-100'}`}
-                    onClick={() => goToImage(idx)}
-                    title={image.alt}
-                  >
-                    {image.url.endsWith('.mp4') ? (
-                      <video
-                        src={image.url}
-                        poster={image.thumbnail || undefined}
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <img
-                        src={image.url}
-                        alt={image.alt}
-                        className="h-full w-full object-cover"
-                      />
-                    )}
-                    <div className="bg-black/70 text-xs text-center text-white truncate px-1">
-                      {image.alt.length > 15 ? image.alt.substring(0, 15) + '...' : image.alt}
+                    {/* Image counter */}
+                    <div className="absolute bottom-12 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                      {currentImageIndex + 1} / {activeSection.images.length}
                     </div>
-                  </div>
-                ))}
+                  </>
+                )}
               </div>
+
+              {/* Image thumbnails - Only render if more than one image */}
+              {activeSection.images && activeSection.images.length > 1 && (
+                <div className="flex overflow-x-auto p-2 gap-2 bg-black/50 w-full">
+                  {activeSection.images.map((image, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex-none h-16 w-24 cursor-pointer transition-all rounded overflow-hidden ${idx === currentImageIndex ? 'ring-2 ring-purple-500' : 'opacity-60 hover:opacity-100'}`}
+                      onClick={() => goToImage(idx)}
+                      title={image.alt}
+                    >
+                      {image.url.endsWith('.mp4') ? (
+                        <video
+                          src={image.url}
+                          poster={image.thumbnail || undefined}
+                          className="h-full w-full object-cover"
+                          preload="metadata" // Added lazy loading
+                        />
+                      ) : (
+                        <img
+                          src={image.url}
+                          alt={image.alt}
+                          className="h-full w-full object-cover"
+                          loading="lazy" // Added lazy loading
+                        />
+                      )}
+                      <div className="bg-black/70 text-xs text-center text-white truncate px-1">
+                        {image.alt.length > 15 ? image.alt.substring(0, 15) + '...' : image.alt}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Content */}
               <div className="p-6">
