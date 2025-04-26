@@ -127,11 +127,12 @@ Our mission is to create a platform where passion for technology thrives, and gr
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
                   <Image
-                    src="/merchbackshot.png"
+                    src="https://gradient-content-server.vercel.app/content/merchbackshot.png"
                     alt="Our Very Merchandise"
                     width={600}
                     height={600}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
                     Our Very Own Merchandise
@@ -139,11 +140,12 @@ Our mission is to create a platform where passion for technology thrives, and gr
                 </div>
                 <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
                   <Image
-                    src="/gw1.jpg"
+                    src="https://gradient-content-server.vercel.app/content/gw1.jpg"
                     alt="The First Ever Gradient Week"
                     width={600}
                     height={600}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
                     The First Ever Gradient Week
@@ -151,11 +153,12 @@ Our mission is to create a platform where passion for technology thrives, and gr
                 </div>
                 <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
                   <Image
-                    src="/posters/hacka24.webp"
+                    src="https://gradient-content-server.vercel.app/content/posters/hacka24.webp"
                     alt="website"
                     width={600}
                     height={600}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
                     Our Biggest Hackathon
@@ -198,11 +201,12 @@ Our mission is to create a platform where passion for technology thrives, and gr
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
                       <Image
-                        src="/inaugration.png"
+                        src="https://gradient-content-server.vercel.app/content/inaugration.png"
                         alt="Inauguration Ceremony 1"
                         width={600}
                         height={400}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
                       />
                     </div>
                     <p className="text-center mt-2 text-white-100 mb-2">Inauguration ceremony of Gradient (2022)</p>
@@ -217,11 +221,12 @@ Our mission is to create a platform where passion for technology thrives, and gr
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
                       <Image
-                        src="/founding core.jpg"
+                        src="https://gradient-content-server.vercel.app/content/founding core.jpg"
                         alt="23 core"
                         width={600}
                         height={400}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
                       />
                     </div>
                     <p className="text-center mt-2 text-white-100 mb-2">'23 Core, The First Core</p>
@@ -236,11 +241,12 @@ Our mission is to create a platform where passion for technology thrives, and gr
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
                       <Image
-                        src="/core24.jpg"
+                        src="https://gradient-content-server.vercel.app/content/core24.jpg"
                         alt="24 core"
                         width={600}
                         height={400}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
                       />
                     </div>
                     <p className="text-center mt-2 text-white-100 mb-2">The 2024 Core Team</p>
