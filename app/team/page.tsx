@@ -25,31 +25,31 @@ const teamData: TeamSection[] = [
   {
     title: "Club Coordinators",
     members: [
-      { name: "Sudhanva Bharadwaj", role: "Club Coordinator", year: "Third year", image: "/sudhanva.png", github: "https://github.com/sudhanvabharadwaj", linkedin: "https://www.linkedin.com/in/sudhanva-bharadwaj/" },
-      { name: "Shashank Sharma", role: "Club Coordinator", year: "Third year", image: "/shashank.JPG", github: "https://github.com/csshashanksharma", linkedin: "https://www.linkedin.com/in/c-s-shashank-sharma-58532b277/" },
+      { name: "Sudhanva Bharadwaj", role: "Club Coordinator", year: "Third year", image: "https://gradient-content-server.vercel.app/content/sudhanva.png", github: "https://github.com/sudhanvabharadwaj", linkedin: "https://www.linkedin.com/in/sudhanva-bharadwaj/" },
+      { name: "Shashank Sharma", role: "Club Coordinator", year: "Third year", image: "https://gradient-content-server.vercel.app/content/shashank.JPG", github: "https://github.com/csshashanksharma", linkedin: "https://www.linkedin.com/in/c-s-shashank-sharma-58532b277/" },
     ]
   },
   {
     title: "Technical Heads",
     members: [
-      { name: "Pranav V", role: "Technical Head", year: "Third Year", image: "/pranav.JPG", github: "https://github.com/pranav1211", linkedin: "https://www.linkedin.com/in/pranav-veeraghanta-315760119/" },
-      { name: "Siddharth Sahay", role: "Technical Head", year: "Third Year", image: "/sid.JPG", github: "https://github.com/siddzzzz", linkedin: "https://www.linkedin.com/in/siddharth-sahay-9a8365254/" },
+      { name: "Pranav Veeraghanta", role: "Technical Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/pranav.JPG", github: "https://github.com/pranav1211", linkedin: "https://www.linkedin.com/in/pranav-veeraghanta/" },
+      { name: "Siddharth Sahay", role: "Technical Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/sid.JPG", github: "https://github.com/siddzzzz", linkedin: "https://www.linkedin.com/in/siddharth-sahay-9a8365254/" },
 
     ]
   },
   {
     title: "Design Heads",
     members: [
-      { name: "Vinay Yele", role: "Design Head", year: "Third year", image: "/yele.JPG", github: "https://github.com/Vinay-yele", linkedin: "https://www.linkedin.com/in/vinay-yele-08ab08295/" },
-      { name: "Deepali", role: "Design Head", year: "Third Year", image: "/deepali.JPG",github:"https://github.com/deepali9976", linkedin: "http://linkedin.com/in/deepali-u-10a78a306" },
+      { name: "Vinay Yele", role: "Design Head", year: "Third year", image: "https://gradient-content-server.vercel.app/content/yele.JPG", github: "https://github.com/Vinay-yele", linkedin: "https://www.linkedin.com/in/vinay-yele-08ab08295/" },
+      { name: "Deepali U", role: "Design Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/deepali.JPG",github:"https://github.com/deepali9976", linkedin: "http://linkedin.com/in/deepali-u-10a78a306" },
     ]
   },  
   { 
     title: "Logistics and Event Management Heads",
     members: [
-      { name: "Suman", role: "Logistics and Event Management Head", year: "Third Year", image: "/suman.JPG", github: "https://github.com/Suman302004", linkedin: "https://www.linkedin.com/in/suman-rudraswamy-53450b25b/", },
-      { name: "Vignesh Madan", role: "Logistics and Event Management Head", year: "Third Year", image: "/vignesh.JPG", github: "https://github.com/VIGNESHMADAN", linkedin: "https://www.linkedin.com/in/vignesh-madan-6505a4275/" },
-      { name: "Krishna Saket", role: "Logistics and Event Management Head", year: "Third Year", image: "/saket.JPG", github: "https://github.com/SakhamooriKrishnasaket", linkedin: "https://www.linkedin.com/in/krishna-saket-sakhamoori-82349b278/" },
+      { name: "R Suman", role: "Logistics and Event Management Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/suman.JPG", github: "https://github.com/Suman302004", linkedin: "https://www.linkedin.com/in/suman-rudraswamy-53450b25b/", },
+      { name: "Vignesh Madan", role: "Logistics and Event Management Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/vignesh.JPG", github: "https://github.com/VIGNESHMADAN", linkedin: "https://www.linkedin.com/in/vignesh-madan-6505a4275/" },
+      { name: "Sakhamoori Krishna Saket", role: "Logistics and Event Management Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/saket.JPG", github: "https://github.com/SakhamooriKrishnasaket", linkedin: "https://www.linkedin.com/in/krishna-saket-sakhamoori-82349b278/" },
     ],
   },
   {
@@ -59,25 +59,25 @@ const teamData: TeamSection[] = [
         name: "Varsh Gandhi",
         role: "Media & Sponsorship Head",
         year: "Third Year",
-        image: "/varsh.JPG",
+        image: "https://gradient-content-server.vercel.app/content/varsh.JPG",
         github: "https://github.com/varsh0097",
-        linkedin: "https://linkedin.com",
+        linkedin: "https://www.linkedin.com/in/varsh-gandhi-ab242b1a9/",
       },
       {
         name: "Supriya Gowda",
         role: "Media & Sponsorship Head",
         year: "Third Year",
-        image: "/supriya.JPG",
+        image: "https://gradient-content-server.vercel.app/content/supriya.JPG",
         github: "https://github.com/SupriyaSGowda",
-        linkedin: "https://linkedin.com",
+        linkedin: "https://www.linkedin.com/in/supriya-c-s-54766b268/",
       },
       {
-        name: "Sanjana",
+        name: "Sanjana Dhananjaya",
         role: "Media & Sponsorship Head",
         year: "Third Year",
-        image: "/sanj.JPG",
+        image: "https://gradient-content-server.vercel.app/content/sanj.JPG",
         github: "https://github.com/Sanjanadai23",
-        linkedin: "https://linkedin.com",
+        linkedin: "https://www.linkedin.com/in/sanjana-dhananjaya-455386264/",
       },
       {
         name: "Likith Chowdary",

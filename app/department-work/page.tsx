@@ -23,6 +23,7 @@ import {
   Award,
   Brain
 } from 'lucide-react';
+import { ImGit } from 'react-icons/im';
 import Image from 'next/image'
 
 const stats = [
@@ -57,17 +58,17 @@ const facilities = [
   {
     name: 'Classrooms',
     description: 'State-of-the-art clasrooms with advanced technology to enhance the student learning experience.',
-    image: '/coe.jpeg'
+    image: 'https://gradient-content-server.vercel.app/content/coe.jpeg'
   },
   {
     name: 'Computer Labs',
     description: 'High-performance computing clusters with the high end NVIDIA GPUs.',
-    image: '/lab.webp'
+    image: 'https://gradient-content-server.vercel.app/content/lab.webp'
   },
   {
     name: 'Seminar Hall',
     description: 'A spacious seminar hall designed for engaging lectures and discussions, featuring modern seating, clear acoustics, and a professional ambiance.',
-    image: '/semh.jpeg'
+    image: 'https://gradient-content-server.vercel.app/content/semh.jpeg'
   }
 ]
 
@@ -246,10 +247,11 @@ export default function DepartmentWork() {
               transition={{ duration: 0.2 }}
             >
               <Image
-                src="/class.jpeg"
+                src="https://gradient-content-server.vercel.app/content/class.jpeg"
                 alt="B.S. Narayan Center of Excellence"
+                loading="lazy"
+                className="object-cover"                
                 fill
-                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                 <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -282,7 +284,7 @@ export default function DepartmentWork() {
                     alt={facility.name}
                     width={400}
                     height={300}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-64 object-cover"                    
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
                     <h3 className="text-xl font-semibold mb-2 text-purple-400">{facility.name}</h3>

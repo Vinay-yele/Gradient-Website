@@ -8,27 +8,27 @@ export const recapSections = [
     coverImage: '/gallery/recap/inaug/a.webp',
     images: [
       {
-        url: '/gallery/recap/inaug/a.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/a.webp',
         alt: 'Gradient Week Banner'
       },
       {
-        url: '/gallery/recap/inaug/1.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/1.webp',
         alt: 'Lighting of the lamp during inauguration'
       },
       {
-        url: '/gallery/recap/inaug/2.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/2.webp',
         alt: 'The Emcee welcoming the audience'
       },
       {
-        url: '/gallery/recap/inaug/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/3.webp',
         alt: 'The Principal addressing the audience'
       },
       {
-        url: '/gallery/recap/inaug/4.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/4.webp',
         alt: 'Token of gratitudes to the guests'
       },
       {
-        url: '/gallery/recap/inaug/5.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/5.webp',
         alt: 'The audience'
       }
     ]
@@ -42,15 +42,15 @@ export const recapSections = [
     coverImage: '/posters/gw/aiwork.webp',
     images: [
       {
-        url: '/posters/gw/aiwork.webp',
+        url: 'https://gradient-content-server.vercel.app/content/posters/gw/aiwork.webp',
         alt: 'Workshop participants working on AI agent development'
       },
       {
-        url: '/gallery/recap/aiagent/2.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/aiagent/2.webp',
         alt: 'Expert demonstrating agent architecture'
       },
       {
-        url: '/gallery/recap/aiagent/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/aiagent/3.webp',
         alt: 'Participants coding AI agents'
       }            
     ]
@@ -63,19 +63,19 @@ export const recapSections = [
     coverImage: '/gallery/recap/impact/1.webp',
     images: [      
       {
-        url: '/gallery/recap/impact/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/impact/3.webp',
         alt: 'Participants coding through the night'
       },
       {
-        url: '/gallery/recap/impact/4.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/impact/4.webp',
         alt: 'Mentoring session during the hackathon'
       },
       {
-        url: '/gallery/recap/impact/6.mp4',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/impact/6.mp4',
         alt: 'Project presentation to judges'
       },
       {
-        url: '/gallery/recap/impact/5.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/impact/5.webp',
         alt: 'Winner announcement and prize distribution'
       }
     ]
@@ -88,15 +88,15 @@ export const recapSections = [
     coverImage: '/gallery/recap/pf/1.webp',
     images: [
       {
-        url: '/gallery/recap/pf/1.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/pf/1.webp',
         alt: 'The systems setting up for Parallel Fusion'
       },
       {
-        url: '/gallery/recap/pf/2.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/pf/2.webp',
         alt: 'Coordinators informing the participants'
       },
       {
-        url: '/gallery/recap/pf/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/pf/3.webp',
         alt: 'Participants solving the puzzles'
       },      
     ]
@@ -109,27 +109,27 @@ export const recapSections = [
     coverImage: '/gallery/recap/collab/1.webp',
     images: [
       {
-        url: '/posters/gw/codel.webp',
+        url: 'https://gradient-content-server.vercel.app/content/posters/gw/codel.webp',
         alt: 'Figma 2 Web Poster'
       },
       {
-        url: '/gallery/recap/collab/2.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/collab/2.webp',
         alt: 'Figma 2 Web event by Team Codelocked'
       },
       {
-        url: '/posters/gw/compsoc.webp',
+        url: 'https://gradient-content-server.vercel.app/content/posters/gw/compsoc.webp',
         alt: 'Glide and Go poster'
       },
       {
-        url: '/gallery/recap/collab/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/collab/3.webp',
         alt: 'Glide and Go event BMSCE IEEE COMPSOC'
       },
       {
-        url: '/posters/gw/pent.webp',
+        url: 'https://gradient-content-server.vercel.app/content/posters/gw/pent.webp',
         alt: 'Logic Lockdown poster'
       },
       {
-        url: '/gallery/recap/collab/4.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/collab/4.webp',
         alt: 'Logic Lockdown event by BMSCE Pentagram'
       }
     ]
@@ -142,19 +142,19 @@ export const recapSections = [
     coverImage: '/gallery/recap/gener/1.webp',
     images: [
       {
-        url: '/gallery/recap/gener/4.mp4',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/gener/4.mp4',
         alt: 'Billiboard outside the college showcasing the events'
       },
       {
-        url: '/gallery/recap/gener/1.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/gener/1.webp',
         alt: 'The 2025 Core team'
       },
       {
-        url: '/gallery/recap/gener/2.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/gener/2.webp',
         alt: 'The 2025 Gradient team'
       },
       {
-        url: '/gallery/recap/gener/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/gener/3.webp',
         alt: 'The Past and present Gradient team'
       }      
     ]
@@ -167,27 +167,27 @@ export const recapSections = [
     coverImage: '/gallery/recap/cult/1.webp',
     images: [
       {
-        url: '/gallery/recap/cult/2.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/2.webp',
         alt: 'Ninaad Eastern Musical Performance'
       },
       {
-        url: '/gallery/recap/cult/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/3.webp',
         alt: 'Groovehouse Western Musical Performance'
       },
       {
-        url: '/gallery/recap/cult/4.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/4.webp',
         alt: 'Danz Addix Western Dance Performance'
       },
       {
-        url: '/gallery/recap/cult/5.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/5.webp',
         alt: 'Paramvah Eastern Dance Performance'
       },
       {
-        url: '/gallery/recap/cult/6.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/6.webp',
         alt: 'Pravruthi Mad-ads Theatre Performance'
       },
       {
-        url: '/gallery/recap/cult/7.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/7.webp',
         alt: 'The audience enjoying the performances'
       }
     ]
@@ -200,15 +200,15 @@ export const recapSections = [
     coverImage: '/gallery/recap/bts/1.webp',
     images: [
       {
-        url: '/gallery/recap/bts/2.mp4',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/bts/2.mp4',
         alt: 'Intense Discussions pre Gradient week'
       },
       {
-        url: '/gallery/recap/bts/3.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/bts/3.webp',
         alt: 'When you need a ladder but don\'t have one, you get creative '
       },
       {
-        url: '/gallery/recap/bts/1.webp',
+        url: 'https://gradient-content-server.vercel.app/content/gallery/recap/bts/1.webp',
         alt: 'Core Team, Pre Gradient Week'
       }
     ]
