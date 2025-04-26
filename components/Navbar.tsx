@@ -55,7 +55,7 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <Image
-                  src="/Logo.png"
+                  src="https://gradient-content-server.vercel.app/content/Logo.png"
                   alt="Gradient Logo"
                   width={92}
                   height={92}
