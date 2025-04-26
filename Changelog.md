@@ -68,3 +68,4 @@
 ## 26/04/25 (Pranav)
 - Gradient week archive website at : Gradientaiml.tech/gw25
 - Moved all images and content to a dedicated content server to reduce load and lag
+- Redesigned the core team page to something more nice
