@@ -83,7 +83,7 @@ const teamData: TeamSection[] = [
         name: "Likith Chowdary",
         role: "Media & Sponsorship Head",
         year: "Third Year",
-        image: "/likith.JPG",
+        image: "https://gradient-content-server.vercel.app/content/likith.JPG",
         github: "https://github.com/LikithChowdary2807",
         linkedin: "https://www.linkedin.com/in/likith-chowdary-154204300",
       },
@@ -92,8 +92,8 @@ const teamData: TeamSection[] = [
   {
     title: "Content Heads",
     members: [
-      { name: "Yashas Nandan", role: "Content Head", year: "Third Year", image: "/yashas.JPG", github: "https://github.com/Yashas-Nandan", linkedin: "https://www.linkedin.com/in/yashas-nandan-399a0225a/" },
-      { name: "Ashrit", role: "Content Head", year: "Third Year", image: "/ashrit.JPG", github: "https://github.com/24ashrit", linkedin: "https://www.linkedin.com/in/ashrit-m-a771442bb/" },
+      { name: "Yashas Nandan", role: "Content Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/yashas.JPG", github: "https://github.com/Yashas-Nandan", linkedin: "https://www.linkedin.com/in/yashas-nandan-399a0225a/" },
+      { name: "Ashrit", role: "Content Head", year: "Third Year", image: "https://gradient-content-server.vercel.app/content/ashrit.JPG", github: "https://github.com/24ashrit", linkedin: "https://www.linkedin.com/in/ashrit-m-a771442bb/" },
     ]
   } 
 ]
