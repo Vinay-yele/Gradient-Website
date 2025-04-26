@@ -25,7 +25,7 @@ export default function Connect() {
   }, [showPopup]);
 
   // Shared function to handle email actions  
-  const handleEmailAction = (emailUrl) => {
+  const handleEmailAction = (emailUrl) => { 
     try {
       const newWindow = window.open(emailUrl, '_blank');
 
