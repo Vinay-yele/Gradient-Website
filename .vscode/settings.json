@@ -1,5 +1,4 @@
 {
-    "git.postCommitCommand": "push",
-    "git.commitArgs": ["--no-edit"]
-
+    "git.commitArgs": ["--no-edit"],
+    "git.postCommitCommand": "push"
 }
