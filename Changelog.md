@@ -64,3 +64,7 @@
 ## 17/04/25 (Pranav)
 - Removed the gradient week image page from the archives temperoraily to reduce server load
 - Made some changes to the recap page to reduce lag and increase loading times, implemented lazy load and sped up animations.
+
+## 26/04/25 (Pranav)
+- Gradient week archive website at : Gradientaiml.tech/gw25
+- Moved all images and content to a dedicated content server to reduce load and lag
