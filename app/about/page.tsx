@@ -1,6 +1,5 @@
 'use client'
 import Navbar from '../../components/Navbar'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ChevronDown, Terminal, Users, Code, BookOpen, Lightbulb, Share2, Calendar, Award } from 'lucide-react'
 import Footer from '@/components/Footer'
@@ -126,7 +125,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                  <Image
+                  <img
                     src="https://gradient-content-server.vercel.app/content/merchbackshot.png"
                     alt="Our Very Merchandise"
                     width={600}
@@ -139,7 +138,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                   </p>
                 </div>
                 <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                  <Image
+                  <img
                     src="https://gradient-content-server.vercel.app/content/gw1.jpg"
                     alt="The First Ever Gradient Week"
                     width={600}
@@ -152,7 +151,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                   </p>
                 </div>
                 <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                  <Image
+                  <img
                     src="https://gradient-content-server.vercel.app/content/posters/hacka24.webp"
                     alt="website"
                     width={600}
@@ -200,7 +199,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                   >
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                      <Image
+                      <img
                         src="https://gradient-content-server.vercel.app/content/inaugration.png"
                         alt="Inauguration Ceremony 1"
                         width={600}
@@ -220,7 +219,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                   >
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                      <Image
+                      <img
                         src="https://gradient-content-server.vercel.app/content/founding core.jpg"
                         alt="23 core"
                         width={600}
@@ -240,7 +239,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
                   >
                     <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
                     <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                      <Image
+                      <img
                         src="https://gradient-content-server.vercel.app/content/core24.jpg"
                         alt="24 core"
                         width={600}

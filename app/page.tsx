@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Calendar, Sparkles } from 'lucide-react'
 import Link from 'next/link'
@@ -136,7 +135,7 @@ export default function Home() {
                 <div className="absolute -right-2 -top-2 w-full h-full border-2 border-purple-600 rounded-lg" />
                 <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
                   <div className="absolute top-2 left-2 flex space-x-1 items-center"></div>
-                  <Image
+                  <img
                     src="https://gradient-content-server.vercel.app/content/group.png"
                     alt="Group photo"
                     width={500}
