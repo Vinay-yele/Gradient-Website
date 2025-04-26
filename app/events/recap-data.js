@@ -39,7 +39,7 @@ export const recapSections = [
     title: 'AI Agents Workshop',
     brief: 'Hands-on learning sessions on building and deploying intelligent AI agents.',
     description: 'The AI Agents Workshop provided participants with hands-on experience in developing autonomous AI agents for various applications. Industry experts guided attendees through the process of building, training, and deploying intelligent agents that can perform complex tasks and make decisions with minimal human intervention. From virtual assistants to automated systems for business processes, participants explored the cutting-edge techniques in agent-based AI development.',
-    coverImage: '/posters/gw/aiwork.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/posters/gw/aiwork.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/posters/gw/aiwork.webp',
@@ -60,7 +60,7 @@ export const recapSections = [
     title: 'Impact AI 2.0 Hackathon',
     brief: 'A 24-hour coding marathon that pushed the boundaries of AI innovation focused on sustainable and impactful AI.',
     description: 'The Impact AI 2.0 Hackathon brought together talented developers, designers, and AI enthusiasts for an intense 24-hour coding marathon. Teams worked around the clock to develop innovative AI solutions addressing real-world challenges. The event featured mentorship sessions and culminated in a showcase of groundbreaking projects that impressed judges and participants alike.',
-    coverImage: '/gallery/recap/impact/1.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/impact/1.webp',
     images: [      
       {
         url: 'https://gradient-content-server.vercel.app/content/gallery/recap/impact/3.webp',
@@ -85,7 +85,7 @@ export const recapSections = [
     title: 'Parallel Fusion',
     brief: 'A fun technical event focused on teamwork and problem-solving.',
     description: 'Parallel Fusion is a two-player puzzle challenge where each player takes a different path but shares the same goal. Solve unique puzzles, exchange crucial information, and work together to crack the final code. A test of logic, teamwork, and fun',
-    coverImage: '/gallery/recap/pf/1.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/pf/1.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/gallery/recap/pf/1.webp',
@@ -106,7 +106,7 @@ export const recapSections = [
     title: 'Collaboration Events',
     brief: 'Collaborations with the various clubs of BMSCE aimed to bring diverse perspectives to Gradient Week.',
     description: 'These events gave some thrilling fun and a lot of knowledge. The diverse perspectives brought by these collaborations enriched the overall experience of Gradient Week.',
-    coverImage: '/gallery/recap/collab/1.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/collab/1.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/posters/gw/codel.webp',
@@ -139,7 +139,7 @@ export const recapSections = [
     title: 'General Shots',
     brief: 'Captured moments that showcase the energy and excitement of Gradient Week.',
     description: 'These general shots capture the vibrant atmosphere, engaged participants and memorable moments from throughout Gradient Week. These images reflect the energy, enthusiasm, and sense of community that defined the event.',
-    coverImage: '/gallery/recap/gener/1.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/gener/1.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/gallery/recap/gener/4.mp4',
@@ -164,7 +164,7 @@ export const recapSections = [
     title: 'Cultural Evening',
     brief: 'A celebration of creativity and talent to conclude the week-long tech fest.',
     description: 'The Cultural Evening provided a perfect conclusion to the intense week of intellectual and technical activities. The event featured mesmerizing performances, music, dance, and entertainment that showcased the artistic talents within the tech community. This celebration brought together all participants in a relaxed atmosphere, fostering connections and creating lasting memories.',
-    coverImage: '/gallery/recap/cult/1.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/1.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/gallery/recap/cult/2.webp',
@@ -197,7 +197,7 @@ export const recapSections = [
     title: 'Behind the Scenes',
     brief: 'A glimpse into the dedication and teamwork that made Gradient Week possible.',
     description: 'Behind every successful event is a dedicated team working tirelessly behind the scenes. These images offer a glimpse into the planning, preparation, and execution that went into making Gradient Week a reality. From organizers coordinating logistics to volunteers helping participants, these behind-the-scenes moments highlight the teamwork and commitment that powered the entire event.',
-    coverImage: '/gallery/recap/bts/1.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/bts/1.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/gallery/recap/bts/2.mp4',
