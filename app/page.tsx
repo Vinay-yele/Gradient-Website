@@ -137,11 +137,12 @@ export default function Home() {
                 <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
                   <div className="absolute top-2 left-2 flex space-x-1 items-center"></div>
                   <Image
-                    src="/group.png"
+                    src="https://gradient-content-server.vercel.app//group.png"
                     alt="Group photo"
                     width={500}
                     height={400}
                     className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
+                      loading="lazy"
                   />
                 </div>
               </div>
