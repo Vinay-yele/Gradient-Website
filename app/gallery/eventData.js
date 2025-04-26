@@ -180,7 +180,7 @@ export const eventCategories = [
                         participants: 60,
                         description: "An interactive session by Krish Naik, providing insights into AI concepts and their practical applications.",
                         status: "completed",
-                        poster: "/posters/krishnaik.webp",
+                        poster: "https://gradient-content-server.vercel.app/content/posters/krishnaik.webp",
                         images: [
                             "https://gradient-content-server.vercel.app/content/gallery/sa/2023/pvvykn.jpg"
                             ]
