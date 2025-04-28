@@ -4,7 +4,7 @@ export const teamData = [
         title: "Club Coordinators",
         members: [
             { name: "Sudhanva Bharadwaj", role: "", year: "", image: "https://gradient-content-server.vercel.app/content/sudhanva.png", github: "https://github.com/sudhanvabharadwaj", linkedin: "https://www.linkedin.com/in/sudhanva-bharadwaj/" },
-            { name: "Shashank Sharma", role: "", year: "", image: "https://gradient-content-server.vercel.app/content/Shashank.JPG", github: "https://github.com/csshashanksharma", linkedin: "https://www.linkedin.com/in/c-s-shashank-sharma-58532b277/" },
+            { name: "Shashank Sharma", role: "", year: "", image: "https://gradient-content-server.vercel.app/content/CShashank.JPG", github: "https://github.com/csshashanksharma", linkedin: "https://www.linkedin.com/in/c-s-shashank-sharma-58532b277/" },
         ]
     },
     {
