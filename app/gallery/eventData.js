@@ -1,3 +1,35 @@
+export const upcomingEvents = [
+    {
+      title: "Jokes on You Again",
+      description: "A thrilling comedy show by Bangalore's very own Niroop Mohan, Join us for an show of laughter and entertainment as Niroop takes the stage to share his unique perspective on life, love, and everything in between.",
+      date: "May 10th, 2025",
+      location: "",
+      category: "Utsav 2025",
+      status: "registration-open",      
+      registrationLink: "https://events.bmsutsav.in/events/GRDJOY",
+      poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
+    },
+    {
+        title: "Uncharted 3 : Lost Voyage",
+        description: "A thrilling high stakes online treasure hunt where participants embark on a quest to uncover hidden treasures and solve intricate puzzles. With a mix of technology and adventure, this event promises excitement and challenges.",
+        date: "May 9th, 2025",
+        location: "",
+        category: "Utsav 2025",
+        status: "registration-open",      
+        registrationLink: "https://events.bmsutsav.in/events/GRDULV",
+        poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/ulv.webp"
+    },
+    {
+        title: "Sync or Sink",
+        description: "A test of teamwork and strategy, where participants must work together to solve puzzles and challenges. You either Sync up with your teammates or Sink into the depths of despair.",
+        date: "May 10th, 2025",
+        location: "",
+        category: "Utsav 2025",
+        status: "registration-open",      
+        registrationLink: "https://events.bmsutsav.in/events/GRDSOS",
+        poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
+    }
+  ];
 export const eventCategories = [
     {
         name: "Gradient Week",

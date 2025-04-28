@@ -1,7 +1,9 @@
 'use client'
-import Navbar from '../../components/Navbar'
+import { useState } from 'react'
+import Navbar from '@/components/Navbar'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ChevronDown, Terminal, Users, Code, BookOpen, Lightbulb, Share2, Calendar, Award } from 'lucide-react'
+import { Terminal, Users, Code, BookOpen, Lightbulb, Share2, Calendar, Award, ChevronDown } from 'lucide-react'
 import Footer from '@/components/Footer'
 
 export default function About() {
@@ -19,7 +21,7 @@ export default function About() {
     {
       icon: Users,
       title: "Technical Events",
-      description: "Collaborative, Fun and innovative events with real-world applications"
+      description: "Collaborative, fun and innovative events with real-world applications"
     },
     {
       icon: BookOpen,
@@ -29,7 +31,7 @@ export default function About() {
     {
       icon: Lightbulb,
       title: "Placement Talks",
-      description: "Educating students on the ever-changing landscape of placements and preparing to help them succeed"
+      description: "Educating students on the ever-changing landscape of placements and helping them succeed"
     },
     {
       icon: Share2,
@@ -39,129 +41,174 @@ export default function About() {
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
+    <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
+      {/* Google Fonts Import */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide');    
+        
+        .righteous-regular {
+          font-family: "Righteous", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        .audiowide-regular {
+          font-family: "Audiowide", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+      `}</style>
+
+      {/* Background pattern */}
+      <div className="fixed inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right,rgb(127, 111, 168) 1px, transparent 1px), linear-gradient(to bottom, rgb(127, 111, 168) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          backgroundColor: '#180336'
+        }} />
 
       <Navbar />
 
-      <div className="container mx-auto px-4 pt-32 pb-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 md:pb-20">
         {/* Header Section */}
         <motion.div
-          className="text-center mb-20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
+          className="text-center mb-8 md:mb-10"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
-            About Gradient
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mt-6 md:mt-10 audiowide-regular">
+            <span className="text-white">The Minds</span>
+            <span style={{ color: '#C4B5FD' }}> Gradient</span>
           </h1>
+          <p className="text-purple-200 text-xl md:text-2xl mt-4 md:mt-6 font-light px-2">
+            Fostering innovation in AI and machine learning
+          </p>
         </motion.div>
-        {/* Who Are We Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="container mx-auto px-4 pb-10"
-        >
-          <div className="max-w-4xl mx-auto bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
-            <div className="flex items-center justify-center mb-6">
-              <div className="h-px w-12 bg-purple-500/30" />
-              <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                Who Are We?
-              </h2>
-              <div className="h-px w-12 bg-purple-500/30" />
-            </div>
-            <p className="text-gray-300 text-lg leading-relaxed text-center">
-              <span style={{ whiteSpace: 'pre-line' }}>
-                {`Gradient is a vibrant student community that embraces the dynamic field of AI and ML.
+
+
+        <div className="space-y-24">
+          {/* Who Are We Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-purple-900/20 to-transparent -skew-x-12" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    Who Are We?
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
+                </div>
+
+                <p className="text-purple-100 text-lg md:text-xl leading-relaxed text-center max-w-3xl mx-auto">
+                  <span style={{ whiteSpace: 'pre-line' }}>
+                    {`Gradient is a vibrant student community that embraces the dynamic field of AI and ML.
 
 We focus on fostering innovation, collaboration and knowledge sharing among aspiring machine learning enthusiasts.
 
 Our mission is to create a platform where passion for technology thrives, and groundbreaking ideas flourish.`}
-              </span>
-            </p>
-          </div>
-        </motion.section>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </motion.section>
 
-        <div className="max-w-4xl mx-auto space-y-16">
           {/* Our Achievements Section */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="relative"
           >
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
-              <div className="flex items-center justify-center mb-6">
-                <div className="h-px w-12 bg-purple-500/30" />
-                <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                  Our Achievements
-                </h2>
-                <div className="h-px w-12 bg-purple-500/30" />
-              </div>
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
 
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center text-gray-300">
-                <div>
-                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
-                  <h3 className="text-2xl font-bold">40+</h3>
-                  <p className="text-lg">Events Conducted</p>
-                </div>
-                <div>
-                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
-                  <h3 className="text-2xl font-bold">2000+</h3>
-                  <p className="text-lg">Participants</p>
-                </div>
-                <div>
-                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
-                  <h3 className="text-2xl font-bold">200+</h3>
-                  <p className="text-lg">Community Members</p>
-                </div>
-                <div>
-                  <Award className="text-purple-400 mx-auto mb-2" size={36} />
-                  <h3 className="text-2xl font-bold">₹3L+</h3>
-                  <p className="text-lg">Sponsorship Raised</p>
-                </div>
-              </div>
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-purple-900/20 to-transparent skew-x-12" />
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                  <img
-                    src="https://gradient-content-server.vercel.app/content/merchbackshot.png"
-                    alt="Our Very Merchandise"
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
-                    Our Very Own Merchandise
-                  </p>
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    Our Achievements
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
                 </div>
-                <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                  <img
-                    src="https://gradient-content-server.vercel.app/content/gw1.jpg"
-                    alt="The First Ever Gradient Week"
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
-                    The First Ever Gradient Week
-                  </p>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-purple-100 mb-12">
+                  <div className="group transform hover:scale-105 transition-transform duration-300">
+                    <Award className="text-purple-400 mx-auto mb-3 group-hover:text-purple-300 transition-colors" size={40} />
+                    <h3 className="text-2xl md:text-3xl font-bold group-hover:text-white transition-colors">45+</h3>
+                    <p className="text-lg">Events Conducted</p>
+                  </div>
+                  <div className="group transform hover:scale-105 transition-transform duration-300">
+                    <Users className="text-purple-400 mx-auto mb-3 group-hover:text-purple-300 transition-colors" size={40} />
+                    <h3 className="text-2xl md:text-3xl font-bold group-hover:text-white transition-colors">2500+</h3>
+                    <p className="text-lg">Participants</p>
+                  </div>
+                  <div className="group transform hover:scale-105 transition-transform duration-300">
+                    <Code className="text-purple-400 mx-auto mb-3 group-hover:text-purple-300 transition-colors" size={40} />
+                    <h3 className="text-2xl md:text-3xl font-bold group-hover:text-white transition-colors">200+</h3>
+                    <p className="text-lg">Community Members</p>
+                  </div>
+                  <div className="group transform hover:scale-105 transition-transform duration-300">
+                    <Award className="text-purple-400 mx-auto mb-3 group-hover:text-purple-300 transition-colors" size={40} />
+                    <h3 className="text-2xl md:text-3xl font-bold group-hover:text-white transition-colors">₹4L+</h3>
+                    <p className="text-lg">Sponsorship Raised</p>
+                  </div>
                 </div>
-                <div className="relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/20">
-                  <img
-                    src="https://gradient-content-server.vercel.app/content/posters/hacka24.webp"
-                    alt="website"
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <p className="absolute bottom-2 left-2 bg-black/50 text-white text-sm px-2 py-1 rounded">
-                    Our Biggest Hackathon
-                  </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="group relative overflow-hidden rounded-lg shadow-lg">
+                    <div className="h-64 w-full overflow-hidden">
+                      <img
+                        src="https://gradient-content-server.vercel.app/content/merchbackshot.png"
+                        alt="Our Very Own Merchandise"
+                        className="w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/0 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+
+                      <p className="text-white text-lg font-medium">Our Very Own Merchandise</p>
+                    </div>
+                  </div>
+
+                  <div className="group relative overflow-hidden rounded-lg shadow-lg">
+                    <div className="h-64 w-full overflow-hidden">
+                      <img
+                        src="https://gradient-content-server.vercel.app/content/gw1.jpg"
+                        alt="The First Ever Gradient Week"
+                        className="w-full h-full object-cover transition-transform duration-700 scale-100    group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/0 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+
+                      <p className="text-white text-lg font-medium">The First Ever Gradient Week</p>
+                    </div>
+                  </div>
+
+                  <div className="group relative overflow-hidden rounded-lg shadow-lg">
+                    {/* <div className="h-64 w-full overflow-hidden">
+                      <img
+                        src="https://gradient-content-server.vercel.app/content/posters/hacka24.webp"
+                        alt="Our Biggest Hackathon"
+                        className="w-full h-full object-fit transition-transform duration-700 scale-105 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950/50 via-purple-950/10 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      
+                      <p className="text-white text-lg font-medium">Our Biggest Hackathon</p>
+                    </div> */}
+                  </div>
                 </div>
               </div>
             </div>
@@ -172,83 +219,87 @@ Our mission is to create a platform where passion for technology thrives, and gr
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="relative"
           >
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
-              <div className="flex items-center justify-center mb-6">
-                <div className="h-px w-12 bg-purple-500/30" />
-                <div className="flex items-center space-x-2 px-6">
-                  <h2 className="text-3xl font-bold text-center text-purple-400">
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-tr from-purple-900/20 to-transparent -skew-x-12" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
                     Our Roots
                   </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
                 </div>
-                <div className="h-px w-12 bg-purple-500/30" />
-              </div>
 
-              <div className="space-y-6">
-                <p className="text-gray-300 text-lg leading-relaxed text-center mb-8">
-                  Gradient founded in 2022, with the aim of reaching new heights and boldly doing what no one has done before.
+                <p className="text-purple-100 text-lg md:text-xl leading-relaxed text-center max-w-3xl mx-auto mb-12">
+                  Gradient was founded in 2022, with the aim of reaching new heights and boldly doing what no one has done before.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-6 justify-center">
+                <div className="grid md:grid-cols-2 gap-8 justify-center">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.5 }}
-                    className="group relative"
+                    className="group relative overflow-hidden rounded-lg shadow-lg"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
                   >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                    <div className="h-64 sm:h-72 w-full overflow-hidden">
                       <img
                         src="https://gradient-content-server.vercel.app/content/inaugration.png"
                         alt="Inauguration Ceremony 1"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110"
                       />
                     </div>
-                    <p className="text-center mt-2 text-white-100 mb-2">Inauguration ceremony of Gradient (2022)</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/0 to-transparent" />
+                    <div className="absolute bottom-4 left-0 w-full text-center">
+
+                      <p className="text-white text-lg font-medium">Inauguration ceremony of Gradient (2022)</p>
+                    </div>
                   </motion.div>
 
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: 0.6 }}
-                    className="group relative"
+                    className="group relative overflow-hidden rounded-lg shadow-lg"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
                   >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                    <div className="h-64 sm:h-72 w-full overflow-hidden">
                       <img
                         src="https://gradient-content-server.vercel.app/content/founding core.jpg"
                         alt="23 core"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110"
                       />
                     </div>
-                    <p className="text-center mt-2 text-white-100 mb-2">'23 Core, The First Core</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/0 to-transparent" />
+                    <div className="absolute bottom-4 left-0 w-full text-center">
+
+                      <p className="text-white text-lg font-medium">'23 Core, The First Core</p>
+                    </div>
                   </motion.div>
 
                   <motion.div
-                    initial={{ opacity: 0, x: 0 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.6 }}
-                    className="group relative md:col-span-2 mx-auto max-w-md"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.7 }}
+                    className="group relative overflow-hidden rounded-lg shadow-lg md:col-span-2 mx-auto max-w-2xl"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
                   >
-                    <div className="absolute inset-0 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300" />
-                    <div className="relative h-64 rounded-lg overflow-hidden border border-purple-500/20">
+                    <div className="h-64 sm:h-72 w-full overflow-hidden">
                       <img
                         src="https://gradient-content-server.vercel.app/content/core24.jpg"
                         alt="24 core"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110"
                       />
                     </div>
-                    <p className="text-center mt-2 text-white-100 mb-2">The 2024 Core Team</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/0 to-transparent" />
+                    <div className="absolute bottom-4 left-0 w-full text-center">
+
+                      <p className="text-white text-lg font-medium">The 2024 Core Team</p>
+                    </div>
                   </motion.div>
                 </div>
               </div>
@@ -260,46 +311,56 @@ Our mission is to create a platform where passion for technology thrives, and gr
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="relative"
           >
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-8 backdrop-blur-sm border border-purple-500/10">
-              <div className="flex items-center justify-center mb-6">
-                <div className="h-px w-12 bg-purple-500/30" />
-                <h2 className="text-3xl font-bold px-6 text-center text-purple-400">
-                  What We Do
-                </h2>
-                <div className="h-px w-12 bg-purple-500/30" />
-              </div>
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                {activities.map((activity, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="relative group"
-                  >
-                    <div className="flex flex-col h-full p-6 rounded-xl bg-gradient-to-r from-purple-800/40 to-purple-900/40 shadow-md border border-purple-500/20 group-hover:shadow-lg transition-all duration-300">
-                      <div className="flex items-center gap-4">
-                        {/* Icon */}
-                        <activity.icon
-                          className="text-purple-400 group-hover:text-purple-300 transition-colors"
-                          size={40}
-                        />
-                        {/* Title */}
-                        <h3 className="text-lg font-bold text-purple-200">{activity.title}</h3>
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-purple-900/20 to-transparent skew-x-12" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-10">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    What We Do
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+                  {activities.map((activity, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="group relative"
+                    >
+                      <div className="flex flex-col h-full p-6 rounded-xl bg-purple-900/40 shadow-md border border-purple-500/20 group-hover:bg-purple-800/40 group-hover:shadow-lg transition-all duration-300"
+                        style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+                        <div className="flex flex-col items-center text-center">
+                          {/* Icon */}
+                          <activity.icon
+                            className="text-purple-400 group-hover:text-purple-300 transition-colors mb-4"
+                            size={48}
+                          />
+                          {/* Title */}
+                          <h3 className="text-xl font-bold text-white mb-2">{activity.title}</h3>
+                          {/* Purple accent line */}
+                          <div className="w-12 h-1 bg-purple-500 mb-4 transform origin-center transition-all duration-300 group-hover:w-16 group-hover:bg-fuchsia-500" />
+                          {/* Description */}
+                          <p className="text-purple-100 text-base">{activity.description}</p>
+                        </div>
                       </div>
-                      {/* Description */}
-                      <p className="text-m text-white-700 mt-4 flex-grow">{activity.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.section>
         </div>
       </div>
-    </main>
+
+
+    </div>
   )
 }

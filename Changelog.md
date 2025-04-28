@@ -69,3 +69,13 @@
 - Gradient week archive website at : Gradientaiml.tech/gw25
 - Moved all images and content to a dedicated content server to reduce load and lag
 - Redesigned the core team page to something more nice
+
+## 28/04/25 (Pranav)
+
+- Redesigned About Page
+- Redesigned Event Gallery
+- Redesigned dept of ML Page
+- Redesigned Lets Connect Page
+- Redesigned Home Page
+- Changed banner of home page to make it for utsav
+- Changed Gradient Week recap page to Utsav page

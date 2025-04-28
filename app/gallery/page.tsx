@@ -1,230 +1,530 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import Navbar from '@/components/Navbar'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Calendar, Clock, MapPin, ChevronDown, Users, ArrowRight, Image as ImageIcon, 
+         ChevronLeft, ChevronRight, X, Star } from 'lucide-react'
+import { eventCategories } from './eventData'
+import { upcomingEvents } from './eventData'
 import Footer from '@/components/Footer'
-import Navbar from '../../components/Navbar'
-import { motion } from 'framer-motion'
-import { Calendar, Clock, MapPin, ChevronDown, Users, ArrowRight, Image as ImageIcon, ChevronRight, ChevronUp } from 'lucide-react'
-import { eventCategories } from './eventData';
 
 export default function Events() {
-  const [openCategory, setOpenCategory] = useState(null);
-  const [openYear, setOpenYear] = useState({});
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const [activeYear, setActiveYear] = useState<{ [key: number]: string | number }>({});
+  
+  interface Event {
+    title: string;
+    participants?: number;
+    description: string;
+    status: string;
+    poster: string;
+    date?: string;
+    time?: string;
+    location?: string;
+    category?: string;
+    registrationLink?: string;
+    images?: string[];
+  }
+  
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [showGallery, setShowGallery] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const toggleCategory = (index) => {
-    setOpenCategory(openCategory === index ? null : index);
+  // Initialize active year for each category
+  useEffect(() => {
+    const initialActiveYears: { [key: number]: string | number } = {};
+    eventCategories.forEach((category, index) => {
+      if (category.years && category.years.length > 0) {
+        initialActiveYears[index] = category.years[0].year;
+      }
+    });
+    setActiveYear(initialActiveYears);
+  }, []);
+
+  // Get events for active category and year
+  const getActiveEvents = () => {
+    const category = eventCategories[activeCategory];
+    if (!category.years || category.years.length === 0) return [];
+    
+    const currentYear = activeYear[activeCategory];
+    const yearData = category.years.find(y => y.year === currentYear);
+    
+    return yearData ? yearData.events : [];
   };
-
-  const toggleYear = (categoryIndex, yearIndex) => {
-    const key = `${categoryIndex}-${yearIndex}`;
-    setOpenYear(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
-
-  const viewGallery = (event) => {
-    setSelectedEvent(event);
-    setShowGallery(true);
-  };
-
+  
+  const currentEvents = getActiveEvents();
+  
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent pointer-events-none" />
+    <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
+      {/* Google Fonts Import */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide');
+        
+        .righteous-regular {
+          font-family: "Righteous", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        
+        .audiowide-regular {
+          font-family: "Audiowide", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        
+        .event-card-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 2rem;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        /* Fix image fit issues */
+        .event-poster-container {
+          position: relative;
+          overflow: hidden;
+          height: 240px;
+          width: 100%;
+        }
+
+        .event-poster-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      `}</style>
+
+      {/* Background pattern */}
+      <div className="fixed inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right, rgb(127, 111, 168) 1px, transparent 1px), linear-gradient(to bottom, rgb(127, 111, 168) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          backgroundColor: '#180336'
+        }} />
 
       <Navbar />
 
-      <div className="container mx-auto px-4 pt-24 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 md:pb-20">
+        {/* Header Section */}
         <motion.div
-          className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
+          className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 mt-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600">
-            Event Gallery
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mt-6 md:mt-10 audiowide-regular">
+            <span className="text-white">Event </span>
+            <span style={{ color: '#C4B5FD' }}>Gallery</span>
           </h1>
-
-          <p className="text-white-400 text-lg max-w-2xl mx-auto">
-            Take a look at the diverse range of events we have conducted, including technical festivals, cultural celebrations and innovative workshops.
+          <p className="text-2xl md:text-2xl mt-6 md:mt-8 font-light mx-auto max-w-3xl" style={{ color: '#DDD6FE' }}>
+            Explore our dynamic collection of workshops, hackathons, and technical showcases
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto space-y-6">
-          {eventCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: categoryIndex * 0.2 }}
-              className="group relative"
-            >
-              <div
-                className="relative bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-xl p-6 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-colors duration-300 cursor-pointer"
-                onClick={() => toggleCategory(categoryIndex)}
+        {/* Upcoming Events Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-24 relative"
+        >
+          <div className="flex items-center justify-center mb-12">
+            <div className="w-16 h-1 bg-purple-500" />
+            <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+              Upcoming Events
+            </h2>
+            <div className="w-16 h-1 bg-purple-500" />
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 py-4">
+            {upcomingEvents.map((event, index) => (
+              <motion.div
+                key={`upcoming-${index}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="w-full md:w-1/3"
+                onClick={() => setSelectedEvent(event)}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="text-3xl font-bold text-purple-400">{category.name}</h2>
-                    <p className="text-white-400 mt-2">{category.description}</p>
-                  </div>
-                  <div className="text-purple-400">
-                    {openCategory === categoryIndex ?
-                      <ChevronUp size={24} /> :
-                      <ChevronDown size={24} />
-                    }
-                  </div>
-                </div>
-              </div>
-
-              {openCategory === categoryIndex && (
-                <div className="mt-4 pl-4 space-y-4 border-l-2 border-purple-500/30">
-                  {category.years.map((yearData, yearIndex) => (
-                    <div key={yearData.year} className="space-y-4">
-                      <div
-                        className="flex items-center space-x-2 text-xl font-semibold text-purple-300 cursor-pointer"
-                        onClick={() => toggleYear(categoryIndex, yearIndex)}
-                      >
-                        {openYear[`${categoryIndex}-${yearIndex}`] ?
-                          <ChevronUp size={20} /> :
-                          <ChevronRight size={20} />
-                        }
-                        <span>{yearData.year}</span>
-                      </div>
-
-                      {openYear[`${categoryIndex}-${yearIndex}`] && (
-                        <div className="space-y-4 pl-6">
-                          {yearData.events.map((event, eventIndex) => (
-                            <div
-                              key={event.title}
-                              className="bg-gradient-to-b from-gray-800/30 to-gray-900/30 rounded-xl p-5 backdrop-blur-sm border border-purple-500/10 hover:border-purple-500/30 transition-colors duration-300"
-                            >
-                              <div className="flex flex-col md:flex-row gap-5">
-                                {/* Event Poster - Top on mobile, left side on desktop */}
-                                {event.poster && (
-                                  <div className="flex-shrink-0">
-                                    <img 
-                                      src={event.poster} 
-                                      alt={`${event.title} poster`} 
-                                      className="w-full md:w-64 h-64 object-fit rounded-lg mx-auto md:mx-0" 
-                                    />
-                                  </div>
-                                )}
-                                
-                                {/* Event Details */}
-                                <div className="flex flex-col gap-3 flex-grow">
-                                  <div className="flex items-center gap-4">
-                                    <h3 className="text-2xl font-bold text-white">{event.title}</h3>
-                                    {event.status === "registration-open" && (
-                                      <span className="px-3 py-1 text-sm bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">
-                                        Registration Open
-                                      </span>
-                                    )}
-                                    {event.status === "coming-soon" && (
-                                      <span className="px-3 py-1 text-sm bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">
-                                        Coming Soon
-                                      </span>
-                                    )}
-                                    {event.status === "completed" && (
-                                      <span className="px-3 py-1 text-sm bg-green-500/20 text-green-300 rounded-full border border-green-500/30">
-                                        Completed
-                                      </span>
-                                    )}
-                                  </div>
-
-                                  <div className="flex flex-wrap gap-4 text-white-300">
-                                    {event.date && (
-                                      <div className="flex items-center space-x-2">
-                                        <Calendar className="text-purple-400" size={18} />
-                                        <span>{event.date}</span>
-                                      </div>
-                                    )}
-                                    {event.time && (
-                                      <div className="flex items-center space-x-2">
-                                        <Clock className="text-purple-400" size={18} />
-                                        <span>{event.time}</span>
-                                      </div>
-                                    )}
-                                    {event.location && (
-                                      <div className="flex items-center space-x-2">
-                                        <MapPin className="text-purple-400" size={18} />
-                                        <span>{event.location}</span>
-                                      </div>
-                                    )}
-                                    <div className="flex items-center space-x-2">
-                                      <Users className="text-purple-400" size={18} />
-                                      <span>{event.participants} participants</span>
-                                    </div>
-                                  </div>
-
-                                  <p className="text-white-400 text-lg">
-                                    {event.description}
-                                  </p>
-
-                                  <div className="flex flex-wrap gap-4 mt-1">
-                                    {event.status === "registration-open" && (
-                                      <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="flex items-center justify-center space-x-2 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 group/btn"
-                                      >
-                                        <span>Register Now</span>
-                                        <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
-                                      </motion.button>
-                                    )}
-
-                                    {event.images && event.images.length > 0 && (
-                                      <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={() => viewGallery(event)}
-                                        className="flex items-center justify-center space-x-2 px-6 py-2 bg-transparent border border-purple-500 rounded-full hover:bg-purple-500/10 transition-colors duration-300"
-                                      >
-                                        <ImageIcon size={18} />
-                                        <span>View Gallery ({event.images.length})</span>
-                                      </motion.button>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
+                <div 
+                  className="relative h-96 group cursor-pointer bg-purple-950/90 border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 rounded-lg overflow-hidden shadow-lg"
+                >
+                  {event.poster && (
+                    <div className="h-64 overflow-hidden">
+                      <img 
+                        src={event.poster} 
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                      />
+                    </div>
+                  )}
+                  
+                  {/* Event status badge */}
+                  {event.status && (
+                    <div className="absolute top-3 right-3 z-20">
+                      {event.status === "registration-open" && (
+                        <span className="px-3 py-1 text-xs font-medium bg-purple-600 text-white rounded-full border border-purple-400/30 shadow-md">
+                          Registration Open
+                        </span>
+                      )}
+                      {event.status === "coming-soon" && (
+                        <span className="px-3 py-1 text-xs font-medium bg-blue-600 text-white rounded-full border border-blue-400/30 shadow-md">
+                          Coming Soon
+                        </span>
                       )}
                     </div>
-                  ))}
+                  )}
+                  
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Star size={16} className="text-yellow-400" fill="#FBBF24" />
+                      <span className="text-yellow-200 text-sm font-medium">{event.category}</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                      {event.title}
+                    </h3>
+                    {event.date && (
+                      <div className="flex items-center gap-2 mt-3 text-purple-200">
+                        <Calendar size={16} />
+                        <span>{event.date}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
 
-      {/* Image Gallery Modal */}
-      {showGallery && selectedEvent && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-            <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-              <h3 className="text-xl font-bold">{selectedEvent.title} - Gallery</h3>
-              <button
-                onClick={() => setShowGallery(false)}
-                className="text-white-400 hover:text-white"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="overflow-y-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {selectedEvent.images.slice(0, 2).map((img, index) => (
-                <div key={index} className="rounded-lg overflow-hidden bg-gray-800 aspect-video">
-                  <img src={img} alt={`${selectedEvent.title} event photo ${index + 1}`} className="w-full h-full object-contain" />
-                </div>
+        {/* Category Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mb-8"
+        >
+          <div className="relative bg-purple-950/90 p-8 rounded-lg shadow-lg border border-purple-800/30">
+            <div className="relative z-10 flex gap-4 justify-center flex-wrap">
+              {eventCategories.map((category, index) => (
+                <button
+                  key={category.name}
+                  onClick={() => setActiveCategory(index)}
+                  className={`px-6 py-3 rounded-full transition-all duration-300 text-lg font-medium shadow-md ${
+                    activeCategory === index 
+                      ? 'bg-purple-600 text-white' 
+                      : 'bg-purple-900/80 text-purple-100 hover:bg-purple-800'
+                  }`}
+                >
+                  {category.name}
+                </button>
               ))}
             </div>
           </div>
-        </div>
-      )}      
-    </main>
+        </motion.div>
+
+        {/* Year Selection Tabs */}
+        {eventCategories[activeCategory]?.years && eventCategories[activeCategory].years.length > 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex justify-center gap-3 mb-8"
+          >
+            {eventCategories[activeCategory].years.map((yearData) => (
+              <button
+                key={yearData.year}
+                onClick={() => setActiveYear({...activeYear, [activeCategory]: yearData.year})}
+                className={`px-4 py-2 rounded-lg transition-all duration-200 ${
+                  activeYear[activeCategory] === yearData.year
+                    ? 'bg-purple-600 text-white font-medium shadow-md'
+                    : 'bg-purple-900/70 text-purple-200 hover:bg-purple-800 hover:text-white'
+                }`}
+              >
+                {yearData.year}
+              </button>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Active Category Section */}
+        <motion.section
+          key={`category-${activeCategory}-${activeYear[activeCategory]}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <div className="flex items-center mb-8">
+            <div>
+              <h2 className="text-3xl font-bold righteous-regular mb-2 text-white">
+                {eventCategories[activeCategory].name} {activeYear[activeCategory] && `- ${activeYear[activeCategory]}`}
+              </h2>
+              <div className="w-24 h-1 bg-purple-500" />
+            </div>
+          </div>
+
+          <p className="text-lg text-purple-100 mb-10 max-w-3xl">
+            {eventCategories[activeCategory].description}
+          </p>
+
+          {/* Events Grid */}
+          <div className="event-card-grid mb-10">
+            {currentEvents.map((event, index) => (
+              <motion.div
+                key={`${event.title}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                onClick={() => setSelectedEvent(event)}
+                className="cursor-pointer"
+              >
+                <div className="group h-full bg-purple-950/90 relative overflow-hidden border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 rounded-lg shadow-lg">
+                  {/* Event image */}
+                  {event.poster && (
+                    <div className="event-poster-container">
+                      <img 
+                        src={event.poster} 
+                        alt={event.title}
+                        className="event-poster-image transition-transform duration-700 scale-100 group-hover:scale-110"
+                      />
+                    </div>
+                  )}
+                  
+                  {/* Event title with completed status if applicable */}
+                  <div className="relative z-10 p-6">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
+                        {event.title}
+                      </h3>
+                      
+                      {event.status === "completed" && (
+                        <span className="px-3 py-1 text-xs font-medium bg-green-600 text-white rounded-full shadow-sm">
+                          Completed
+                        </span>
+                      )}
+                    </div>
+                    
+                    {/* Improved CTA */}
+                    {event.status === "completed" && (
+                      <div className="flex items-center mt-4 bg-purple-700/30 rounded-lg py-2 px-3 gap-2 group-hover:bg-purple-700/50 transition-colors duration-300">
+                        <ArrowRight size={16} className="text-purple-300" />
+                        <span className="text-sm font-medium text-purple-200">View Details</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+      </div>
+
+      {/* Event Detail Modal */}
+      <AnimatePresence>
+        {selectedEvent && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
+            onClick={() => setSelectedEvent(null)}
+          >
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-purple-950 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row m-4 shadow-2xl"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="absolute top-4 right-4 z-20 text-purple-300 hover:text-white transition-colors p-2 bg-purple-900/80 rounded-full shadow-md"
+              >
+                <X size={20} />
+              </button>
+              
+              {/* Left side with image */}
+              <div className="relative w-full md:w-2/5 md:min-h-full">
+                {selectedEvent.poster ? (
+                  <div className="aspect-square w-full h-full">
+                    <img 
+                      src={selectedEvent.poster} 
+                      alt={selectedEvent.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full h-full bg-purple-800/50" />
+                )}
+                
+                {/* Event status badge */}
+                {selectedEvent.status && (
+                  <div className="absolute top-4 left-4 z-10">
+                    {selectedEvent.status === "registration-open" && (
+                      <span className="px-3 py-1 text-sm font-medium bg-purple-600 text-white rounded-full border border-purple-400/30 shadow-md">
+                        Registration Open
+                      </span>
+                    )}
+                    {selectedEvent.status === "coming-soon" && (
+                      <span className="px-3 py-1 text-sm font-medium bg-blue-600 text-white rounded-full border border-blue-400/30 shadow-md">
+                        Coming Soon
+                      </span>
+                    )}
+                    {selectedEvent.status === "completed" && (
+                      <span className="px-3 py-1 text-sm font-medium bg-green-600 text-white rounded-full border border-green-400/30 shadow-md">
+                        Completed
+                      </span>
+                    )}
+                  </div>
+                )}
+                
+                {/* Mobile title overlay - only shows on mobile */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10 md:hidden bg-gradient-to-t from-purple-950 to-transparent">
+                  <h3 className="text-3xl font-bold text-white">{selectedEvent.title}</h3>
+                </div>
+              </div>
+              
+              {/* Right side with event details */}
+              <div className="relative z-10 p-6 overflow-y-auto flex-1 bg-purple-950">
+                {/* Desktop title - only shows on desktop */}
+                <h3 className="text-3xl font-bold text-white mb-6 hidden md:block">{selectedEvent.title}</h3>
+                
+                <div className="flex flex-wrap gap-6 mb-6 text-purple-100">
+                  {selectedEvent.date && (
+                    <div className="flex items-center gap-2">
+                      <Calendar className="text-purple-400" size={18} />
+                      <span>{selectedEvent.date}</span>
+                    </div>
+                  )}
+                  {selectedEvent.time && (
+                    <div className="flex items-center gap-2">
+                      <Clock className="text-purple-400" size={18} />
+                      <span>{selectedEvent.time}</span>
+                    </div>
+                  )}
+                  {selectedEvent.location && (
+                    <div className="flex items-center gap-2">
+                      <MapPin className="text-purple-400" size={18} />
+                      <span>{selectedEvent.location}</span>
+                    </div>
+                  )}
+                  {selectedEvent.participants && (
+                    <div className="flex items-center gap-2">
+                      <Users className="text-purple-400" size={18} />
+                      <span>{selectedEvent.participants} participants</span>
+                    </div>
+                  )}
+                </div>
+                
+                <div className="w-16 h-1 bg-purple-500 mb-6" />
+                
+                <p className="text-purple-100 text-lg mb-8">
+                  {selectedEvent.description}
+                </p>
+                
+                {/* Action buttons */}
+                <div className="flex flex-wrap gap-4">
+                  {selectedEvent.status === "registration-open" && selectedEvent.registrationLink && (
+                    <motion.a
+                      href={selectedEvent.registrationLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center justify-center gap-2 px-6 py-2.5 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-md"
+                    >
+                      <span>Register Now</span>
+                      <ArrowRight size={18} />
+                    </motion.a>
+                  )}
+                  
+                  {selectedEvent.images && selectedEvent.images.length > 0 && (
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setShowGallery(true);
+                        setCurrentImageIndex(0);
+                      }}
+                      className="flex items-center justify-center gap-2 px-6 py-2.5 bg-transparent border border-purple-500 rounded-full hover:bg-purple-500/20 transition-colors duration-300 shadow-md"
+                    >
+                      <ImageIcon size={18} />
+                      <span>View Gallery ({selectedEvent.images?.length} photos)</span>
+                    </motion.button>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      {/* Image Gallery Modal */}
+      <AnimatePresence>
+        {showGallery && selectedEvent && selectedEvent.images && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 overflow-hidden"
+            onClick={() => setShowGallery(false)}
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-purple-950 rounded-xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="relative z-10 p-4 border-b border-purple-800 flex justify-between items-center">
+                <h3 className="text-xl font-bold text-white">{selectedEvent.title} - Photo Gallery</h3>
+                <button
+                  onClick={() => setShowGallery(false)}
+                  className="text-purple-300 hover:text-white transition-colors p-2 bg-purple-900/80 rounded-full"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="relative z-10 overflow-y-auto p-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {selectedEvent.images.map((img, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="group relative overflow-hidden rounded-lg shadow-lg bg-purple-900/80 aspect-square"
+                    >
+                      <img 
+                        src={img} 
+                        alt={`${selectedEvent.title} event photo ${index + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110" 
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      <Footer />
+    </div>
   )
 }
