@@ -1,20 +1,26 @@
-'use client'
+"use client"
 import { motion } from 'framer-motion'
 import { Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 const Footer = () => {
-  const quickLinks = [    
-    { name: "Gradient Week", href: "/events" },
-    { name: "Core Team", href: "/team" },    
+  const quickLinks = [
+    { name: "Core Team", href: "/team" },
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },        
-    { name: "Connect", href: "/connect" },
+    { name: "About", href: "/about" },
     { name: "Event Gallery", href: "/gallery" },
-    { name: "Department of Machine Learning", href: "/department-work" }    
+    { name: "Department of Machine Learning", href: "/department-work" }
   ]
 
-  const socialLinks = [    
+  const eventLinks = [
+    { name: "Gradient Week", href: "/events" }
+  ]
+
+  const connectLinks = [
+    { name: "Become a Sponsor", href: "/connect" }
+  ]
+
+  const socialLinks = [
     { icon: Instagram, href: "https://instagram.com/gradient.aiml", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/gradient-club", label: "LinkedIn" }
   ]
@@ -22,9 +28,9 @@ const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* About Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +55,28 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link 
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-purple-400 transition-colors duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Event Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="text-lg font-semibold mb-6 text-purple-400">Events</h3>
+            <ul className="space-y-3">
+              {eventLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
                     href={link.href}
                     className="text-gray-300 hover:text-purple-400 transition-colors duration-300"
                   >
@@ -64,10 +91,22 @@ const Footer = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="text-lg font-semibold mb-6 text-purple-400">Contact</h3>
-            <div className="space-y-4">
+            <h3 className="text-lg font-semibold mb-6 text-purple-400">Connect With Us</h3>
+            <ul className="space-y-3">
+              {connectLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-purple-400 transition-colors duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="space-y-4 mt-6">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-purple-400" />
                 <span className="text-gray-300">gradient.mel@bmsce.ac.in</span>
@@ -83,7 +122,7 @@ const Footer = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             <h3 className="text-lg font-semibold mb-6 text-purple-400">Follow Us</h3>
             <div className="flex space-x-4">
@@ -108,22 +147,22 @@ const Footer = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="border-t border-purple-500/10 mt-12 pt-8 text-center text-gray-400"
         >
           <p>&copy; {new Date().getFullYear()} Gradient BMSCE. All rights reserved.</p>
           <p className="mt-2">
             Designed, Built and Managed by{" "}
-            <Link 
-              href="https://beyondmebtw.com/" 
-              target="_blank" 
+            <Link
+              href="https://beyondmebtw.com/"
+              target="_blank"
               className="text-purple-400 hover:underline"
             >
               Pranav Veeraghanta
             </Link> (Tech Head) and{" "}
-            <Link 
-              href="https://vinayyele.live" 
-              target="_blank" 
+            <Link
+              href="https://vinayyele.live"
+              target="_blank"
               className="text-purple-400 hover:underline"
             >
               Vinay Yele
@@ -132,9 +171,9 @@ const Footer = () => {
           {/* Source Code Link */}
           <p className="mt-2">
             Check out the source code on{" "}
-            <Link 
-              href="https://github.com/Vinay-yele/Gradient-Website" 
-              target="_blank" 
+            <Link
+              href="https://github.com/Vinay-yele/Gradient-Website"
+              target="_blank"
               className="text-purple-400 hover:underline"
             >
               GitHub

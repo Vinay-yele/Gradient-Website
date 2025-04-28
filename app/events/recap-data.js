@@ -5,7 +5,7 @@ export const recapSections = [
     title: 'Inauguration Ceremony',
     brief: 'The official kickoff of Gradient Week 2025.',
     description: 'Gradient Week 2025 began with an inauguration ceremony attended by the management of BMSCE, The students and enthusiastic participants. The event featured keynote speeches highlighting the importance of collaborative innovation in the field. The ceremony set the tone for a week full of learning, competition, and growth.',
-    coverImage: '/gallery/recap/inaug/a.webp',
+    coverImage: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/a.webp',
     images: [
       {
         url: 'https://gradient-content-server.vercel.app/content/gallery/recap/inaug/a.webp',

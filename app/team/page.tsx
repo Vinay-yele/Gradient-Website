@@ -23,43 +23,43 @@ const TeamMember = ({ name, role, year, image, github, linkedin }: TeamMember) =
     <div className="group relative h-full">
       {/* Diagonal card with darker purple background */}
       <div className="relative bg-purple-950/90 h-full overflow-hidden shadow-lg"
-           style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 0% 100%)' }}>
+        style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 0% 100%)' }}>
         <div className="flex flex-col h-full">
           {/* Diagonal overlay */}
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-purple-900/20 to-transparent 
                          -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
-          
-          {/* Content container - changed to stack image on top for larger images */}
+
+          {/* Content container */}
           <div className="flex flex-col h-full">
-            {/* Image section with MUCH larger dimensions */}
+            {/* Image section */}
             <div className="relative w-full">
-              <div className="relative w-full h-72 sm:h-80 md:h-96 overflow-hidden" 
-                   style={{ clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0% 100%)' }}>
+              <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0% 100%)' }}>
                 <Image
                   src={image}
                   alt={name}
                   width={800}
                   height={800}
                   className="w-full h-full object-cover object-center transition-transform duration-700 
-                           scale-105 group-hover:scale-115"
+                           scale-105 group-hover:scale-110"
                   style={{ objectPosition: '50% 20%' }} // Focus more on faces
                   priority
                 />
-                {/* Image overlay gradient - further reduced fade */}
+                {/* Image overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-950/40 via-transparent to-purple-950/5" />
               </div>
             </div>
-            
+
             {/* Text content section below image */}
             <div className="w-full p-5 flex flex-col items-center relative z-10">
               {/* Purple accent line */}
               <div className="w-16 h-1 bg-purple-500 mb-4 transform origin-center transition-all duration-300 
                             group-hover:w-24 group-hover:bg-fuchsia-500" />
-              
-              <h3 className="text-3xl font-bold text-white group-hover:text-purple-300 transition-colors text-center">{name}</h3>
+
+              <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-purple-500 transition-colors text-center">{name}</h3>
               <p className="text-purple-200/90 font-medium text-base mt-2 text-center">{role}</p>
               {year && <p className="text-zinc-400 text-sm mt-1 text-center">{year}</p>}
-              
+
               {/* Social links */}
               <div className="flex space-x-4 mt-4">
                 {github && (
@@ -71,7 +71,7 @@ const TeamMember = ({ name, role, year, image, github, linkedin }: TeamMember) =
                              text-white p-2 rounded-md transition-colors transform hover:scale-105"
                     aria-label={`${name}'s GitHub`}
                   >
-                    <Github size={24} />
+                    <Github size={22} />
                   </a>
                 )}
                 {linkedin && (
@@ -83,7 +83,7 @@ const TeamMember = ({ name, role, year, image, github, linkedin }: TeamMember) =
                              text-white p-2 rounded-md transition-colors transform hover:scale-105"
                     aria-label={`${name}'s LinkedIn`}
                   >
-                    <Linkedin size={24} />
+                    <Linkedin size={22} />
                   </a>
                 )}
               </div>
@@ -95,24 +95,43 @@ const TeamMember = ({ name, role, year, image, github, linkedin }: TeamMember) =
   );
 };
 
-// Domain Section with side title and alternating layout
+// Domain Section with simplified responsive layout
 const DomainSection = ({ title, members, isReversed }: { title: string, members: any[], isReversed: boolean }) => {
   return (
-    <div className="mb-24">
-      <div className={`flex flex-col ${isReversed ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}>
-        {/* Side Domain Title - fixed for long titles */}
-        <div className={`w-full md:w-1/3 mb-12 md:mb-0 ${isReversed ? 'md:pr-12' : 'md:pl-12'} relative`}>
-          <div className="sticky top-32">
-            <h2 className={`text-5xl md:text-6xl train-one-regular leading-tight ${isReversed ? 'md:text-right' : 'md:text-left'} text-center whitespace-normal`}>
-              {title}
-            </h2>          
+    <div className="mb-16 md:mb-24">
+      {/* For smaller screens (1024px and below): always show title on top */}
+      <div className="block xl:hidden mb-10">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl righteous-regular leading-tight text-center px-4">
+          {title}
+        </h2>
+      </div>
+      
+      {/* For larger screens (above 1024px): show side-by-side layout */}
+      <div className="hidden xl:flex xl:flex-row items-center">
+        {/* Side title, only visible on large screens */}
+        <div className={`${isReversed ? 'order-1 pr-8' : 'order-2 pl-8'} w-1/3`}>
+          <h2 className={`text-7xl righteous-regular leading-tight ${isReversed ? 'text-right' : 'text-left'}`}>
+            {title}
+          </h2>
+        </div>
+
+        {/* Team members, order changes based on isReversed */}
+        <div className={`${isReversed ? 'order-2' : 'order-1'} w-2/3`}>
+          <div className="grid grid-cols-2 gap-8">
+            {members.map((member, index) => (
+              <div key={member.name} className={members.length === 3 && index === 2 ? 'col-span-2 max-w-md mx-auto' : ''}>
+                <TeamMember {...member} />
+              </div>
+            ))}
           </div>
         </div>
-        
-        {/* Team Members Grid - always 2 columns max */}
-        <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+      </div>
+      
+      {/* For smaller screens: always show members below title in a grid */}
+      <div className="xl:hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {members.map((member, index) => (
-            <div key={member.name} className={members.length === 3 && index === 2 ? 'md:col-span-2 max-w-lg mx-auto' : ''}>
+            <div key={member.name} className={members.length === 3 && index === 2 ? 'sm:col-span-2 max-w-md mx-auto' : ''}>
               <TeamMember {...member} />
             </div>
           ))}
@@ -125,45 +144,47 @@ const DomainSection = ({ title, members, isReversed }: { title: string, members:
 export default function Team() {
   return (
     <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
-      {/* Google Fonts Import for Train One */}
+      {/* Google Fonts Import */}
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Delius&family=Kavoon&family=Kreon:wght@300&family=Permanent+Marker&family=Train+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
         
-        .train-one-regular {
-          font-family: "Train One", system-ui;
+        .righteous-regular {
+          font-family: "Righteous", sans-serif;
           font-weight: 400;
           font-style: normal;
         }
       `}</style>
-      
-      {/* Very dark purple grid background pattern - made more visible */}
-      <div className="fixed inset-0 opacity-15 pointer-events-none" 
-           style={{ backgroundImage: 'linear-gradient(to right, #4d3197 1px, transparent 1px), linear-gradient(to bottom, #4d3197 1px, transparent 1px)',
-                   backgroundSize: '40px 40px',
-                   backgroundColor: '#180336' }} />
-      
+
+      {/* Background pattern */}
+      <div className="fixed inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right,rgb(127, 111, 168) 1px, transparent 1px), linear-gradient(to bottom, rgb(127, 111, 168) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          backgroundColor: '#180336'
+        }} />
+
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 pt-24 pb-20 text-center">        
-        <div className="mb-16 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 md:pb-20 text-center">
+        <div className="mb-12 md:mb-16 relative">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="mx-auto max-w-3xl"
+            className="mx-auto max-w-2xl lg:max-w-3xl"
           >
-            <h1 className="text-7xl md:text-7xl font-bold mt-10">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold mt-6 md:mt-10">
               <span className="text-white">The Minds</span><br />
               <span className="text-purple-400">Behind Gradient</span>
             </h1>
-            {/* Added tagline below the title */}
-            <p className="text-purple-200 text-2xl mt-6 font-light">
+            {/* Tagline */}
+            <p className="text-purple-200 text-xl md:text-2xl mt-4 md:mt-6 font-light px-2">
               The team that brings you innovation at the speed of thought
             </p>
           </motion.div>
         </div>
 
-        {/* Team Sections with alternating layout */}
+        {/* Team Sections */}
         <div className="space-y-12">
           {teamData.map((section, index) => (
             <motion.div
@@ -172,15 +193,15 @@ export default function Team() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <DomainSection 
-                title={section.title} 
-                members={section.members} 
-                isReversed={index % 2 !== 0} // Alternate layout
+              <DomainSection
+                title={section.title}
+                members={section.members}
+                isReversed={index % 2 !== 0}
               />
             </motion.div>
           ))}
         </div>
-      </div>     
+      </div>
     </div>
   );
 }
