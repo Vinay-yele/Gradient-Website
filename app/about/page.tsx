@@ -77,11 +77,11 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="text-center mb-8 md:mb-10"
         >
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mt-6 md:mt-10 audiowide-regular">
-            <span className="text-white">The Minds</span>
-            <span style={{ color: '#C4B5FD' }}> Gradient</span>
-          </h1>
-          <p className="text-purple-200 text-xl md:text-2xl mt-4 md:mt-6 font-light px-2">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mt-6 md:mt-10 audiowide-regular">
+              <span className="text-white">About</span> <br />
+              <span style={{ color: '#C4B5FD' }}>Gradient</span>
+            </h1>
+          <p className="text-purple-200 text-2xl md:text-3xl mt-4 md:mt-6 font-light px-2">
             Fostering innovation in AI and machine learning
           </p>
         </motion.div>

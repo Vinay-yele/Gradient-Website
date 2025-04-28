@@ -74,8 +74,6 @@
 
 - Redesigned About Page
 - Redesigned Event Gallery
-- Redesigned dept of ML Page
-- Redesigned Lets Connect Page
 - Redesigned Home Page
 - Changed banner of home page to make it for utsav
 - Changed Gradient Week recap page to Utsav page

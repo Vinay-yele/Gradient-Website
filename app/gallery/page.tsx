@@ -156,18 +156,8 @@ export default function Events() {
                 onClick={() => setSelectedEvent(event)}
               >
                 <div 
-                  className="relative h-96 group cursor-pointer bg-purple-950/90 border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 rounded-lg overflow-hidden shadow-lg"
+                  className="relative h-101 group cursor-pointer bg-purple-950/90 border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 rounded-lg overflow-hidden shadow-lg"
                 >
-                  {event.poster && (
-                    <div className="h-64 overflow-hidden">
-                      <img 
-                        src={event.poster} 
-                        alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
-                      />
-                    </div>
-                  )}
-                  
                   {/* Event status badge */}
                   {event.status && (
                     <div className="absolute top-3 right-3 z-20">
@@ -184,20 +174,31 @@ export default function Events() {
                     </div>
                   )}
                   
+                  {/* Event image */}
+                  {event.poster && (
+                    <div className="h-64 overflow-hidden">
+                      <img 
+                        src={event.poster} 
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                      />
+                    </div>
+                  )}
+                  
                   <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-2 mb-1">
                       <Star size={16} className="text-yellow-400" fill="#FBBF24" />
                       <span className="text-yellow-200 text-sm font-medium">{event.category}</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
                       {event.title}
                     </h3>
-                    {event.date && (
-                      <div className="flex items-center gap-2 mt-3 text-purple-200">
-                        <Calendar size={16} />
-                        <span>{event.date}</span>
-                      </div>
-                    )}
+                    
+                    {/* Consistent CTA for all upcoming events */}
+                    <div className="flex items-center bg-purple-700/30 rounded-lg py-2 px-3 gap-2 group-hover:bg-purple-700/50 transition-colors duration-300">
+                      <ArrowRight size={16} className="text-purple-300" />
+                      <span className="text-sm font-medium text-purple-200">Click Me</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -205,6 +206,13 @@ export default function Events() {
           </div>
         </motion.section>
 
+        <div className="flex items-center justify-center mb-12">
+            <div className="w-16 h-1 bg-purple-500" />
+            <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+              Past Events
+            </h2>
+            <div className="w-16 h-1 bg-purple-500" />
+          </div>
         {/* Category Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -273,7 +281,7 @@ export default function Events() {
             </div>
           </div>
 
-          <p className="text-lg text-purple-100 mb-10 max-w-3xl">
+          <p className="text-lg text-purple-100 mb-10 max-w-10xl">
             {eventCategories[activeCategory].description}
           </p>
 
@@ -289,6 +297,15 @@ export default function Events() {
                 className="cursor-pointer"
               >
                 <div className="group h-full bg-purple-950/90 relative overflow-hidden border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 rounded-lg shadow-lg">
+                  {/* Event status badge - moved outside */}
+                  {event.status === "completed" && (
+                    <div className="absolute top-3 right-3 z-20">
+                      <span className="px-3 py-1 text-xs font-medium bg-green-600 text-white rounded-full shadow-sm">
+                        Completed
+                      </span>
+                    </div>
+                  )}
+                  
                   {/* Event image */}
                   {event.poster && (
                     <div className="event-poster-container">
@@ -300,27 +317,17 @@ export default function Events() {
                     </div>
                   )}
                   
-                  {/* Event title with completed status if applicable */}
+                  {/* Event title without completed status */}
                   <div className="relative z-10 p-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
-                        {event.title}
-                      </h3>
-                      
-                      {event.status === "completed" && (
-                        <span className="px-3 py-1 text-xs font-medium bg-green-600 text-white rounded-full shadow-sm">
-                          Completed
-                        </span>
-                      )}
-                    </div>
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300 mb-3">
+                      {event.title}
+                    </h3>
                     
-                    {/* Improved CTA */}
-                    {event.status === "completed" && (
-                      <div className="flex items-center mt-4 bg-purple-700/30 rounded-lg py-2 px-3 gap-2 group-hover:bg-purple-700/50 transition-colors duration-300">
-                        <ArrowRight size={16} className="text-purple-300" />
-                        <span className="text-sm font-medium text-purple-200">View Details</span>
-                      </div>
-                    )}
+                    {/* Consistent CTA for all events */}
+                    <div className="flex items-center bg-purple-700/30 rounded-lg py-2 px-3 gap-2 group-hover:bg-purple-700/50 transition-colors duration-300">
+                      <ArrowRight size={16} className="text-purple-300" />
+                      <span className="text-sm font-medium text-purple-200">Click Me</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -523,8 +530,6 @@ export default function Events() {
           </motion.div>
         )}
       </AnimatePresence>
-      
-      <Footer />
     </div>
   )
 }

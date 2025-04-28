@@ -4,16 +4,16 @@ import { Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Link from 'next/link'
 
 const Footer = () => {
-  const quickLinks = [
-    { name: "Core Team", href: "/team" },
+  const quickLinks = [    
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Event Gallery", href: "/gallery" },
+    { name: "About", href: "/about" },    
+    { name: "Core Team", href: "/team" },
     { name: "Department of Machine Learning", href: "/department-work" }
   ]
 
-  const eventLinks = [
-    { name: "Gradient Week", href: "/events" }
+  const eventLinks = [    
+    { name: "Utsav Ananta", href: "/events" },
+    { name: "Event Gallery", href: "/gallery" }
   ]
 
   const connectLinks = [

@@ -1,454 +1,240 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X, MousePointerClick } from 'lucide-react';
+"use client"
 
-// Import data from separate file
-import { recapSections } from './recap-data';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Ship, Music, Mic } from "lucide-react";
+import Link from "next/link";
+import Navbar from "../../components/Navbar";
 
-// Define TypeScript interfaces to fix type errors
-interface Image {
-  url: string;
-  alt: string;
-  thumbnail?: string;
-}
-
-interface Section {
-  id: string;
-  title: string;
-  brief: string;
-  description: string;
-  coverImage: string;
-  images: Image[];
-}
-
-export default function GradientWeekRecap() {
-  const [activeSection, setActiveSection] = useState<Section | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const openSection = (section: Section) => {
-    setActiveSection(section);
-    setCurrentImageIndex(0);
-  };
-
-  const closeSection = () => setActiveSection(null);
-
-  const nextImage = () => {
-    if (activeSection) {
-      setCurrentImageIndex((prev) =>
-        prev === activeSection.images.length - 1 ? 0 : prev + 1
-      );
+export default function EventsPage() {
+  const events = [
+    {
+      id: 1,
+      title: "Jokes on You Again",
+      description: "Stand-Up Comedy Event Ft. Niroop Mohan",
+      icon: <Mic size={36} className="text-orange-400" />, 
+      color: "bg-gradient-to-br from-orange-100 to-orange-300",
+      hoverColor: "from-orange-200 to-orange-400",
+      link: "https://events.bmsutsav.in/events/GRDJOY"
+    },
+    {
+      id: 2,
+      title: "Uncharted Lost Voyage",
+      description: "Online Treasure Hunt",
+      icon: <Ship size={36} className="text-blue-400" />, 
+      color: "bg-gradient-to-br from-blue-100 to-blue-300",
+      hoverColor: "from-blue-200 to-blue-400",
+      link: "https://events.bmsutsav.in/events/GRDULV"
+    },
+    {
+      id: 3,
+      title: "Sync or Sink",
+      description: "Team Up for the Biggest Test of Knowledge",
+      icon: <Music size={36} className="text-green-400" />, 
+      color: "bg-gradient-to-br from-green-100 to-green-300",
+      hoverColor: "from-green-200 to-green-400",
+      link: "https://events.bmsutsav.in/events/GRDSOS"
     }
-  };
-
-  const prevImage = () => {
-    if (activeSection) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? activeSection.images.length - 1 : prev - 1
-      );
-    }
-  };
-
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
-  };
-  
-  // Reorganize sections for the desired layout
-  // Cast recapSections to Section[] to ensure TypeScript recognizes it correctly
-  const typedSections = recapSections as Section[];
-  
-  const reorganizedSections = [
-    // First row
-    [
-      typedSections.find(s => s.id === 'inauguration'),
-      typedSections.find(s => s.id === 'impact-ai'), 
-      typedSections.find(s => s.id === 'parallel-fusion')
-    ],
-
-    // Second row
-    [
-      typedSections.find(s => s.id === 'cultural-evening'), 
-      typedSections.find(s => s.id === 'collab-events'), 
-      typedSections.find(s => s.id === 'ai-agents-workshop')
-    ],
-
-    // Third row
-    [
-      typedSections.find(s => s.id === 'general-shots'), 
-      typedSections.find(s => s.id === 'behind-scenes')
-    ]
   ];
 
-  // Group sections for mobile layout in the specified order
-  const mobileSections = [
-    typedSections.find(s => s.id === 'inauguration'),
-    typedSections.find(s => s.id === 'impact-ai'),
-    typedSections.find(s => s.id === 'parallel-fusion'),
-    typedSections.find(s => s.id === 'ai-agents-workshop'),
-    typedSections.find(s => s.id === 'collab-events'),
-    typedSections.find(s => s.id === 'cultural-evening'),
-    typedSections.find(s => s.id === 'general-shots'),
-    typedSections.find(s => s.id === 'behind-scenes')
-  ].filter(Boolean) as Section[]; // Filter out undefined and cast to Section[]
+  // Particles animation setup
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 8 + 2,
+    duration: Math.random() * 20 + 10
+  }));
 
-  // Optimize performance by lazy loading images and reducing animations
   return (
-    <main className="min-h-screen text-white relative bg-gradient-to-br from-purple-900 via-blue-900 to-black overflow-x-hidden">
-      <Navbar />
-
-      <div className="relative z-10 container mx-auto px-4 py-16 mt-20">
-        <motion.h1
-          className="text-5xl md:text-7xl font-bold text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }} // Reduced duration
-        >
-          Gradient Week <span className="text-purple-500">'25</span> Recap
-        </motion.h1>
-
-        {/* Grid Layout for Timeline */}
-        <div className="relative">
-          {!isMobile && reorganizedSections.map((row, rowIndex) => (
-            <div key={`row-${rowIndex}`} className="relative mb-24">
-              {/* Horizontal line connecting the row */}
-              <motion.div
-                className="absolute left-0 right-0 top-1/2 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 transform -translate-y-1/2 z-0 hidden md:block"
-                initial={{ scaleX: 0, opacity: 0 }}
-                style={{ left: '20%', right: '20%' }}
-                whileInView={{ scaleX: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: 0.1 }} // Optimized timing
-              ></motion.div>
-
-              {/* Section cards in this row */}
-              <div className={`grid grid-cols-1 md:grid-cols-${row.length === 2 ? '2' : '3'} gap-12 relative z-10`}>
-                {row.map((section, colIndex) => {
-                  if (!section) return null; // Skip if section is undefined
-
-                  // Calculate tilt angle based on position in grid
-                  const tiltDirection = (rowIndex + colIndex) % 2 === 0 ? 1 : -1;
-                  const tiltAngle = `${tiltDirection * 3}deg`;
-
-                  return (
-                    <motion.div
-                      key={section.id}
-                      className="relative"
-                      initial={{ opacity: 0, y: 30 }} // Reduced y distance
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }} // Adjusted margin
-                      transition={{ duration: 0.4, delay: colIndex * 0.08 }} // Optimized timing
-                    >
-                      {/* Section card */}
-                      <motion.div
-                        className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20 relative z-10 h-full"
-                        style={{ transform: `rotate(${tiltAngle})` }}
-                        whileHover={{ scale: 1.03, rotate: '0deg' }} // Reduced scale for better performance
-                        onClick={() => openSection(section)}
-                      >
-                        <div className="relative h-full flex flex-col">
-                          <img
-                            src={section.coverImage}
-                            alt={section.title}
-                            className="w-full aspect-[4/3] object-cover"
-                            loading="lazy" // Added lazy loading
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end">
-                            <div className="p-6">
-                              <h3 className="text-2xl font-bold mb-2">{section.title}</h3>
-                              <p className="text-gray-300 line-clamp-2 mb-4">{section.brief}</p>
-
-                              {/* CTA Button */}
-                              <motion.button
-                                className="flex items-center gap-2 bg-purple-700/70 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm transition-colors"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                              >
-                                <MousePointerClick size={16} />
-                                Click Me
-                              </motion.button>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Vertical connecting line to next row */}
-              {rowIndex < reorganizedSections.length - 1 && !isMobile && (
-                <motion.div
-                  className={`absolute w-2 h-24 transform -translate-x-1/2 bg-gradient-to-b from-purple-500 via-blue-500 to-purple-500 -bottom-24 hidden md:block`}
-                  style={{
-                    left: rowIndex === 0 ? 'calc(83.33% - 1px)' : 'calc(16.67% - 1px)'
-                  }}
-                  initial={{ scaleY: 0, opacity: 0 }}
-                  whileInView={{ scaleY: 1, opacity: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: 0.3 }} // Optimized timing
-                ></motion.div>
-              )}
-            </div>
-          ))}
-
-          {/* Mobile layout (stacked vertically) */}
-          {isMobile && (
-            <div className="relative w-full">
-              {/* Main vertical timeline line */}
-              <motion.div
-                className="absolute left-4 top-0 bottom-0 w-2 bg-gradient-to-b from-purple-600 via-blue-600 to-purple-600 z-0"
-                initial={{ scaleY: 0, opacity: 0 }}
-                animate={{ scaleY: 1, opacity: 1 }}
-                transition={{ duration: 1 }} // Reduced duration
-                style={{ transformOrigin: 'top' }}
-              ></motion.div>
-
-              {mobileSections.map((section, index) => {
-                return (
-                  <motion.div
-                    key={section.id}
-                    className="relative mb-16 pl-12 pr-4 w-full"
-                    initial={{ opacity: 0, x: 30 }} // Reduced distance
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.4 }} // Reduced duration
-                  >
-                    {/* Connecting horizontal line */}
-                    <motion.div
-                      className="absolute left-4 top-9 w-8 h-2 bg-gradient-to-r from-purple-600 to-transparent"
-                      initial={{ scaleX: 0, opacity: 0 }}
-                      whileInView={{ scaleX: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 0.1 }} // Optimized timing
-                      style={{ transformOrigin: 'left' }}
-                    ></motion.div>
-
-                    {/* Timeline dot */}
-                    <motion.div
-                      className="absolute left-3 top-8 w-8 h-8 rounded-full bg-purple-600 transform -translate-x-2 -translate-y-2 z-10"
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 200, // Reduced stiffness
-                        damping: 20,
-                        delay: 0.2 // Reduced delay
-                      }}
-                    ></motion.div>
-
-                    {/* Section card */}
-                    <motion.div
-                      className="bg-gray-900/80 backdrop-blur-md border border-purple-700/50 rounded-xl overflow-hidden cursor-pointer hover:border-purple-500 transition-all duration-300 shadow-lg shadow-purple-900/20 w-full"
-                      whileHover={{ scale: 1.02 }} // Reduced scale
-                      onClick={() => openSection(section)}
-                    >
-                      <div className="relative">
-                        <img
-                          src={section.coverImage}
-                          alt={section.title}
-                          className="w-full aspect-[4/3] object-cover"
-                          loading="lazy" // Added lazy loading
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end">
-                          <div className="p-4">
-                            <h3 className="text-xl font-bold mb-2">{section.title}</h3>
-                            <p className="text-gray-300 text-sm line-clamp-2 mb-3">{section.brief}</p>
-
-                            {/* CTA Button */}
-                            <motion.button
-                              className="flex items-center gap-1 bg-purple-700/70 hover:bg-purple-600 text-white px-3 py-1 rounded-full text-xs backdrop-blur-sm transition-colors"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              <MousePointerClick size={14} />
-                              Click Me
-                            </motion.button>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        {/* Thank you message */}
+    <div
+      className="min-h-screen overflow-hidden text-gray-900 relative"
+      style={{ backgroundColor: "#0f172a" }} // Darker background color (slate-900)
+    >
+      {/* Improved animated darker background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Dark gradient background with cosmic feel */}
         <motion.div
-          className="text-center mt-32 mb-16 relative z-10"
+          className="absolute inset-0"
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }} // Reduced duration
-          viewport={{ once: true }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
         >
-          <motion.div
-            className="inline-block"
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 200, // Reduced stiffness
-              damping: 20
-            }}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-              Thank you for being a part of Gradient Week '25
-            </h2>
-            <p className="text-4xl text-purple-300">With Love, The Gradient Team</p>
-          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
         </motion.div>
+
+        {/* Animated gradient overlay */}
+        <motion.div
+          className="absolute inset-0 opacity-30"
+          animate={{
+            background: [
+              "radial-gradient(circle at 20% 30%, #4c1d95 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 60%, #4c1d95 0%, transparent 50%)",
+              "radial-gradient(circle at 40% 80%, #4c1d95 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 30%, #4c1d95 0%, transparent 50%)"
+            ]
+          }}
+          transition={{ 
+            duration: 15, 
+            ease: "easeInOut", 
+            repeat: Infinity 
+          }}
+        />
+
+        {/* Glowing particles */}
+        {particles.map(particle => (
+          <motion.div
+            key={particle.id}
+            className="absolute rounded-full bg-white blur-sm"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              boxShadow: "0 0 8px 2px rgba(255, 255, 255, 0.3)"
+            }}
+            animate={{
+              x: [0, Math.random() * 100 - 50],
+              y: [0, Math.random() * 100 - 50],
+              opacity: [0.1, 0.6, 0.1],
+              scale: [1, 1.5, 1]
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+
+        {/* Mesh grid overlay for depth */}
+        <div className="absolute inset-0" 
+          style={{
+            backgroundImage: "linear-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.1) 1px, transparent 1px)",
+            backgroundSize: "40px 40px"
+          }}
+        />
       </div>
 
-      {/* Image Slideshow Popup */}
-      <AnimatePresence>
-        {activeSection && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto"
+      <Navbar />
+
+      {/* Main content */}
+      <div className="relative z-10 container mx-auto px-8 sm:px-12 lg:px-16 py-20">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-20 mt-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.h2 
+            className="text-3xl md:text-5xl font-extrabold text-white mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            GRADIENT X UTSAV
+          </motion.h2>
+
+          <motion.h1 
+            className="text-5xl md:text-7xl font-extrabold text-gray-100 mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            Exciting <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-gold-300 to-pink-400">Events</span> Await
+          </motion.h1>
+
+          <motion.p 
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }} // Reduced duration
-            onClick={closeSection}
+            transition={{ duration: 0.7, delay: 0.6 }}
           >
+            Get ready for an extraordinary showcase of talent, creativity, and innovation!
+          </motion.p>
+        </motion.div>
+
+        {/* Events Grid with staggered animations */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {events.map((event, index) => (
             <motion.div
-              className="bg-gray-900 rounded-xl w-full max-w-4xl overflow-hidden relative mx-auto my-4"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }} // Reduced duration
-              onClick={(e) => e.stopPropagation()}
+              key={event.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.7, 
+                delay: 0.3 * index,
+                type: "spring",
+                stiffness: 100
+              }}
+              className="relative overflow-hidden"
             >
-              {/* Close button */}
-              <button
-                className="absolute top-4 right-4 z-20 bg-black/50 rounded-full p-2 text-white hover:bg-black/80 transition-colors"
-                onClick={closeSection}
+              <motion.div
+                className={`relative w-full p-8 rounded-2xl overflow-hidden group cursor-pointer ${event.color} hover:shadow-2xl transition-all duration-500`}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px 5px rgba(255, 255, 255, 0.1)"
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 15
+                }}
               >
-                <X size={24} />
-              </button>
+                {/* Animated background on hover */}
+                <motion.div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${event.hoverColor} opacity-70`} />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent)] w-full h-full" />
+                </motion.div>
 
-              {/* Main slideshow */}
-              <div className="relative">
-                <div className="aspect-video bg-black">
-                {activeSection.images && activeSection.images[currentImageIndex]?.url.endsWith('.mp4') ? (
-                  <motion.video
-                    key={currentImageIndex}
-                    src={activeSection.images[currentImageIndex].url}
-                    controls
-                    autoPlay={true}
-                    muted={true}
-                    className="w-full h-full object-contain"
-                    initial={{ opacity: 0.5 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }} // Reduced duration
-                  />
-                ) : (
-                  <motion.img
-                    key={currentImageIndex}
-                    src={activeSection.images && activeSection.images[currentImageIndex]?.url}
-                    alt={activeSection.images && activeSection.images[currentImageIndex]?.alt || ''}
-                    className="w-full h-full object-contain"
-                    initial={{ opacity: 0.5 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }} // Reduced duration
-                  />
-                )}
-                </div>
-
-                {/* Image Title - Moved below the image */}
-                <div className="bg-black/80 text-white p-3 text-center">
-                  <p className="font-medium">
-                    {activeSection.images && activeSection.images[currentImageIndex]?.alt || ''}
-                  </p>
-                </div>
-
-                {/* Navigation arrows - Only show if there's more than one image */}
-                {activeSection.images && activeSection.images.length > 1 && (
-                  <>
-                    <button
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        prevImage();
-                      }}
+                {/* Content */}
+                <div className="relative z-10 h-64 flex flex-col justify-between">
+                  <div>
+                    <motion.div 
+                      className="mb-6 w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md" 
+                      style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.7 }}
                     >
-                      <ChevronLeft size={24} />
-                    </button>
+                      {event.icon}
+                    </motion.div>
+                    <h3 className="text-3xl font-bold mb-2">{event.title}</h3>
+                    <p className="text-gray-700/90">{event.description}</p>
+                  </div>
 
-                    <button
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 p-2 rounded-full transition-colors"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        nextImage();
-                      }}
-                    >
-                      <ChevronRight size={24} />
-                    </button>
+                  <div className="mt-auto">
+                    <div className="flex flex-col space-y-3">
+                      <span className="text-xl font-semibold text-gray-700">Coming Soon</span>
 
-                    {/* Image counter */}
-                    <div className="absolute bottom-12 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-                      {currentImageIndex + 1} / {activeSection.images.length}
+                      <Link href={event.link} className="inline-block">
+                        <motion.span
+                          className="inline-flex items-center px-5 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 transition-all duration-300"
+                          whileHover={{ x: 8, backgroundColor: "#f3f4f6" }}
+                        >
+                          <span className="mr-2">Register Now</span>
+                          <motion.span
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <ArrowRight size={16} />
+                          </motion.span>
+                        </motion.span>
+                      </Link>
                     </div>
-                  </>
-                )}
-              </div>
-
-              {/* Image thumbnails - Only render if more than one image */}
-              {activeSection.images && activeSection.images.length > 1 && (
-                <div className="flex overflow-x-auto p-2 gap-2 bg-black/50 w-full">
-                  {activeSection.images.map((image, idx) => (
-                    <div
-                      key={idx}
-                      className={`flex-none h-16 w-24 cursor-pointer transition-all rounded overflow-hidden ${idx === currentImageIndex ? 'ring-2 ring-purple-500' : 'opacity-60 hover:opacity-100'}`}
-                      onClick={() => goToImage(idx)}
-                      title={image.alt}
-                    >
-                      {image.url.endsWith('.mp4') ? (
-                        <video
-                          src={image.url}
-                          poster={image.thumbnail || undefined}
-                          className="h-full w-full object-cover"
-                          preload="metadata" // Added lazy loading
-                        />
-                      ) : (
-                        <img
-                          src={image.url}
-                          alt={image.alt}
-                          className="h-full w-full object-cover"
-                          loading="lazy" // Added lazy loading
-                        />
-                      )}
-                      <div className="bg-black/70 text-xs text-center text-white truncate px-1">
-                        {image.alt.length > 15 ? image.alt.substring(0, 15) + '...' : image.alt}
-                      </div>
-                    </div>
-                  ))}
+                  </div>
                 </div>
-              )}
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-4">{activeSection.title}</h3>
-                <p className="text-gray-300">{activeSection.description}</p>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </main>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

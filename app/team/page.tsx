@@ -105,7 +105,7 @@ const DomainSection = ({ title, members, isReversed }: { title: string, members:
           {title}
         </h2>
       </div>
-      
+
       {/* For larger screens (above 1024px): show side-by-side layout */}
       <div className="hidden xl:flex xl:flex-row items-center">
         {/* Side title, only visible on large screens */}
@@ -126,7 +126,7 @@ const DomainSection = ({ title, members, isReversed }: { title: string, members:
           </div>
         </div>
       </div>
-      
+
       {/* For smaller screens: always show members below title in a grid */}
       <div className="xl:hidden">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -147,11 +147,17 @@ export default function Team() {
       {/* Google Fonts Import */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide');
+
+
+        .audiowide-regular {
+          font-family: "Audiowide", sans-serif;
+          font-weight: 300;
+          font-style: normal;
+        }
         .righteous-regular {
           font-family: "Righteous", sans-serif;
-          font-weight: 400;
-          font-style: normal;
+          font-weight: 400;                    
         }
       `}</style>
 
@@ -166,19 +172,19 @@ export default function Team() {
       <Navbar />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 md:pb-20 text-center">
-        <div className="mb-12 md:mb-16 relative">
+        <div className="mb-4 md:mb-10 relative">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="mx-auto max-w-2xl lg:max-w-3xl"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold mt-6 md:mt-10">
-              <span className="text-white">The Minds</span><br />
-              <span className="text-purple-400">Behind Gradient</span>
+            <h1 className="text-6xl sm:text-7xl md:text-7xl font-bold mt-6 md:mt-10 audiowide-regular">
+              <span className="text-white">The Minds</span> <br />
+              <span style={{ color: '#C4B5FD' }}>Behind Gradient</span>
             </h1>
             {/* Tagline */}
-            <p className="text-purple-200 text-xl md:text-2xl mt-4 md:mt-6 font-light px-2">
+            <p className="text-purple-200 text-xl md:text-3xl mt-4 md:mt-6 font-light px-2">
               The team that brings you innovation at the speed of thought
             </p>
           </motion.div>

@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 const navItems = [
-  { name: 'Gradient Week', href: '/events' },
+  { name: 'Utsav Ananta', href: '/events' },
   { name: 'Core Team', href: '/team' },
   { name: 'Event Gallery', href: '/gallery' },
   { name: 'Dept. of ML', href: '/department-work' },

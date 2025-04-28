@@ -2,11 +2,9 @@
 import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown, Calendar, Sparkles } from 'lucide-react'
+import { ArrowRight, ChevronDown, Calendar, Sparkles, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
-
-import TypingAnimation from '@/components/ui/typing-animation'
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import Image from 'next/image'
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,140 +14,115 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="relative min-h-screen bg-gradient-to-b text-white overflow-hidden">
+    <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
+      {/* Google Fonts Import */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide');
+
+        .audiowide-regular {
+          font-family: "Audiowide", sans-serif;
+          font-weight: 300;
+          font-style: normal;
+        }
+        .righteous-regular {
+          font-family: "Righteous", sans-serif;
+          font-weight: 400;                      
+        }
+      `}</style>
+
+      {/* Background pattern */}
+      <div className="fixed inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right,rgb(127, 111, 168) 1px, transparent 1px), linear-gradient(to bottom, rgb(127, 111, 168) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          backgroundColor: '#180336'
+        }} />
 
       <Navbar />
 
-      {/* Gradient Week Banner - positioned before navbar but with margin for proper spacing */}
-      <motion.div
-        className="relative w-full bg-gradient-to-r from-purple-800 via-purple-600 to-purple-800 py-4 
-    mt-[90px] lg:mt-[100px] text-center -mb-[90px]"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            <div className="w-full lg:w-auto flex items-center justify-center lg:justify-start">
-              <div className="flex items-center space-x-3 sm:space-x-6">
-                <Sparkles size={28} className="text-yellow-300 animate-pulse lg:block" />
-
-                <div className="text-center lg:text-left">
-                  <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start space-y-1 lg:space-y-0 lg:space-x-3">
-                    <h2 className="font-bold text-2xl md:text-3xl text-white">
-                      <span className="text-yellow-300">GRADIENT WEEK '25</span>
-                    </h2>
-                    <p className="text-xl md:text-3xl text-white">
-                      Has Concluded
-                    </p>
-                  </div>
-                </div>
-
-                <Sparkles size={24} className="text-yellow-300 animate-pulse lg:block" />
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end w-full lg:w-auto space-y-3 sm:space-y-0 sm:space-x-4 mt-3 lg:mt-0">
-              <p className="text-purple-100 text-center lg:text-right font-medium text-xl">
-                Check out the highlights of the event!
-              </p>
-              <Link
-                href="/events"
-                className="inline-flex items-center space-x-2 px-6 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-lg transition-all duration-300 transform hover:scale-105 text-purple-900 font-bold text-xl shadow-lg"
-              >
-                <span>RECAP</span>
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent pointer-events-none" />
-
-      <div className="container mx-auto px-4">
-        {/* Modified breakpoints from md to lg for better responsive behavior */}
-        <div className="flex flex-col lg:flex-row items-center min-h-[calc(100vh-80px)] pt-20">
-          {/* Left Section - Adjusted width and added padding for medium screens */}
+      {/* Main content container with improved padding */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-16 md:pt-16 pb-12">
+        {/* Hero section with better height and spacing */}
+        <div className="flex flex-col lg:flex-row items-center justify-between min-h-[85vh] gap-8 lg:gap-12">
+          
+          {/* Left Section (Text) */}
           <motion.div
-            className="w-full md:max-w-2xl lg:w-1/2 space-y-8 relative z-10 px-4 md:px-8"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="w-full lg:w-5/12 space-y-6 z-10 text-center lg:text-left"
           >
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight mt-10 text-center lg:text-left">
-                Welcome to
-                <div className="mt-2">
-                  <TypingAnimation className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 ">
-                    Gradient
-                  </TypingAnimation>
-                </div>
+            {/* Title with balanced font sizes */}
+            <div className="space-y-2">
+              <h1 className="audiowide-regular leading-tight">
+                <span className="text-white text-5xl sm:text-6xl md:text-7xl ">Welcome to</span> <br />
+                <span style={{ color: '#C4B5FD' }} className="text-6xl sm:text-7xl md:text-8xl ">Gradient</span>
               </h1>
             </div>
 
-            <p className="text-gray-300 text-xl md:text-2xl max-w-lg mx-auto lg:mx-0 leading-relaxed text-center lg:text-left">
+            {/* Paragraph */}
+            <p className="text-purple-200 text-xl md:text-2xl font-light leading-relaxed mt-3">
               Pioneering the future through AI and Machine Learning innovation at B.M.S. College of Engineering.
             </p>
 
+            {/* Buttons */}
             <motion.div
-              className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 justify-center lg:justify-start mt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
               <Link
                 href="/about"
-                className="group flex items-center justify-center md:justify-start space-x-3 px-8 py-4 bg-purple-600 rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 text-lg font-medium"
+                className="group flex items-center justify-center space-x-3 px-8 py-4 bg-purple-600 rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 text-lg font-medium w-full sm:w-auto"
               >
                 <span>Explore Our Club</span>
-                <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+              <Link
+                href="/gallery"
+                className="group flex items-center justify-center space-x-3 px-8 py-4 bg-purple-800/60 hover:bg-purple-600 rounded-full transition-all duration-300 transform hover:scale-105 text-lg font-medium w-full sm:w-auto"
+              >
+                <span>View Events</span>
+                <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
               </Link>
             </motion.div>
-
           </motion.div>
 
-          {/* Right Section - Added padding and adjusted margins for better spacing */}
+          {/* Right Section (Image and Caption) - Made larger */}
           <motion.div
-            className="w-full md:max-w-5xl lg:w-1/2 mt-12 lg:mt-0 relative z-10 px-4 md:px-8"
+            className="w-full lg:w-7/12 mt-10 lg:mt-0 z-10"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative">
-              {/* Decorative elements */}
-              <motion.div
-                className="absolute -right-4 -top-4 w-24 h-24 border-4 border-purple-600/30 rounded-full"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5 }}
-              />
-              <motion.div
-                className="absolute -left-4 -bottom-4 w-16 h-16 border-4 border-purple-600/30 rounded-full"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.6 }}
-              />
-              <div className="relative">
-                <div className="absolute -right-2 -top-2 w-full h-full border-2 border-purple-600 rounded-lg" />
-                <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
-                  <div className="absolute top-2 left-2 flex space-x-1 items-center"></div>
-                  <img
-                    src="https://gradient-content-server.vercel.app/content/group.png"
-                    alt="Group photo"
-                    width={500}
-                    height={400}
-                    className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
+            {/* Image Container - Increased size */}
+            <div className="relative w-full overflow-hidden rounded-xl shadow-2xl group">
+              {/* Image */}
+              <div className="aspect-w-16 aspect-h-10">
+                <Image
+                  src="https://gradient-content-server.vercel.app/content/group.png"
+                  alt="Group photo"
+                  width={1600}
+                  height={1000}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+              </div>
+              
+              {/* Overlay with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-950/70 via-transparent to-purple-950/10" />
+              
+              {/* Caption attached directly to the image */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 text-center bg-gradient-to-t from-purple-950/90 to-purple-950/0">
+                <h3 className="text-xl md:text-2xl font-bold text-white">The Gradient Team</h3>
+                <p className="text-purple-200/90 font-medium text-lg mt-1">Redefining Intelligence</p>
               </div>
             </div>
           </motion.div>
         </div>
-      </div>     
-      
-    </main>
+      </div>
+    </div>
   )
 }

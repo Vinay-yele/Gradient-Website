@@ -1,13 +1,13 @@
 export const upcomingEvents = [
     {
-      title: "Jokes on You Again",
-      description: "A thrilling comedy show by Bangalore's very own Niroop Mohan, Join us for an show of laughter and entertainment as Niroop takes the stage to share his unique perspective on life, love, and everything in between.",
-      date: "May 10th, 2025",
-      location: "",
-      category: "Utsav 2025",
-      status: "registration-open",      
-      registrationLink: "https://events.bmsutsav.in/events/GRDJOY",
-      poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
+        title: "Jokes on You Again",
+        description: "A thrilling comedy show by Bangalore's very own Niroop Mohan, Join us for an show of laughter and entertainment as Niroop takes the stage to share his unique perspective on life, love, and everything in between.",
+        date: "May 10th, 2025",
+        location: "",
+        category: "Utsav 2025",
+        status: "registration-open",
+        registrationLink: "https://events.bmsutsav.in/events/GRDJOY",
+        poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
     },
     {
         title: "Uncharted 3 : Lost Voyage",
@@ -15,7 +15,7 @@ export const upcomingEvents = [
         date: "May 9th, 2025",
         location: "",
         category: "Utsav 2025",
-        status: "registration-open",      
+        status: "registration-open",
         registrationLink: "https://events.bmsutsav.in/events/GRDULV",
         poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/ulv.webp"
     },
@@ -25,16 +25,42 @@ export const upcomingEvents = [
         date: "May 10th, 2025",
         location: "",
         category: "Utsav 2025",
-        status: "registration-open",      
+        status: "registration-open",
         registrationLink: "https://events.bmsutsav.in/events/GRDSOS",
         poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
     }
-  ];
+];
 export const eventCategories = [
     {
         name: "Gradient Week",
-        description: "Our flagship annual Tech Innovation Week fosters collaboration and innovation among tech enthusiasts.",
+        description: "Our flagship annual Tech Innovation Week that fosters collaboration and innovation among tech enthusiasts.",
         years: [
+            {
+                year: "2025",
+                events: [
+                    {
+                        title: "Impact AI 2.0 24hr Hackathon",
+                        participants: 170,
+                        description: "A 24-hour marathon of innovation, was aimed to foster creativity and problem-solving within sustainable and ethical AI, ₹30,000 prize pool.",
+                        status: "completed",
+                        poster: "https://gradient-week.vercel.app/posters/gw/impact2.webp"
+                    },
+                    {
+                        title: "Parallel Fusion",
+                        participants: 66,
+                        description: "A thrilling event were teams raced against time to solve puzzles, unlocking the final treasure. The event was a test of teamwork and strategy, where participants had to work together to solve puzzles and challenges.",
+                        status: "completed",
+                        poster: "https://gradient-week.vercel.app/posters/gw/pf.webp"
+                    },
+                    {
+                        title: "AI Agents Hands on Workshop",
+                        participants: 50,
+                        description: "Through engaging sessions and practical exercises, participants collaboratively constructed an end-to-end project, delving into data analysis, feature engineering, and predictive modeling. Organized by Vaishak Bhuvan M R.",
+                        status: "completed",
+                        poster: "https://gradient-content-server.vercel.app/content/posters/gw/aiwork.webp"
+                    }
+                ]
+            },
             {
                 year: "2024",
                 events: [
@@ -215,7 +241,7 @@ export const eventCategories = [
                         poster: "https://gradient-content-server.vercel.app/content/posters/krishnaik.webp",
                         images: [
                             "https://gradient-content-server.vercel.app/content/gallery/sa/2023/pvvykn.jpg"
-                            ]
+                        ]
                     },
                     {
                         title: "Time-Traveler's Quest",
