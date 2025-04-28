@@ -41,10 +41,52 @@ export default function Home() {
 
       <Navbar />
 
+      {/* Gradient X Utsav Banner */}
+      <motion.div
+  className="relative w-full bg-gradient-to-r from-emerald-700 via-green-600 to-teal-600 py-4 mt-20 sm:mt-20 md:mt-24 mb-8 md:mb-12"
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+>
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full space-y-4 md:space-y-0 md:space-x-8">
+      {/* Left side (title and date) */}
+      <div className="flex items-center space-x-3 sm:space-x-4 w-full md:w-auto text-center">
+        <Sparkles size={24} className="text-green-200 animate-pulse hidden md:block" />
+        <div>
+          <h2 className="font-bold text-3xl md:text-4xl text-white">
+            <span className="text-green-200">GRADIENT X UTSAV</span>
+          </h2>
+        </div>
+        <p className="text-2xl md:text-3xl text-white font-semibold">
+          9-10th May
+        </p>
+        <Sparkles size={24} className="text-green-200 animate-pulse hidden md:block" />
+      </div>
+
+      {/* Right side (tagline on the left and Explore Now button on the right) */}
+      <div className="flex flex-col md:flex-row items-center justify-center space-x-4 w-full md:w-auto text-center">
+        <p className="text-green-100 text-lg md:text-xl font-medium">
+          Get ready for the biggest hits of the year!
+        </p>
+        <Link
+          href="/events"
+          className="group inline-flex items-center space-x-2 px-6 py-2 bg-green-200 hover:bg-green-100 rounded-lg transition-all duration-300 transform hover:scale-105 text-emerald-900 font-bold text-lg shadow-lg"
+        >
+          <span>Explore Now</span>
+          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</motion.div>
+
+
+
       {/* Main content container with improved padding */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-16 md:pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Hero section with better height and spacing */}
-        <div className="flex flex-col lg:flex-row items-center justify-between min-h-[85vh] gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between min-h-[65vh] gap-8 lg:gap-12">
           
           {/* Left Section (Text) */}
           <motion.div
