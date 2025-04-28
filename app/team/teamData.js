@@ -31,7 +31,7 @@ export const teamData = [
     },
     {
         title: "Media and Sponsorship Heads",
-        members: [
+        members: [ 
             {
                 name: "Likith Chowdary",
                 role: "  ",
