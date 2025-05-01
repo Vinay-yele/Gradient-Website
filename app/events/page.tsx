@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  ArrowRight, 
-  Calendar, 
-  Clock, 
-  MapPin, 
-  Phone, 
-  Trophy, 
+import {
+  ArrowRight,
+  Calendar,
+  Clock,
+  MapPin,
+  Phone,
+  Trophy,
   DollarSign,
   Users,
   Star
@@ -30,6 +30,7 @@ export default function EventsPage() {
       status: "registration-open",
       registrationFee: "₹150 per person",
       prizePool: "N/A",
+      team: "Individual Participation",
       coordinators: [
         { name: "R Suman", number: "+91 6363742183" },
         { name: "Likith Chowdary", number: "+91 9900773333" }
@@ -48,6 +49,7 @@ export default function EventsPage() {
       status: "registration-open",
       registrationFee: "₹100 per team",
       prizePool: "₹5,000",
+      team: "2 in a team",
       coordinators: [
         { name: "Pranav Veeraghanta", number: "+91 8073194166" },
         { name: "Siddarth Sahay", number: "+91 9354868006" }
@@ -66,6 +68,7 @@ export default function EventsPage() {
       status: "registration-open",
       registrationFee: "₹100 per team",
       prizePool: "₹4,000",
+      team: "2 in a team",
       coordinators: [
         { name: "Yashas Nandan", number: "+91 7676823822" },
         { name: "Vignesh Madan", number: "+91 7022433357" }
@@ -88,8 +91,8 @@ export default function EventsPage() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -108,22 +111,22 @@ export default function EventsPage() {
           muted
           playsInline
           className="absolute w-full h-full object-cover"
-          style={{ filter: "brightness(0.6)", mixBlendMode: "normal" }}
+          style={{ filter: "brightness(0.5)", mixBlendMode: "normal" }}
         >
-          <source 
-            src="https://gradient-content-server.vercel.app/content/utsav25/bg.mp4" 
-            type="video/mp4" 
+          <source
+            src="https://gradient-content-server.vercel.app/content/utsav25/bg.mp4"
+            type="video/mp4"
           />
         </video>
-        
+
         {/* Mesh grid overlay for depth - reduced opacity further */}
-        <div className="absolute inset-0" 
+        <div className="absolute inset-0"
           style={{
             backgroundImage: "linear-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.1) 1px, transparent 1px)",
             backgroundSize: "40px 40px"
           }}
         />
-        
+
         {/* Dark gradient overlay - significantly reduced opacity */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-purple-950/25 to-black/25" />
       </div>
@@ -221,25 +224,20 @@ export default function EventsPage() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 mt-8"
         >
-          <motion.h2 
-            className="text-5xl md:text-6xl font-extrabold bree-serif-regular text-white mb-3"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            GRADIENT X UTSAV
-          </motion.h2>
-
-          <motion.h1 
-            className="text-6xl md:text-8xl font-extrabold righteous-regular mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-gold-300 to-pink-400"
+          <motion.h1
+            className="text-7xl md:text-9xl font-extrabold righteous-regular mb-7 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-yellow-200 to-pink-200"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Exciting Events Await
+            <span className="block md:inline">Gradient</span>
+            <span className="block md:inline"> X</span>
+            <span className="block md:inline"> Utsav</span>
           </motion.h1>
 
-          <motion.p 
+
+
+          <motion.p
             className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -264,7 +262,7 @@ export default function EventsPage() {
             className="flex flex-wrap justify-center gap-12 pb-12"
           >
             {events.map((event) => (
-              <motion.div 
+              <motion.div
                 key={event.id}
                 variants={itemVariants}
                 className="bg-purple-950/70 border border-purple-500/30 rounded-3xl overflow-hidden shadow-2xl hover:shadow-purple-700/30 transition-all duration-300 transform hover:-translate-y-2 event-card snap-center"
@@ -278,7 +276,7 @@ export default function EventsPage() {
                         alt={event.title}
                         className="event-poster-image transition-transform duration-700 hover:scale-110"
                       />
-                      
+
                       {/* Event status badge */}
                       <div className="absolute top-6 left-6 z-10">
                         {event.status === "registration-open" && (
@@ -294,38 +292,43 @@ export default function EventsPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Bottom - Content */}
                   <div className="p-8 flex flex-col flex-1 event-card-content">
                     <div className="flex items-center gap-3 mb-4">
                       <Star size={24} className="text-yellow-400" fill="#FBBF24" />
                       <span className="text-yellow-200 text-xl font-medium">{event.category}</span>
                     </div>
-                    
+
                     <h3 className="text-3xl font-bold text-white mb-4 hover:text-purple-300 transition-colors duration-300">
                       {event.title}
                     </h3>
-                    
+
                     <p className="text-purple-100 mb-6 text-base event-description">
                       {event.description}
                     </p>
-                    
+
                     {/* Event details - Responsive grid layout */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                       <div className="flex items-center gap-3">
                         <Calendar size={22} className="text-purple-400 flex-shrink-0" />
                         <span className="text-purple-200 event-detail">{event.date}</span>
                       </div>
-                      
+
                       <div className="flex items-center gap-3">
                         <Clock size={22} className="text-purple-400 flex-shrink-0" />
                         <span className="text-purple-200 event-detail">{event.time}</span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-3 mb-6">
                       <MapPin size={22} className="text-purple-400 flex-shrink-0" />
                       <span className="text-purple-200 event-detail">{event.location}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 mb-6">
+                      <Users size={22} className="text-purple-400 flex-shrink-0" />
+                      <span className="text-purple-200 event-detail">{event.team}</span>
                     </div>
 
                     {/* Registration fee and prize pool */}
