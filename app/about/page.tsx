@@ -44,48 +44,49 @@ export default function About() {
     <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
       {/* Google Fonts Import */}
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide');    
-        
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Bree+Serif&display=swap');
+
         .righteous-regular {
-          font-family: "Righteous", sans-serif;
+          font-family: 'Righteous', sans-serif;
           font-weight: 400;
           font-style: normal;
         }
-        .audiowide-regular {
-          font-family: "Audiowide", sans-serif;
+
+        .bree-serif-regular {
+          font-family: 'Bree Serif', serif;
           font-weight: 400;
           font-style: normal;
         }
       `}</style>
-
       {/* Background pattern */}
       <div className="fixed inset-0 opacity-15 pointer-events-none"
         style={{
           backgroundImage: 'linear-gradient(to right,rgb(127, 111, 168) 1px, transparent 1px), linear-gradient(to bottom, rgb(127, 111, 168) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
-          backgroundColor: '#180336'
+          backgroundColor: '#180336',
         }} />
 
       <Navbar />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 md:pb-20">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-8 md:mb-10"
-        >
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mt-6 md:mt-10 audiowide-regular">
+
+        <div className="mb-4 md:mb-10 relative">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-8 md:mb-10"
+          >
+            <h1 className="text-8xl sm:text-8xl md:text-8xl font-bold mt-6 md:mt-10 bree-serif-regular">
               <span className="text-white">About</span> <br />
               <span style={{ color: '#C4B5FD' }}>Gradient</span>
             </h1>
-          <p className="text-purple-200 text-2xl md:text-3xl mt-4 md:mt-6 font-light px-2">
+            {/* Tagline */}
+            <p className="text-purple-200 text-xl md:text-3xl mt-4 md:mt-6 font-light px-2">
             Fostering innovation in AI and machine learning
-          </p>
-        </motion.div>
-
+            </p>
+          </motion.div>
+        </div>
 
         <div className="space-y-24">
           {/* Who Are We Section */}

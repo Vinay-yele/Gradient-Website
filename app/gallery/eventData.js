@@ -3,31 +3,52 @@ export const upcomingEvents = [
         title: "Jokes on You Again",
         description: "A thrilling comedy show by Bangalore's very own Niroop Mohan, Join us for an show of laughter and entertainment as Niroop takes the stage to share his unique perspective on life, love, and everything in between.",
         date: "May 10th, 2025",
-        location: "",
+        time: "10:00 AM",
+        location: "Auditorium 1, Ground Floor, PJA Block, BMSCE",
         category: "Utsav 2025",
         status: "registration-open",
+        registrationFee: "₹150 per person",
+        prizePool: "N/A",
+        coordinators: [
+            { name: "R Suman", number: "+91 6363742183" },
+            { name: "Likith Chowdary", number: "+91 9900773333" }
+        ],
         registrationLink: "https://events.bmsutsav.in/events/GRDJOY",
-        poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
+        poster: "https://gradient-content-server.vercel.app/content/utsav25/JOY.png"
     },
     {
         title: "Uncharted 3 : Lost Voyage",
         description: "A thrilling high stakes online treasure hunt where participants embark on a quest to uncover hidden treasures and solve intricate puzzles. With a mix of technology and adventure, this event promises excitement and challenges.",
         date: "May 9th, 2025",
-        location: "",
+        time: "10:00 AM",
+        location: "MEL Lab 1 & 2, 7th Floor, PJA Block, BMSCE",
         category: "Utsav 2025",
         status: "registration-open",
+        registrationFee: "₹100 per team",
+        prizePool: "₹5,000",
+        coordinators: [
+            { name: "Pranav Veeraghanta", number: "+91 8073194166" },
+            { name: "Siddarth Sahay", number: "+91 9354868006" }
+        ],
         registrationLink: "https://events.bmsutsav.in/events/GRDULV",
-        poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/ulv.webp"
+        poster: "https://gradient-content-server.vercel.app/content/utsav25/UNC.png"
     },
     {
         title: "Sync or Sink",
         description: "A test of teamwork and strategy, where participants must work together to solve puzzles and challenges. You either Sync up with your teammates or Sink into the depths of despair.",
         date: "May 10th, 2025",
-        location: "",
+        time: "2:30 PM",
+        location: "CSE Seminar Hall, 4th Floor, PJA Block, BMSCE",
         category: "Utsav 2025",
         status: "registration-open",
+        registrationFee: "₹100 per team",
+        prizePool: "₹4,000",
+        coordinators: [
+            { name: "Yashas Nandan", number: "+91 7676823822" },
+            { name: "Vignesh Madan", number: "+91 7022433357" }
+        ],
         registrationLink: "https://events.bmsutsav.in/events/GRDSOS",
-        poster: "https://gradient-content-server.vercel.app/content/posters/utsav25/joy.webp"
+        poster: "https://gradient-content-server.vercel.app/content/utsav25/SOS.png"
     }
 ];
 export const eventCategories = [
@@ -43,7 +64,14 @@ export const eventCategories = [
                         participants: 170,
                         description: "A 24-hour marathon of innovation, was aimed to foster creativity and problem-solving within sustainable and ethical AI, ₹30,000 prize pool.",
                         status: "completed",
-                        poster: "https://gradient-week.vercel.app/posters/gw/impact2.webp"
+                        poster: "https://gradient-week.vercel.app/posters/gw/impact2.webp",
+                        images: [
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/1.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/2.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/3.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/4.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/6.mp4",
+                        ]
                     },
                     {
                         title: "Parallel Fusion",
@@ -83,7 +111,7 @@ export const eventCategories = [
                         participants: 49,
                         description: "Through engaging sessions and practical exercises, participants collaboratively constructed an end-to-end project, delving into data analysis, feature engineering, and predictive modeling. Organized by Vaishak Bhuvan M R.",
                         status: "completed",
-                        poster: "https://gradient-content-server.vercel.app/content/posters/datau.webp"
+                        poster: "https://gradient-content-server.vercel.app/content/posters/datau.jpg"
                     },
                     {
                         title: "Cipher Strike Event",

@@ -18,13 +18,13 @@ export default function Home() {
       {/* Google Fonts Import */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide');
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
-        .audiowide-regular {
-          font-family: "Audiowide", sans-serif;
-          font-weight: 300;
-          font-style: normal;
-        }
+.bree-serif-regular {
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
         .righteous-regular {
           font-family: "Righteous", sans-serif;
           font-weight: 400;                      
@@ -43,43 +43,43 @@ export default function Home() {
 
       {/* Gradient X Utsav Banner */}
       <motion.div
-  className="relative w-full bg-gradient-to-r from-emerald-700 via-green-600 to-teal-600 py-4 mt-20 sm:mt-20 md:mt-24 mb-8 md:mb-12"
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
->
-  <div className="container mx-auto px-4">
-    <div className="flex flex-col md:flex-row items-center justify-center w-full space-y-4 md:space-y-0 md:space-x-8">
-      {/* Left side (title and date) */}
-      <div className="flex items-center space-x-3 sm:space-x-4 w-full md:w-auto text-center">
-        <Sparkles size={24} className="text-green-200 animate-pulse hidden md:block" />
-        <div>
-          <h2 className="font-bold text-3xl md:text-4xl text-white">
-            <span className="text-green-200">GRADIENT X UTSAV</span>
-          </h2>
-        </div>
-        <p className="text-2xl md:text-3xl text-white font-semibold">
-          9-10th May
-        </p>
-        <Sparkles size={24} className="text-green-200 animate-pulse hidden md:block" />
-      </div>
+        className="relative w-full bg-gradient-to-r from-emerald-700 via-green-600 to-teal-600 py-4 mt-20 sm:mt-20 md:mt-24 mb-8 md:mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full space-y-4 md:space-y-0 md:space-x-8">
+            {/* Left side (title and date) */}
+            <div className="flex items-center space-x-3 sm:space-x-4 w-full md:w-auto text-center">
+              <Sparkles size={24} className="text-green-200 animate-pulse hidden md:block" />
+              <div>
+                <h2 className="font-bold text-3xl md:text-4xl text-white">
+                  <span className="text-green-200">GRADIENT X UTSAV</span>
+                </h2>
+              </div>
+              <p className="text-2xl md:text-3xl text-white font-semibold">
+                9-10th May
+              </p>
+              <Sparkles size={24} className="text-green-200 animate-pulse hidden md:block" />
+            </div>
 
-      {/* Right side (tagline on the left and Explore Now button on the right) */}
-      <div className="flex flex-col md:flex-row items-center justify-center space-x-4 w-full md:w-auto text-center">
-        <p className="text-green-100 text-lg md:text-xl font-medium">
-          Get ready for the biggest hits of the year!
-        </p>
-        <Link
-          href="/events"
-          className="group inline-flex items-center space-x-2 px-6 py-2 bg-green-200 hover:bg-green-100 rounded-lg transition-all duration-300 transform hover:scale-105 text-emerald-900 font-bold text-lg shadow-lg"
-        >
-          <span>Explore Now</span>
-          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-        </Link>
-      </div>
-    </div>
-  </div>
-</motion.div>
+            {/* Right side (tagline on the left and Explore Now button on the right) */}
+            <div className="flex flex-col md:flex-row items-center justify-center space-x-4 w-full md:w-auto text-center">
+              <p className="text-green-100 text-lg md:text-xl font-medium">
+                Get ready for the biggest hits of the year!
+              </p>
+              <Link
+                href="/events"
+                className="group inline-flex items-center space-x-2 px-6 py-2 bg-green-200 hover:bg-green-100 rounded-lg transition-all duration-300 transform hover:scale-105 text-emerald-900 font-bold text-lg shadow-lg"
+              >
+                <span>Explore Now</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
 
 
@@ -87,7 +87,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Hero section with better height and spacing */}
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-[65vh] gap-8 lg:gap-12">
-          
+
           {/* Left Section (Text) */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -97,7 +97,7 @@ export default function Home() {
           >
             {/* Title with balanced font sizes */}
             <div className="space-y-2">
-              <h1 className="audiowide-regular leading-tight">
+              <h1 className="bree-serif-regular leading-tight">
                 <span className="text-white text-5xl sm:text-6xl md:text-7xl ">Welcome to</span> <br />
                 <span style={{ color: '#C4B5FD' }} className="text-6xl sm:text-7xl md:text-8xl ">Gradient</span>
               </h1>
@@ -152,10 +152,10 @@ export default function Home() {
                   priority
                 />
               </div>
-              
+
               {/* Overlay with gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-purple-950/70 via-transparent to-purple-950/10" />
-              
+
               {/* Caption attached directly to the image */}
               <div className="absolute bottom-0 left-0 right-0 p-5 text-center bg-gradient-to-t from-purple-950/90 to-purple-950/0">
                 <h3 className="text-xl md:text-2xl font-bold text-white">The Gradient Team</h3>

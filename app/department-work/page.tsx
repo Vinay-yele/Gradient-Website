@@ -1,6 +1,7 @@
 'use client'
+import { useState } from 'react'
 import Footer from '@/components/Footer'
-import Navbar from '../../components/Navbar'
+import Navbar from '@/components/Navbar'
 import React from 'react';
 import { motion } from 'framer-motion'
 import {
@@ -120,182 +121,284 @@ const centerOfExcellence = {
 
 export default function DepartmentWork() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-white relative overflow-hidden">
+    <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
+      {/* Google Fonts Import */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Bree+Serif&display=swap');
+
+        .righteous-regular {
+          font-family: 'Righteous', sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        .bree-serif-regular {
+          font-family: 'Bree Serif', serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+      `}</style>
+      
+      {/* Background pattern */}
+      <div className="fixed inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right,rgb(127, 111, 168) 1px, transparent 1px), linear-gradient(to bottom, rgb(127, 111, 168) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          backgroundColor: '#180336',
+        }} />
+
       <Navbar />
-      <div className="pt-32">
-        <div className="container mx-auto px-4 py-10">
-          {/* Hero Section */}
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 md:pb-20">
+        <div className="mb-4 md:mb-10 relative">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-8 md:mb-10"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">
-              Department of AI & ML
+            <h1 className="text-8xl sm:text-8xl md:text-8xl font-bold mt-6 md:mt-10 bree-serif-regular">
+              <span className="text-white">Department of</span> <br />
+              <span style={{ color: '#C4B5FD' }}>Machine Learning</span>
             </h1>
-            <p className="text-xl text-white-400 max-w-3xl mx-auto">
-              Pioneering research and innovation in Artificial Intelligence and Machine Learning,
-              preparing students for the future of technology.
+            {/* Tagline */}
+            <p className="text-purple-200 text-xl md:text-3xl mt-4 md:mt-6 font-light px-2">
+              Pioneering research and innovation in Artificial Intelligence and Machine Learning
             </p>
           </motion.div>
+        </div>
 
+        <div className="space-y-24">
           {/* Stats Section */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.section
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className="bg-gray-800/50 rounded-lg p-6 text-center backdrop-blur-sm border border-purple-500/20"
-              >
-                <stat.icon className="w-8 h-8 mx-auto mb-4 text-purple-400" />
-                <h3 className="text-3xl font-bold text-purple-400 mb-2">{stat.value}</h3>
-                <p className="text-white-400">{stat.label}</p>
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+              
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-purple-900/20 to-transparent -skew-x-12" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    At a Glance
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-purple-100">
+                  {stats.map((stat, index) => (
+                    <div key={index} className="group transform hover:scale-105 transition-transform duration-300">
+                      <stat.icon className="text-purple-400 mx-auto mb-3 group-hover:text-purple-300 transition-colors" size={40} />
+                      <h3 className="text-2xl md:text-3xl font-bold group-hover:text-white transition-colors">{stat.value}</h3>
+                      <p className="text-lg">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </motion.div>
+            </div>
+          </motion.section>
 
           {/* Research Areas Section */}
           <motion.section
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Research Areas</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {researchAreas.map((area, index) => (
-                <motion.div
-                  key={area.title}
-                  className="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm border border-purple-500/20"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <area.icon className="w-8 h-8 text-purple-400 mb-4" />
-                  <h3 className="text-xl font-semibold mb-3 text-purple-400">{area.title}</h3>
-                  <p className="text-white-400 mb-4">{area.description}</p>
-                  <ul className="space-y-2">
-                    {area.projects.map((project) => (
-                      <li key={project} className="text-white-500 text-sm flex items-center">
-                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
-                        {project}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+              
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-purple-900/20 to-transparent skew-x-12" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    Research Areas
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+                  {researchAreas.map((area, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="group relative"
+                    >
+                      <div className="flex flex-col h-full p-6 rounded-xl bg-purple-900/40 shadow-md border border-purple-500/20 group-hover:bg-purple-800/40 group-hover:shadow-lg transition-all duration-300"
+                        style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+                        <div className="flex flex-col items-center text-center">
+                          {/* Icon */}
+                          <area.icon
+                            className="text-purple-400 group-hover:text-purple-300 transition-colors mb-4"
+                            size={48}
+                          />
+                          {/* Title */}
+                          <h3 className="text-xl font-bold text-white mb-2">{area.title}</h3>
+                          {/* Purple accent line */}
+                          <div className="w-12 h-1 bg-purple-500 mb-4 transform origin-center transition-all duration-300 group-hover:w-16 group-hover:bg-fuchsia-500" />
+                          {/* Description */}
+                          <p className="text-purple-100 text-base mb-4">{area.description}</p>
+                          
+                          {/* Projects */}
+                          <ul className="space-y-2 w-full">
+                            {area.projects.map((project, idx) => (
+                              <li key={idx} className="text-purple-200 text-sm flex items-center">
+                                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
+                                {project}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.section>
 
           {/* Center of Excellence Section */}
           <motion.section
-            className="mt-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                B.S. Narayan Center of Excellence
-                <span className="block text-xl text-purple-400 mt-2">in AI&ML</span>
-              </h2>
-              <p className="text-white-400 max-w-3xl mx-auto">
-                A state-of-the-art  fostering dynamic industry-academic synergy for AI adoption,
-                powered by cutting-edge infrastructure and expertise.
-              </p>
-            </div>
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+              
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-tr from-purple-900/20 to-transparent -skew-x-12" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    B.S. Narayan Center of Excellence
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
+                </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {/* Infrastructure */}
-              <div className="bg-gray-800/50 rounded-lg p-8 backdrop-blur-sm border border-purple-500/20">
-                <h3 className="text-2xl font-semibold mb-6 text-purple-400">Infrastructure</h3>
-                <div className="grid gap-6">
-                  {centerOfExcellence.infrastructure.map((item) => (
-                    <div key={item.title} className="flex items-start">
-                      <item.icon className="w-6 h-6 text-purple-400 mr-4 mt-1" />
-                      <div>
-                        <h4 className="font-semibold mb-1">{item.title}</h4>
-                        <p className="text-white-400 text-sm">{item.description}</p>
-                      </div>
+                <p className="text-purple-100 text-lg md:text-xl leading-relaxed text-center max-w-3xl mx-auto mb-8">
+                  A state-of-the-art facility fostering dynamic industry-academic synergy for AI adoption,
+                  powered by cutting-edge infrastructure and expertise.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                  {/* Infrastructure */}
+                  <div className="bg-purple-900/40 rounded-xl p-8 shadow-md border border-purple-500/20 backdrop-blur-sm"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+                    <h3 className="text-2xl font-semibold mb-6 text-purple-400 righteous-regular">Infrastructure</h3>
+                    <div className="grid gap-6">
+                      {centerOfExcellence.infrastructure.map((item, index) => (
+                        <div key={index} className="flex items-start group">
+                          <item.icon className="w-6 h-6 text-purple-400 mr-4 mt-1 group-hover:text-purple-300 transition-colors" />
+                          <div>
+                            <h4 className="font-semibold mb-1 group-hover:text-white transition-colors">{item.title}</h4>
+                            <p className="text-purple-200 text-sm">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              {/* Services */}
-              <div className="bg-gray-800/50 rounded-lg p-8 backdrop-blur-sm border border-purple-500/20">
-                <h3 className="text-2xl font-semibold mb-6 text-purple-400">Services Offered</h3>
-                <ul className="space-y-4">
-                  {centerOfExcellence.services.map((service, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 mt-2" />
-                      <span className="text-white-300">{service}</span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Services */}
+                  <div className="bg-purple-900/40 rounded-xl p-8 shadow-md border border-purple-500/20 backdrop-blur-sm"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+                    <h3 className="text-2xl font-semibold mb-6 text-purple-400 righteous-regular">Services Offered</h3>
+                    <ul className="space-y-4">
+                      {centerOfExcellence.services.map((service, index) => (
+                        <li key={index} className="flex items-start group">
+                          <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 mt-2 group-hover:bg-purple-300 transition-colors" />
+                          <span className="text-purple-200 group-hover:text-white transition-colors">{service}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Center Image */}
+                <motion.div
+                  className="relative rounded-xl overflow-hidden h-[400px] shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                  style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
+                >
+                  <Image
+                    src="https://gradient-content-server.vercel.app/content/class.jpeg"
+                    alt="B.S. Narayan Center of Excellence"
+                    loading="lazy"
+                    className="object-cover"                
+                    fill
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/50 to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="text-lg text-purple-100">
+                        Experience the future of AI research and development at our cutting-edge facility
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
-
-            {/* Center Image */}
-            <motion.div
-              className="relative rounded-lg overflow-hidden h-[400px]"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Image
-                src="https://gradient-content-server.vercel.app/content/class.jpeg"
-                alt="B.S. Narayan Center of Excellence"
-                loading="lazy"
-                className="object-cover"                
-                fill
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <p className="text-lg text-white-300">
-                    Experience the future of AI research and development at our cutting-edge facility
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </motion.section>
 
           {/* Facilities Section */}
           <motion.section
-            className="mt-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Facilities</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {facilities.map((facility) => (
-                <motion.div
-                  key={facility.name}
-                  className="group relative overflow-hidden rounded-lg"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Image
-                    src={facility.image}
-                    alt={facility.name}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover"                    
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
-                    <h3 className="text-xl font-semibold mb-2 text-purple-400">{facility.name}</h3>
-                    <p className="text-white-300 text-sm">{facility.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="relative bg-purple-950/90 overflow-hidden shadow-lg p-8 md:p-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}>
+              
+              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-purple-900/20 to-transparent skew-x-12" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-16 h-1 bg-purple-500" />
+                  <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
+                    Our Facilities
+                  </h2>
+                  <div className="w-16 h-1 bg-purple-500" />
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8">
+                  {facilities.map((facility, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="group relative overflow-hidden rounded-xl shadow-lg"
+                      style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
+                    >
+                      <Image
+                        src={facility.image}
+                        alt={facility.name}
+                        width={400}
+                        height={300}
+                        className="w-full h-64 object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 to-transparent">
+                        <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end">
+                          <h3 className="text-xl font-semibold mb-2 text-purple-400 group-hover:text-purple-300 transition-colors">{facility.name}</h3>
+                          <p className="text-purple-100 text-sm">{facility.description}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.section>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

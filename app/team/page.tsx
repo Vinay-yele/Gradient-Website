@@ -147,14 +147,13 @@ export default function Team() {
       {/* Google Fonts Import */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide');
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
-
-        .audiowide-regular {
-          font-family: "Audiowide", sans-serif;
-          font-weight: 300;
-          font-style: normal;
-        }
+.bree-serif-regular {
+  font-family: "Bree Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
         .righteous-regular {
           font-family: "Righteous", sans-serif;
           font-weight: 400;                    
@@ -179,7 +178,7 @@ export default function Team() {
             transition={{ duration: 0.7 }}
             className="mx-auto max-w-2xl lg:max-w-3xl"
           >
-            <h1 className="text-6xl sm:text-7xl md:text-7xl font-bold mt-6 md:mt-10 audiowide-regular">
+            <h1 className="text-6xl sm:text-7xl md:text-7xl font-bold mt-6 md:mt-10 bree-serif-regular">
               <span className="text-white">The Minds</span> <br />
               <span style={{ color: '#C4B5FD' }}>Behind Gradient</span>
             </h1>

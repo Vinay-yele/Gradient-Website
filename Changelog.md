@@ -77,3 +77,10 @@
 - Redesigned Home Page
 - Changed banner of home page to make it for utsav
 - Changed Gradient Week recap page to Utsav page
+
+## 01/05/25 (Pranav)
+- Fixed sizing and design on the events gallery
+- made a proper version of the special utsav page.
+- new design for dept of ml page
+- new design for lets connect page
+- fixed heading fonts across all pages
