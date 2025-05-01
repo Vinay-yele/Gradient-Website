@@ -10,9 +10,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'gradientaiml.tech',
+        hostname: 'gradient-content-server.vercel.app',
+        pathname: '/content/*', // Path pattern if you have specific folder structure
       },
     ],
   },
 };
+
 export default nextConfig;
