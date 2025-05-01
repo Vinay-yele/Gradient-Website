@@ -10,7 +10,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'gradient-content-server.vercel.app',
+        hostname: 'gradientaiml.tech',
       },
     ],
   },

@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 #images for local development
-public/
+public/content

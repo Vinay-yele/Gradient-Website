@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, MapPin, Instagram, Linkedin, ArrowRight, ExternalLink } from 'lucide-react'
+import Head from 'next/head'
+
 
 export default function Connect() {
   const [showPopup, setShowPopup] = useState(false);
@@ -67,6 +69,18 @@ export default function Connect() {
   };
 
   return (
+
+    <>
+    <Head>
+      <title>Let's Connect | Gradient AIML</title>
+      <meta name="description" content="Collaborate with Gradient AIML on AI and Machine Learning projects. Get in touch with us to explore opportunities." />
+      <meta name="keywords" content="Collaborate, Gradient AIML, AI collaboration, Machine Learning partnership, BMSCE" />
+      <meta property="og:title" content="Let's Connect | Gradient AIML" />
+      <meta property="og:description" content="Reach out to us and collaborate with Gradient AIML on innovative AI and ML projects." />
+      <meta property="og:image" content="https://gradient-content-server.vercel.app/content/Logo.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+    </Head>
+
     <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
       {/* Google Fonts Import */}
       <style jsx global>{`
@@ -344,5 +358,7 @@ export default function Connect() {
         )}
       </AnimatePresence>
     </div>
+    </>
+
   );
 }

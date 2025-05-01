@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
+import Head from 'next/head'
+
 
 export default function EventsPage() {
   // Event data from the provided content
@@ -102,37 +104,49 @@ export default function EventsPage() {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden text-white relative">
-      {/* Background Video - Reduced opacity to see more of the background */}
-      <div className="fixed inset-0 z-0 overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute w-full h-full object-cover"
-          style={{ filter: "brightness(0.5)", mixBlendMode: "normal" }}
-        >
-          <source
-            src="https://gradient-content-server.vercel.app/content/utsav25/bg.mp4"
-            type="video/mp4"
+
+    <>
+      <Head>
+        <title>Events | Gradient AIML</title>
+        <meta name="description" content="Explore upcoming events hosted by Gradient AIML, from workshops to conferences in AI and Machine Learning." />
+        <meta name="keywords" content="Events, Gradient AIML, AI events, Machine Learning events, BMSCE, AI workshops" />
+        <meta property="og:title" content="Events | Gradient AIML" />
+        <meta property="og:description" content="Join us for exciting events in AI and Machine Learning, hosted by Gradient AIML at BMSCE." />
+        <meta property="og:image" content="https://gradient-content-server.vercel.app/content/Logo.png" />        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
+
+      <div className="min-h-screen overflow-hidden text-white relative">
+        {/* Background Video - Reduced opacity to see more of the background */}
+        <div className="fixed inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover"
+            style={{ filter: "brightness(0.5)", mixBlendMode: "normal" }}
+          >
+            <source
+              src="https://gradient-content-server.vercel.app/content/utsav25/bg.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          {/* Mesh grid overlay for depth - reduced opacity further */}
+          <div className="absolute inset-0"
+            style={{
+              backgroundImage: "linear-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.1) 1px, transparent 1px)",
+              backgroundSize: "40px 40px"
+            }}
           />
-        </video>
 
-        {/* Mesh grid overlay for depth - reduced opacity further */}
-        <div className="absolute inset-0"
-          style={{
-            backgroundImage: "linear-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.1) 1px, transparent 1px)",
-            backgroundSize: "40px 40px"
-          }}
-        />
+          {/* Dark gradient overlay - significantly reduced opacity */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-purple-950/25 to-black/25" />
+        </div>
 
-        {/* Dark gradient overlay - significantly reduced opacity */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-purple-950/25 to-black/25" />
-      </div>
-
-      {/* Google Fonts Import */}
-      <style jsx global>{`
+        {/* Google Fonts Import */}
+        <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
         
@@ -213,180 +227,181 @@ export default function EventsPage() {
         }
       `}</style>
 
-      <Navbar />
+        <Navbar />
 
-      {/* Main content - Added more padding top to show more background */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-14">
-        {/* Header - Increased title sizes */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16 mt-8"
-        >
-          <motion.h1
-            className="text-7xl md:text-9xl font-extrabold righteous-regular mb-7 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-yellow-200 to-pink-200"
+        {/* Main content - Added more padding top to show more background */}
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-14">
+          {/* Header - Increased title sizes */}
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16 mt-8"
           >
-            <span className="block md:inline">Gradient</span>
-            <span className="block md:inline"> X</span>
-            <span className="block md:inline"> Utsav</span>
-          </motion.h1>
+            <motion.h1
+              className="text-7xl md:text-9xl font-extrabold righteous-regular mb-7 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-yellow-200 to-pink-200"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              <span className="block md:inline">Gradient</span>
+              <span className="block md:inline"> X</span>
+              <span className="block md:inline"> Utsav</span>
+            </motion.h1>
 
 
 
-          <motion.p
-            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-          >
-            Get ready for an extraordinary showcase of talent, creativity, and innovation!
-          </motion.p>
-        </motion.div>
-
-        {/* Events Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-16 relative px-2"
-        >
-          {/* Events List */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-wrap justify-center gap-12 pb-12"
-          >
-            {events.map((event) => (
-              <motion.div
-                key={event.id}
-                variants={itemVariants}
-                className="bg-purple-950/70 border border-purple-500/30 rounded-3xl overflow-hidden shadow-2xl hover:shadow-purple-700/30 transition-all duration-300 transform hover:-translate-y-2 event-card snap-center"
-              >
-                <div className="h-full flex flex-col">
-                  {/* Top - Image (perfect square aspect ratio) */}
-                  <div className="w-full">
-                    <div className="relative event-poster-container">
-                      <img
-                        src={event.poster}
-                        alt={event.title}
-                        className="event-poster-image transition-transform duration-700 hover:scale-110"
-                      />
-
-                      {/* Event status badge */}
-                      <div className="absolute top-6 left-6 z-10">
-                        {event.status === "registration-open" && (
-                          <span className="px-4 py-2 text-base font-medium bg-purple-600 text-white rounded-full border border-purple-400/30 shadow-md">
-                            Registration Open
-                          </span>
-                        )}
-                        {event.status === "coming-soon" && (
-                          <span className="px-4 py-2 text-base font-medium bg-blue-600 text-white rounded-full border border-blue-400/30 shadow-md">
-                            Coming Soon
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom - Content */}
-                  <div className="p-8 flex flex-col flex-1 event-card-content">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Star size={24} className="text-yellow-400" fill="#FBBF24" />
-                      <span className="text-yellow-200 text-xl font-medium">{event.category}</span>
-                    </div>
-
-                    <h3 className="text-3xl font-bold text-white mb-4 hover:text-purple-300 transition-colors duration-300">
-                      {event.title}
-                    </h3>
-
-                    <p className="text-purple-100 mb-6 text-base event-description">
-                      {event.description}
-                    </p>
-
-                    {/* Event details - Responsive grid layout */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                      <div className="flex items-center gap-3">
-                        <Calendar size={22} className="text-purple-400 flex-shrink-0" />
-                        <span className="text-purple-200 event-detail">{event.date}</span>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <Clock size={22} className="text-purple-400 flex-shrink-0" />
-                        <span className="text-purple-200 event-detail">{event.time}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-3 mb-6">
-                      <MapPin size={22} className="text-purple-400 flex-shrink-0" />
-                      <span className="text-purple-200 event-detail">{event.location}</span>
-                    </div>
-
-                    <div className="flex items-center gap-3 mb-6">
-                      <Users size={22} className="text-purple-400 flex-shrink-0" />
-                      <span className="text-purple-200 event-detail">{event.team}</span>
-                    </div>
-
-                    {/* Registration fee and prize pool */}
-                    <div className="grid grid-cols-1 gap-5 mb-6">
-                      <div className="flex items-center gap-4 bg-purple-800/50 p-4 rounded-lg border-l-3 border-purple-500">
-                        <DollarSign className="text-purple-300 flex-shrink-0" size={24} />
-                        <div>
-                          <h4 className="text-purple-300 text-base font-medium">Registration Fee</h4>
-                          <p className="text-white text-lg font-bold">{event.registrationFee}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-4 bg-purple-800/50 p-4 rounded-lg border-l-3 border-yellow-500">
-                        <Trophy className="text-yellow-400 flex-shrink-0" size={24} />
-                        <div>
-                          <h4 className="text-yellow-300 text-base font-medium">Prize Pool</h4>
-                          <p className="text-white text-lg font-bold">{event.prizePool}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Coordinators */}
-                    <div className="bg-purple-900/40 p-5 rounded-xl mb-8">
-                      <h4 className="text-lg font-bold text-white mb-4">Event Coordinators</h4>
-                      <div className="grid grid-cols-1 gap-4">
-                        {event.coordinators.map((coordinator, idx) => (
-                          <div key={idx} className="flex items-center gap-3">
-                            <Phone className="text-purple-400 flex-shrink-0" size={20} />
-                            <div>
-                              <p className="text-white text-lg">{coordinator.name}</p>
-                              <p className="text-purple-300 text-base">{coordinator.number}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Registration button */}
-                    <div className="mt-auto">
-                      <motion.a
-                        href={event.registrationLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-md font-medium text-lg w-full"
-                      >
-                        <span>Register Now</span>
-                        <ArrowRight size={22} />
-                      </motion.a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <motion.p
+              className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+            >
+              Get ready for an extraordinary showcase of talent, creativity, and innovation!
+            </motion.p>
           </motion.div>
-        </motion.div>
+
+          {/* Events Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mb-16 relative px-2"
+          >
+            {/* Events List */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-wrap justify-center gap-12 pb-12"
+            >
+              {events.map((event) => (
+                <motion.div
+                  key={event.id}
+                  variants={itemVariants}
+                  className="bg-purple-950/70 border border-purple-500/30 rounded-3xl overflow-hidden shadow-2xl hover:shadow-purple-700/30 transition-all duration-300 transform hover:-translate-y-2 event-card snap-center"
+                >
+                  <div className="h-full flex flex-col">
+                    {/* Top - Image (perfect square aspect ratio) */}
+                    <div className="w-full">
+                      <div className="relative event-poster-container">
+                        <img
+                          src={event.poster}
+                          alt={event.title}
+                          className="event-poster-image transition-transform duration-700 hover:scale-110"
+                        />
+
+                        {/* Event status badge */}
+                        <div className="absolute top-6 left-6 z-10">
+                          {event.status === "registration-open" && (
+                            <span className="px-4 py-2 text-base font-medium bg-purple-600 text-white rounded-full border border-purple-400/30 shadow-md">
+                              Registration Open
+                            </span>
+                          )}
+                          {event.status === "coming-soon" && (
+                            <span className="px-4 py-2 text-base font-medium bg-blue-600 text-white rounded-full border border-blue-400/30 shadow-md">
+                              Coming Soon
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom - Content */}
+                    <div className="p-8 flex flex-col flex-1 event-card-content">
+                      <div className="flex items-center gap-3 mb-4">
+                        <Star size={24} className="text-yellow-400" fill="#FBBF24" />
+                        <span className="text-yellow-200 text-xl font-medium">{event.category}</span>
+                      </div>
+
+                      <h3 className="text-3xl font-bold text-white mb-4 hover:text-purple-300 transition-colors duration-300">
+                        {event.title}
+                      </h3>
+
+                      <p className="text-purple-100 mb-6 text-base event-description">
+                        {event.description}
+                      </p>
+
+                      {/* Event details - Responsive grid layout */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                        <div className="flex items-center gap-3">
+                          <Calendar size={22} className="text-purple-400 flex-shrink-0" />
+                          <span className="text-purple-200 event-detail">{event.date}</span>
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          <Clock size={22} className="text-purple-400 flex-shrink-0" />
+                          <span className="text-purple-200 event-detail">{event.time}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3 mb-6">
+                        <MapPin size={22} className="text-purple-400 flex-shrink-0" />
+                        <span className="text-purple-200 event-detail">{event.location}</span>
+                      </div>
+
+                      <div className="flex items-center gap-3 mb-6">
+                        <Users size={22} className="text-purple-400 flex-shrink-0" />
+                        <span className="text-purple-200 event-detail">{event.team}</span>
+                      </div>
+
+                      {/* Registration fee and prize pool */}
+                      <div className="grid grid-cols-1 gap-5 mb-6">
+                        <div className="flex items-center gap-4 bg-purple-800/50 p-4 rounded-lg border-l-3 border-purple-500">
+                          <DollarSign className="text-purple-300 flex-shrink-0" size={24} />
+                          <div>
+                            <h4 className="text-purple-300 text-base font-medium">Registration Fee</h4>
+                            <p className="text-white text-lg font-bold">{event.registrationFee}</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 bg-purple-800/50 p-4 rounded-lg border-l-3 border-yellow-500">
+                          <Trophy className="text-yellow-400 flex-shrink-0" size={24} />
+                          <div>
+                            <h4 className="text-yellow-300 text-base font-medium">Prize Pool</h4>
+                            <p className="text-white text-lg font-bold">{event.prizePool}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Coordinators */}
+                      <div className="bg-purple-900/40 p-5 rounded-xl mb-8">
+                        <h4 className="text-lg font-bold text-white mb-4">Event Coordinators</h4>
+                        <div className="grid grid-cols-1 gap-4">
+                          {event.coordinators.map((coordinator, idx) => (
+                            <div key={idx} className="flex items-center gap-3">
+                              <Phone className="text-purple-400 flex-shrink-0" size={20} />
+                              <div>
+                                <p className="text-white text-lg">{coordinator.name}</p>
+                                <p className="text-purple-300 text-base">{coordinator.number}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Registration button */}
+                      <div className="mt-auto">
+                        <motion.a
+                          href={event.registrationLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-md font-medium text-lg w-full"
+                        >
+                          <span>Register Now</span>
+                          <ArrowRight size={22} />
+                        </motion.a>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
-    </div>
-  );
+      </>
+      );
 }

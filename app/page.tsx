@@ -5,26 +5,37 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Calendar, Sparkles, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head'
 
-export default function Home() {
+
+export default function Home() {   
   const [isVisible, setIsVisible] = useState(false)
-
   useEffect(() => {
     setIsVisible(true)
   }, [])
-
   return (
+    <>
+      <Head>
+        <title>Gradient | Home</title>
+        <meta name="description" content="Welcome to Gradient AIML - Pioneering AI and ML innovation at BMS College of Engineering." />
+        <meta name="keywords" content="Gradient AIML, AI, ML, Machine Learning, BMS College of Engineering, Artificial Intelligence" />
+        <meta property="og:title" content="Gradient AIML | Home" />
+        <meta property="og:description" content="Join us in pioneering AI and ML research and applications at BMSCE." />
+        <meta property="og:image" content="https://gradient-content-server.vercel.app/content/Logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
     <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
       {/* Google Fonts Import */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
-.bree-serif-regular {
-  font-family: "Bree Serif", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+      .bree-serif-regular {
+      font-family: "Bree Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+          }
         .righteous-regular {
           font-family: "Righteous", sans-serif;
           font-weight: 400;                      
@@ -166,5 +177,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </>
   )
 }

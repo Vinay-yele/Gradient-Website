@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { Github, Linkedin, ArrowUpRight } from 'lucide-react'
 import Footer from '@/components/Footer'
 import { teamData } from './teamData'
-
+import Head from 'next/head'
 // Types
 interface TeamMember {
   name: string
@@ -20,6 +20,17 @@ interface TeamMember {
 
 const TeamMember = ({ name, role, year, image, github, linkedin }: TeamMember) => {
   return (
+    <>
+      <Head>
+        <title>Core Team | Gradient AIML</title>
+        <meta name="description" content="Meet the dedicated minds behind Gradient AIML, the AI and ML team at BMSCE." />
+        <meta name="keywords" content="Core Team, Gradient AIML, AI, Machine Learning, BMSCE, AI Club BMSCE" />
+        <meta property="og:title" content="Core Team | Gradient AIML" />
+        <meta property="og:description" content="Discover the passionate team that drives Gradient AIML's mission to innovate in AI and Machine Learning." />
+        <meta property="og:image" content="https://gradient-content-server.vercel.app/content/Logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
     <div className="group relative h-full">
       {/* Diagonal card with darker purple background */}
       <div className="relative bg-purple-950/90 h-full overflow-hidden shadow-lg"
@@ -92,6 +103,7 @@ const TeamMember = ({ name, role, year, image, github, linkedin }: TeamMember) =
         </div>
       </div>
     </div>
+    </>
   );
 };
 

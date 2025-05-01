@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Terminal, Users, Code, BookOpen, Lightbulb, Share2, Calendar, Award, ChevronDown } from 'lucide-react'
 import Footer from '@/components/Footer'
+import Head from 'next/head'
+
 
 export default function About() {
   const activities = [
@@ -41,6 +43,18 @@ export default function About() {
   ]
 
   return (
+
+    <>
+    <Head>
+      <title>About Gradient AIML</title>
+      <meta name="description" content="Learn more about Gradient AIML, the AI and Machine Learning club at BMSCE, driving innovation and research." />
+      <meta name="keywords" content="About Gradient AIML, AI Club BMSCE, Machine Learning, AI, Gradient AIML" />
+      <meta property="og:title" content="About Gradient AIML" />
+      <meta property="og:description" content="Explore who we are, our mission, and the work we do in AI and Machine Learning at BMSCE." />
+      <meta property="og:image" content="https://gradient-content-server.vercel.app/content/Logo.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+    </Head>
+
     <div className="min-h-screen text-white" style={{ backgroundColor: '#180336' }}>
       {/* Google Fonts Import */}
       <style jsx global>{`
@@ -110,9 +124,9 @@ export default function About() {
                   <span style={{ whiteSpace: 'pre-line' }}>
                     {`Gradient is a vibrant student community that embraces the dynamic field of AI and ML.
 
-We focus on fostering innovation, collaboration and knowledge sharing among aspiring machine learning enthusiasts.
+    We focus on fostering innovation, collaboration and knowledge sharing among aspiring machine learning enthusiasts.
 
-Our mission is to create a platform where passion for technology thrives, and groundbreaking ideas flourish.`}
+    Our mission is to create a platform where passion for technology thrives, and groundbreaking ideas flourish.`}
                   </span>
                 </p>
               </div>
@@ -360,5 +374,7 @@ Our mission is to create a platform where passion for technology thrives, and gr
 
 
     </div>
+    </>
+
   )
 }
