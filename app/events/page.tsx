@@ -164,17 +164,49 @@ export default function EventsPage() {
         .event-poster-container {
           position: relative;
           overflow: hidden;
-          padding-bottom: 100%; /* Creates a square aspect ratio */
           width: 100%;
+          aspect-ratio: 1/1; /* Creates a perfect square */
         }
 
         .event-poster-image {
-          position: absolute;
-          top: 0;
-          left: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center;
+        }
+
+        /* Larger card sizing */
+        .event-card {
+          width: 450px;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 2rem;
+        }
+
+        .event-card-content {
+          flex: 1;
+          overflow-y: visible;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+          .event-card {
+            width: 90%;
+            max-width: 450px;
+          }
+        }
+        
+        /* Enhancing text readability */
+        .event-description {
+          font-size: 1.05rem;
+          line-height: 1.6;
+        }
+        
+        .event-detail {
+          font-size: 1.05rem;
         }
       `}</style>
 
@@ -187,10 +219,10 @@ export default function EventsPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12 mt-4"
+          className="text-center mb-16 mt-8"
         >
           <motion.h2 
-            className="text-3xl md:text-5xl font-extrabold bree-serif-regular text-white mb-2"
+            className="text-5xl md:text-6xl font-extrabold bree-serif-regular text-white mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -199,16 +231,16 @@ export default function EventsPage() {
           </motion.h2>
 
           <motion.h1 
-            className="text-5xl md:text-7xl font-extrabold righteous-regular text-gray-100 mb-4"
+            className="text-6xl md:text-8xl font-extrabold righteous-regular mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-gold-300 to-pink-400"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Exciting <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-gold-300 to-pink-400">Events</span> Await
+            Exciting Events Await
           </motion.h1>
 
           <motion.p 
-            className="text-lg text-gray-300 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.6 }}
@@ -222,107 +254,109 @@ export default function EventsPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mb-16 relative"
+          className="mb-16 relative px-2"
         >
-          {/* Events List - Reduced card size by using max-w-4xl instead of max-w-5xl */}
+          {/* Events List */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-6 max-w-4xl mx-auto"
+            className="flex flex-wrap justify-center gap-12 pb-12"
           >
-            {events.map((event, index) => (
+            {events.map((event) => (
               <motion.div 
                 key={event.id}
                 variants={itemVariants}
-                className="bg-purple-950/50 border border-purple-500/30 rounded-xl overflow-hidden shadow-xl hover:shadow-purple-700/20 transition-all duration-300"
+                className="bg-purple-950/70 border border-purple-500/30 rounded-3xl overflow-hidden shadow-2xl hover:shadow-purple-700/30 transition-all duration-300 transform hover:-translate-y-2 event-card snap-center"
               >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {/* Left side - Image (reduced height) */}
-                  <div className="relative h-56 md:h-auto overflow-hidden">
-                    <img
-                      src={event.poster}
-                      alt={event.title}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                    
-                    {/* Event status badge */}
-                    <div className="absolute top-3 left-3 z-10">
-                      {event.status === "registration-open" && (
-                        <span className="px-2 py-1 text-xs font-medium bg-purple-600 text-white rounded-full border border-purple-400/30 shadow-md">
-                          Registration Open
-                        </span>
-                      )}
-                      {event.status === "coming-soon" && (
-                        <span className="px-2 py-1 text-xs font-medium bg-blue-600 text-white rounded-full border border-blue-400/30 shadow-md">
-                          Coming Soon
-                        </span>
-                      )}
+                <div className="h-full flex flex-col">
+                  {/* Top - Image (perfect square aspect ratio) */}
+                  <div className="w-full">
+                    <div className="relative event-poster-container">
+                      <img
+                        src={event.poster}
+                        alt={event.title}
+                        className="event-poster-image transition-transform duration-700 hover:scale-110"
+                      />
+                      
+                      {/* Event status badge */}
+                      <div className="absolute top-6 left-6 z-10">
+                        {event.status === "registration-open" && (
+                          <span className="px-4 py-2 text-base font-medium bg-purple-600 text-white rounded-full border border-purple-400/30 shadow-md">
+                            Registration Open
+                          </span>
+                        )}
+                        {event.status === "coming-soon" && (
+                          <span className="px-4 py-2 text-base font-medium bg-blue-600 text-white rounded-full border border-blue-400/30 shadow-md">
+                            Coming Soon
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                   
-                  {/* Right side - Content (more compact) */}
-                  <div className="p-3 md:p-4 flex flex-col col-span-2">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Star size={16} className="text-yellow-400" fill="#FBBF24" />
-                      <span className="text-yellow-200 text-xs font-medium">{event.category}</span>
+                  {/* Bottom - Content */}
+                  <div className="p-8 flex flex-col flex-1 event-card-content">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Star size={24} className="text-yellow-400" fill="#FBBF24" />
+                      <span className="text-yellow-200 text-xl font-medium">{event.category}</span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-1 hover:text-purple-300 transition-colors duration-300">
+                    <h3 className="text-3xl font-bold text-white mb-4 hover:text-purple-300 transition-colors duration-300">
                       {event.title}
                     </h3>
                     
-                    <p className="text-purple-100 mb-3 text-sm">
+                    <p className="text-purple-100 mb-6 text-base event-description">
                       {event.description}
                     </p>
                     
-                    {/* Event details - 3 columns layout */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
-                      <div className="flex items-center gap-2">
-                        <Calendar size={14} className="text-purple-400" />
-                        <span className="text-purple-200 text-xs">{event.date}</span>
+                    {/* Event details - Responsive grid layout */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                      <div className="flex items-center gap-3">
+                        <Calendar size={22} className="text-purple-400 flex-shrink-0" />
+                        <span className="text-purple-200 event-detail">{event.date}</span>
                       </div>
                       
-                      <div className="flex items-center gap-2">
-                        <Clock size={14} className="text-purple-400" />
-                        <span className="text-purple-200 text-xs">{event.time}</span>
-                      </div>
-                      
-                      <div className="flex items-center gap-2">
-                        <MapPin size={14} className="text-purple-400" />
-                        <span className="text-purple-200 text-xs">{event.location}</span>
+                      <div className="flex items-center gap-3">
+                        <Clock size={22} className="text-purple-400 flex-shrink-0" />
+                        <span className="text-purple-200 event-detail">{event.time}</span>
                       </div>
                     </div>
+                    
+                    <div className="flex items-center gap-3 mb-6">
+                      <MapPin size={22} className="text-purple-400 flex-shrink-0" />
+                      <span className="text-purple-200 event-detail">{event.location}</span>
+                    </div>
 
-                    {/* Registration fee and prize pool - Made more compact */}
-                    <div className="grid grid-cols-2 gap-2 mb-3">
-                      <div className="flex items-center gap-2 bg-purple-800/50 p-2 rounded-lg border-l-2 border-purple-500">
-                        <DollarSign className="text-purple-300" size={18} />
+                    {/* Registration fee and prize pool */}
+                    <div className="grid grid-cols-1 gap-5 mb-6">
+                      <div className="flex items-center gap-4 bg-purple-800/50 p-4 rounded-lg border-l-3 border-purple-500">
+                        <DollarSign className="text-purple-300 flex-shrink-0" size={24} />
                         <div>
-                          <h4 className="text-purple-300 text-xs font-medium">Registration Fee</h4>
-                          <p className="text-white text-xs font-bold">{event.registrationFee}</p>
+                          <h4 className="text-purple-300 text-base font-medium">Registration Fee</h4>
+                          <p className="text-white text-lg font-bold">{event.registrationFee}</p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2 bg-purple-800/50 p-2 rounded-lg border-l-2 border-yellow-500">
-                        <Trophy className="text-yellow-400" size={18} />
+                      <div className="flex items-center gap-4 bg-purple-800/50 p-4 rounded-lg border-l-3 border-yellow-500">
+                        <Trophy className="text-yellow-400 flex-shrink-0" size={24} />
                         <div>
-                          <h4 className="text-yellow-300 text-xs font-medium">Prize Pool</h4>
-                          <p className="text-white text-xs font-bold">{event.prizePool}</p>
+                          <h4 className="text-yellow-300 text-base font-medium">Prize Pool</h4>
+                          <p className="text-white text-lg font-bold">{event.prizePool}</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Coordinators - Made more compact */}
-                    <div className="bg-purple-900/40 p-2 rounded-lg mb-3">
-                      <h4 className="text-xs font-bold text-white mb-1">Event Coordinators</h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {/* Coordinators */}
+                    <div className="bg-purple-900/40 p-5 rounded-xl mb-8">
+                      <h4 className="text-lg font-bold text-white mb-4">Event Coordinators</h4>
+                      <div className="grid grid-cols-1 gap-4">
                         {event.coordinators.map((coordinator, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <Phone className="text-purple-400" size={14} />
+                          <div key={idx} className="flex items-center gap-3">
+                            <Phone className="text-purple-400 flex-shrink-0" size={20} />
                             <div>
-                              <p className="text-white text-xs">{coordinator.name}</p>
-                              <p className="text-purple-300 text-xs">{coordinator.number}</p>
+                              <p className="text-white text-lg">{coordinator.name}</p>
+                              <p className="text-purple-300 text-base">{coordinator.number}</p>
                             </div>
                           </div>
                         ))}
@@ -337,10 +371,10 @@ export default function EventsPage() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-md font-medium text-xs"
+                        className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 shadow-md font-medium text-lg w-full"
                       >
                         <span>Register Now</span>
-                        <ArrowRight size={14} />
+                        <ArrowRight size={22} />
                       </motion.a>
                     </div>
                   </div>

@@ -109,7 +109,7 @@ export default function Connect() {
             </h1>
             {/* Tagline */}
             <p className="text-purple-200 text-xl md:text-3xl mt-4 md:mt-6 font-light px-2">
-              Building partnerships, fostering innovation
+              Build partnerships and foster innovation
             </p>
           </motion.div>
         </div>
@@ -145,28 +145,25 @@ export default function Connect() {
                       <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
                         <ArrowRight className="w-4 h-4" />
                       </div>
-                      <span className="text-gray-300 text-lg">Access to top AI & ML talent</span>
+                      <span className="text-white-300 text-lg">Access to top AI & ML talent</span>
                     </div>
                     <div className="flex items-start">
                       <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
                         <ArrowRight className="w-4 h-4" />
                       </div>
-                      <span className="text-gray-300 text-lg">Mentorship opportunities</span>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
+                      <span className="text-white-300 text-lg">Mentorship opportunities</span>
+                    </div>                  
                     <div className="flex items-start">
                       <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
                         <ArrowRight className="w-4 h-4" />
                       </div>
-                      <span className="text-gray-300 text-lg">Event sponsorships and visibility</span>
+                      <span className="text-white-300 text-lg">Event sponsorships and visibility</span>
                     </div>
                     <div className="flex items-start">
                       <div className="p-1 rounded-full bg-purple-900/40 text-purple-400 mr-3 mt-1">
                         <ArrowRight className="w-4 h-4" />
                       </div>
-                      <span className="text-gray-300 text-lg">Showcase your technology</span>
+                      <span className="text-white-300 text-lg">Showcase your technology and company</span>
                     </div>
                   </div>
                 </div>
@@ -219,7 +216,7 @@ export default function Connect() {
                       <h3 className="text-2xl font-semibold text-purple-300 mb-1 group-hover:text-purple-400 transition-colors">
                         Email Us
                       </h3>
-                      <p className="text-gray-300 text-xl group-hover:text-white transition-colors">
+                      <p className="text-white-300 text-xl group-hover:text-white transition-colors">
                         gradient.mel@bmsce.ac.in
                       </p>
                     </div>
@@ -231,7 +228,7 @@ export default function Connect() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-semibold text-purple-300 mb-1">Visit Us</h3>
-                      <p className="text-gray-300 text-xl mb-4">
+                      <p className="text-white-300 text-xl mb-4">
                         Department of Machine Learning<br />
                         7th Floor, PJA Block<br />
                         B.M.S. College of Engineering<br />
@@ -301,7 +298,7 @@ export default function Connect() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-6 rounded-xl bg-gray-800/80 hover:bg-purple-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
+                      className="p-6 rounded-xl bg-white-800/80 hover:bg-purple-900/30 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300"
                       whileHover={{ y: -5 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -326,7 +323,7 @@ export default function Connect() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-gray-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4"
+              className="bg-white-800 rounded-xl p-6 max-w-md mx-auto text-white space-y-4"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}

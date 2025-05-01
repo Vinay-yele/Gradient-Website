@@ -588,7 +588,7 @@ export default function Events() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="group relative overflow-hidden rounded-lg shadow-lg bg-purple-900/80 aspect-square"
+                      className="group relative overflow-hidden rounded-lg shadow-lg bg-purple-900/80 aspect-[16/9]" // Changed from aspect-square to aspect-[16/9]
                     >
                       <img
                         src={img}

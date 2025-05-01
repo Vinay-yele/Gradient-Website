@@ -67,10 +67,8 @@ export const eventCategories = [
                         poster: "https://gradient-week.vercel.app/posters/gw/impact2.webp",
                         images: [
                             "https://gradient-content-server.vercel.app/content/gallery/recap/impact/1.webp",
-                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/2.webp",
                             "https://gradient-content-server.vercel.app/content/gallery/recap/impact/3.webp",
-                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/4.webp",
-                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/6.mp4",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/impact/5.webp",
                         ]
                     },
                     {
@@ -78,14 +76,53 @@ export const eventCategories = [
                         participants: 66,
                         description: "A thrilling event were teams raced against time to solve puzzles, unlocking the final treasure. The event was a test of teamwork and strategy, where participants had to work together to solve puzzles and challenges.",
                         status: "completed",
-                        poster: "https://gradient-week.vercel.app/posters/gw/pf.webp"
+                        poster: "https://gradient-week.vercel.app/posters/gw/pf.webp",
+                        images: [
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/pf/1.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/pf/2.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/pf/3.webp",
+                        ]
                     },
                     {
                         title: "AI Agents Hands on Workshop",
                         participants: 50,
                         description: "Through engaging sessions and practical exercises, participants collaboratively constructed an end-to-end project, delving into data analysis, feature engineering, and predictive modeling. Organized by Vaishak Bhuvan M R.",
                         status: "completed",
-                        poster: "https://gradient-content-server.vercel.app/content/posters/gw/aiwork.webp"
+                        poster: "https://gradient-content-server.vercel.app/content/posters/gw/aiwork.webp",
+                        images: [
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/aiagent/2.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/aiagent/3.webp",
+                        ]
+                    }, 
+                    {
+                        title: "Inauguration Ceremony",
+                        participants: 120,
+                        description: "The Official inauguration of Gradient Week 2025, featuring a keynote address from distinguisehd college members and a showcase of the week's events.",
+                        status: "completed",
+                        poster: "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/a.webp",
+                        images: [
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/a.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/1.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/2.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/3.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/4.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/inaug/5.webp",
+                        ]
+                    },{
+                        title: "Cultural Evening",
+                        participants: 250,
+                        description: "The Official closing ceremony of Gradient Week 2025, featuring a cultural evening with performances from various cultural clubs of BMSCE and prize distribution.",
+                        status: "completed",
+                        poster: "https://gradient-content-server.vercel.app/content/gallery/recap/cult/1.webp",
+                        images: [
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/1.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/2.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/3.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/4.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/5.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/6.webp",
+                            "https://gradient-content-server.vercel.app/content/gallery/recap/cult/7.webp"
+                        ]
                     }
                 ]
             },

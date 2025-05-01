@@ -157,12 +157,13 @@ export default function DepartmentWork() {
             transition={{ duration: 0.7 }}
             className="text-center mb-8 md:mb-10"
           >
-            <h1 className="text-8xl sm:text-8xl md:text-8xl font-bold mt-6 md:mt-10 bree-serif-regular">
+            {/* Modified title for better responsiveness */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mt-6 md:mt-10 bree-serif-regular">
               <span className="text-white">Department of</span> <br />
               <span style={{ color: '#C4B5FD' }}>Machine Learning</span>
             </h1>
             {/* Tagline */}
-            <p className="text-purple-200 text-xl md:text-3xl mt-4 md:mt-6 font-light px-2">
+            <p className="text-purple-200 text-lg sm:text-xl md:text-2xl lg:text-3xl mt-4 md:mt-6 font-light px-2">
               Pioneering research and innovation in Artificial Intelligence and Machine Learning
             </p>
           </motion.div>
@@ -184,7 +185,7 @@ export default function DepartmentWork() {
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-16 h-1 bg-purple-500" />
                   <h2 className="text-3xl md:text-4xl righteous-regular px-6 text-center text-white">
-                    At a Glance
+                    Our Achievements
                   </h2>
                   <div className="w-16 h-1 bg-purple-500" />
                 </div>
@@ -336,7 +337,7 @@ export default function DepartmentWork() {
                     className="object-cover"                
                     fill
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/50 to-transparent">
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/20 to-transparent">
                     <div className="absolute bottom-0 left-0 right-0 p-8">
                       <p className="text-lg text-purple-100">
                         Experience the future of AI research and development at our cutting-edge facility
@@ -348,7 +349,7 @@ export default function DepartmentWork() {
             </div>
           </motion.section>
 
-          {/* Facilities Section */}
+          {/* Modified Facilities Section - Caption and title below image */}
           <motion.section
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -375,21 +376,24 @@ export default function DepartmentWork() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="group relative overflow-hidden rounded-xl shadow-lg"
+                      className="group relative rounded-xl shadow-lg bg-purple-900/40 border border-purple-500/20"
                       style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
                     >
-                      <Image
-                        src={facility.image}
-                        alt={facility.name}
-                        width={400}
-                        height={300}
-                        className="w-full h-64 object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 to-transparent">
-                        <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col justify-end">
-                          <h3 className="text-xl font-semibold mb-2 text-purple-400 group-hover:text-purple-300 transition-colors">{facility.name}</h3>
-                          <p className="text-purple-100 text-sm">{facility.description}</p>
-                        </div>
+                      {/* Image container */}
+                      <div className="overflow-hidden">
+                        <Image
+                          src={facility.image}
+                          alt={facility.name}
+                          width={400}
+                          height={300}
+                          className="w-full h-64 object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
+                        />
+                      </div>
+                      
+                      {/* Content below image */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold mb-2 text-white transition-colors">{facility.name}</h3>
+                        <p className="text-purple-100 text-sm">{facility.description}</p>
                       </div>
                     </motion.div>
                   ))}

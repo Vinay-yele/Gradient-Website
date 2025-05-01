@@ -77,14 +77,11 @@ export default function About() {
             transition={{ duration: 0.7 }}
             className="text-center mb-8 md:mb-10"
           >
-            <h1 className="text-8xl sm:text-8xl md:text-8xl font-bold mt-6 md:mt-10 bree-serif-regular">
-              <span className="text-white">About</span> <br />
-              <span style={{ color: '#C4B5FD' }}>Gradient</span>
-            </h1>
-            {/* Tagline */}
-            <p className="text-purple-200 text-xl md:text-3xl mt-4 md:mt-6 font-light px-2">
-            Fostering innovation in AI and machine learning
-            </p>
+            {/* Updated responsive title */}
+            <h1 className="text-7xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mt-6 md:mt-10 bree-serif-regular">
+              <span className="text-white">About</span> <br className="sm:hidden" />
+              <span className="sm:ml-4" style={{ color: '#C4B5FD' }}>Gradient</span>
+            </h1>            
           </motion.div>
         </div>
 
